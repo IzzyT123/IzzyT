@@ -1,5 +1,11 @@
 import { ImageResponse } from "next/og";
 
+/**
+ * Required with `output: "export"` in next.config.ts — Next.js won't generate
+ * a dynamic route at build time unless it's explicitly declared static.
+ */
+export const dynamic = "force-static";
+
 export const alt = "Izzy Thomson — AI product engineer";
 export const size = {
   width: 1200,
