@@ -1,0 +1,25 @@
+{
+  "testimonials": [
+    {
+      "id": "emma-everid",
+      "date": "2025-06-10",
+      "quote": "Having had the opportunity to see the generator in action, and having worked in change management in many different guises from analyst to change leader, I can confirm that this tool is an exciting and considered use of AI. It will really change the game on how you deliver change management regardless of industry or initiative. The potential for accelerated and quality impact identification along with subsequent management of actions and interventions is huge!",
+      "name": "Emma Everid",
+      "attributionLine": "Change Management Consultant, former Director of Change Management at PepsiCo"
+    },
+    {
+      "id": "f500-global-cm",
+      "date": "2025-11-12",
+      "quote": "Issoria's AI Change Impact generator would have halved the time it has taken us to complete Change Impact Assessments for our global S/4 project.",
+      "name": "Global Change Manager",
+      "attributionLine": "Fortune 500 Food & Beverage Company"
+    },
+    {
+      "id": "global-bank-hocmo",
+      "date": "2026-02-08",
+      "quote": "ChangeAble is definitely a game changer and will fundamentally improve how we approach change.",
+      "name": "Head of Change Management Office",
+      "attributionLine": "Global Bank"
+    }
+  ]
+}

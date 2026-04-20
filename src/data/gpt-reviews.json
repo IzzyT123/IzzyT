@@ -1,0 +1,253 @@
+{
+  "reviews": [
+    {
+      "id": "r02",
+      "date": "2026-03-18",
+      "text": "Excellent job of walking me through a process that has become clearer.",
+      "lang": "en"
+    },
+    {
+      "id": "r03",
+      "date": "2026-03-16",
+      "text": "Works very well and its communication structure is extremely helpful.",
+      "lang": "en"
+    },
+    {
+      "id": "r04",
+      "date": "2026-03-14",
+      "text": "Working out great!",
+      "lang": "en"
+    },
+    {
+      "id": "r05",
+      "date": "2026-03-12",
+      "text": "Sehr nützlich",
+      "lang": "de",
+      "textEn": "Very useful."
+    },
+    {
+      "id": "r06",
+      "date": "2026-03-08",
+      "text": "Great and really efficient how this works",
+      "lang": "en"
+    },
+    {
+      "id": "r07",
+      "date": "2026-03-06",
+      "text": "Me ha sido de mucha utilidad las respuestas",
+      "lang": "es",
+      "textEn": "The answers have been very useful to me."
+    },
+    {
+      "id": "r08",
+      "date": "2026-03-04",
+      "text": "kerennn bro",
+      "lang": "id",
+      "textEn": "Awesome, bro."
+    },
+    {
+      "id": "r09",
+      "date": "2026-02-28",
+      "text": "Really helpful",
+      "lang": "en"
+    },
+    {
+      "id": "r10",
+      "date": "2026-02-26",
+      "text": "Excellent tool",
+      "lang": "en"
+    },
+    {
+      "id": "r11",
+      "date": "2026-02-24",
+      "text": "I love GPT Builder",
+      "lang": "en"
+    },
+    {
+      "id": "r12",
+      "date": "2026-02-22",
+      "text": "התכנית המהודרת שנתנה צודקת את העבודה",
+      "lang": "he",
+      "textEn": "The structured plan that did justice to the work."
+    },
+    {
+      "id": "r13",
+      "date": "2026-02-20",
+      "text": "A perfectly organized system for creating a GPT assistant.",
+      "lang": "en"
+    },
+    {
+      "id": "r14",
+      "date": "2026-02-18",
+      "text": "ممتاز",
+      "lang": "ar",
+      "textEn": "Excellent."
+    },
+    {
+      "id": "r15",
+      "date": "2026-02-16",
+      "text": "Nice & very pro GPT Builder. Helpful",
+      "lang": "en"
+    },
+    {
+      "id": "r16",
+      "date": "2026-02-14",
+      "text": "love it",
+      "lang": "en"
+    },
+    {
+      "id": "r17",
+      "date": "2026-02-12",
+      "text": "vraiment très bien",
+      "lang": "fr",
+      "textEn": "Really very good."
+    },
+    {
+      "id": "r18",
+      "date": "2026-02-10",
+      "text": "adorei o processo estruturado deste GPT",
+      "lang": "pt",
+      "textEn": "I loved the structured process of this GPT."
+    },
+    {
+      "id": "r19",
+      "date": "2026-02-08",
+      "text": "Love this builder! Very helpful.",
+      "lang": "en"
+    },
+    {
+      "id": "r20",
+      "date": "2026-02-06",
+      "text": "Great tool!",
+      "lang": "en"
+    },
+    {
+      "id": "r21",
+      "date": "2026-02-04",
+      "text": "Very good GPT. Really helped",
+      "lang": "en"
+    },
+    {
+      "id": "r22",
+      "date": "2026-02-02",
+      "text": "Incredible job of helping me dial in to what I wanted and what I needed.",
+      "lang": "en"
+    },
+    {
+      "id": "r23",
+      "date": "2024-10-22",
+      "text": "Thank you for creating this. Its based on my research or? Thanks for making it free, if you took my Research Data I'm not mad since its free, exactly as I would want it to be.",
+      "lang": "en"
+    },
+    {
+      "id": "r24",
+      "date": "2025-10-25",
+      "text": "a great resource to help perfect your prompts",
+      "lang": "en"
+    },
+    {
+      "id": "r25",
+      "date": "2025-08-30",
+      "text": "Sumamente funcional, me ayudó a crear varios proyectos",
+      "lang": "es",
+      "textEn": "Highly functional—it helped me create several projects."
+    },
+    {
+      "id": "r26",
+      "date": "2025-08-16",
+      "text": "정말 많은 도움이 되고 있습니다. 감사합니다.",
+      "lang": "ko",
+      "textEn": "It's really helpful. Thank you."
+    },
+    {
+      "id": "r27",
+      "date": "2025-08-02",
+      "text": "Helped me fix a roadblock I ran into with my build",
+      "lang": "en"
+    },
+    {
+      "id": "r28",
+      "date": "2025-07-19",
+      "text": "Puikiai atliktas darbas.",
+      "lang": "lt",
+      "textEn": "Excellent work."
+    },
+    {
+      "id": "r29",
+      "date": "2025-07-05",
+      "text": "Genial! værktøj til at lave komplekse prompts!",
+      "lang": "da",
+      "textEn": "Brilliant! A tool for building complex prompts!"
+    },
+    {
+      "id": "r30",
+      "date": "2025-06-21",
+      "text": "Honestly one of the smoothest GPTs I've worked with.",
+      "lang": "en"
+    },
+    {
+      "id": "r31",
+      "date": "2025-05-24",
+      "text": "muito bom!! ajudou bastante.",
+      "lang": "pt",
+      "textEn": "Very good!! Helped a lot."
+    },
+    {
+      "id": "r32",
+      "date": "2025-05-10",
+      "text": "excellent",
+      "lang": "en"
+    },
+    {
+      "id": "r33",
+      "date": "2025-04-26",
+      "text": "Excelente assistente para criar um GPT. Estrutura muito boa.",
+      "lang": "pt",
+      "textEn": "Excellent assistant for creating a GPT. Very good structure."
+    },
+    {
+      "id": "r34",
+      "date": "2025-04-12",
+      "text": "Adorei!",
+      "lang": "pt",
+      "textEn": "Loved it!"
+    },
+    {
+      "id": "r35",
+      "date": "2025-03-29",
+      "text": "Amazing",
+      "lang": "en"
+    },
+    {
+      "id": "r36",
+      "date": "2025-03-01",
+      "text": "Cool",
+      "lang": "en"
+    },
+    {
+      "id": "r37",
+      "date": "2025-02-15",
+      "text": "Best experience I've had creating with AI.",
+      "lang": "en"
+    },
+    {
+      "id": "r38",
+      "date": "2025-02-01",
+      "text": "I mean, it seems legit.",
+      "lang": "en"
+    },
+    {
+      "id": "r39",
+      "date": "2025-01-18",
+      "text": "Very good tool so far. Thanks.",
+      "lang": "en"
+    },
+    {
+      "id": "r40",
+      "date": "2024-12-01",
+      "text": "Excelente",
+      "lang": "es",
+      "textEn": "Excellent."
+    }
+  ]
+}

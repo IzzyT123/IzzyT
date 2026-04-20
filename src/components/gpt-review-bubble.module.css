@@ -1,0 +1,79 @@
+/**
+ * Speech bubble: continuous border on the body + separate SVG tail (avoids
+ * border-image/clip-path artifacts that only paint corners).
+ */
+
+.speechRoot {
+  --p: 24%;
+  position: relative;
+  z-index: 0;
+  display: inline-block;
+  max-width: min(100%, 42rem);
+  vertical-align: top;
+  margin-bottom: 1.95rem;
+  overflow: visible;
+}
+
+.speechRoot[data-fill="surface"] {
+  --bubble-fill: var(--surface);
+  --bubble-stroke: var(--border);
+}
+
+.speechRoot[data-fill="background"] {
+  --bubble-fill: var(--background);
+  --bubble-stroke: color-mix(in srgb, var(--border) 48%, transparent);
+}
+
+.speechBody {
+  position: relative;
+  z-index: 1;
+  box-sizing: border-box;
+  padding: 0.875rem 1rem 1rem;
+  border-radius: 1.25rem;
+  border: 1px solid var(--bubble-stroke);
+  background: var(--bubble-fill);
+  box-shadow: 0 4px 14px -2px rgb(15 23 42 / 7%);
+}
+
+/* Pin / stacked quotes: no soft elevation; keep hairline outline */
+.speechRootFlat .speechBody {
+  box-shadow: none;
+}
+
+.speechRootFilterNone .speechBody {
+  box-shadow: none;
+}
+
+.speechTail {
+  position: absolute;
+  z-index: 0;
+  top: calc(100% - 3px);
+  left: var(--p);
+  width: 5rem;
+  height: 2.1rem;
+  transform: translateX(-50%);
+  pointer-events: none;
+  overflow: visible;
+}
+
+.speechTail[data-align="right"] svg {
+  transform: scaleX(-1);
+  transform-origin: center top;
+}
+
+.speechTail svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  overflow: visible;
+}
+
+.speechTail path {
+  fill: var(--bubble-fill);
+  stroke: var(--bubble-stroke);
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+  paint-order: stroke fill;
+}
