@@ -21,7 +21,7 @@ export function ChangeableTestimonialCard({ event, dateLabel }: Props) {
   const line2 = event.testimonialAttribution ?? "";
 
   return (
-    <article className="relative w-full max-w-[min(100%,48rem)] rounded-xl border border-border/80 bg-surface px-4 pb-4 pt-5 shadow-[0_2px_14px_-4px_rgba(0,0,0,0.09)] sm:px-5 sm:pb-5 sm:pt-6">
+    <article className="relative w-full max-w-[min(100%,48rem)] border border-border/80 bg-surface px-4 pb-4 pt-5 shadow-[0_2px_14px_-4px_rgba(0,0,0,0.09)] sm:px-5 sm:pb-5 sm:pt-6">
       <div className="pointer-events-none absolute left-4 top-4 flex size-8 items-center justify-center rounded-full bg-emerald-700/90 text-[13px] font-serif font-bold leading-none text-white shadow-sm sm:left-5">
         “
       </div>

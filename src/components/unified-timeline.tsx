@@ -53,7 +53,7 @@ function milestoneShellClass(column: SnapshotColumn): string {
   switch (column) {
     case "professional":
     case "personal":
-      return "rounded-2xl border border-border bg-surface shadow-sm transition-colors hover:border-foreground/35";
+      return "border border-border bg-surface shadow-sm transition-colors hover:border-foreground/35";
     default:
       return "";
   }
@@ -94,7 +94,7 @@ function MilestoneCard({
       {demo && outbound && thumbSrc ? (
         <a
           href={outbound}
-          className="relative mt-2 block aspect-video overflow-hidden rounded-md border border-border"
+          className="relative mt-2 block aspect-video overflow-hidden border border-border"
           rel="noopener noreferrer"
           target="_blank"
           aria-label={`${event.hrefLabel ?? "Open link"} — ${event.title}`}
@@ -131,7 +131,7 @@ function columnShellClass(col: SnapshotColumn): string {
   switch (col) {
     case "professional":
     case "personal":
-      return "rounded-xl bg-background/90 p-3 sm:p-4";
+      return "bg-background/90 p-3 sm:p-4";
     default:
       return "";
   }

@@ -29,7 +29,7 @@
   z-index: 1;
   box-sizing: border-box;
   padding: 0.875rem 1rem 1rem;
-  border-radius: 1.25rem;
+  border-radius: 2px;
   border: 1px solid var(--bubble-stroke);
   background: var(--bubble-fill);
   box-shadow: 0 4px 14px -2px rgb(15 23 42 / 7%);

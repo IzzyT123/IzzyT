@@ -53,7 +53,7 @@ function DemoMedia({
 
 function MediaFrame({ children }: { children: ReactNode }) {
   return (
-    <div className="overflow-hidden rounded-lg border border-border bg-background shadow-sm">
+    <div className="overflow-hidden border border-border bg-background shadow-sm">
       <div className="relative aspect-video">{children}</div>
     </div>
   );
@@ -103,7 +103,7 @@ function DemoLightbox({
         aria-hidden
         onClick={onClose}
       />
-      <div className="relative z-10 flex max-h-[min(90vh,920px)] w-full max-w-5xl flex-col overflow-hidden rounded-lg border border-border bg-surface shadow-lg">
+      <div className="relative z-10 flex max-h-[min(90vh,920px)] w-full max-w-5xl flex-col overflow-hidden border border-border bg-surface shadow-lg">
         <div className="flex items-start justify-between gap-3 border-b border-border px-4 py-3 sm:px-5">
           <h2
             id={titleId}
@@ -123,7 +123,7 @@ function DemoLightbox({
           {showVideo ? (
             <video
               key={demo.id}
-              className="mx-auto max-h-[min(75vh,800px)] w-full rounded-md object-contain"
+              className="mx-auto max-h-[min(75vh,800px)] w-full object-contain"
               controls
               autoPlay
               muted
@@ -211,7 +211,7 @@ export function DemoShelf() {
                 </p>
                 <button
                   type="button"
-                  className="cursor-zoom-in rounded-lg p-0 text-left focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-foreground"
+                  className="cursor-zoom-in p-0 text-left focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-foreground"
                   onClick={() => openLightbox(demo)}
                   aria-haspopup="dialog"
                   aria-label={`Open larger preview: ${demo.title}`}

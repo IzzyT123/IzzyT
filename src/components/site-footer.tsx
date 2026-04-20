@@ -5,7 +5,7 @@ export function SiteFooter() {
   return (
     <FadeIn viewportMargin="0px 0px -5% 0px">
     <footer className="border-t border-border bg-surface px-5 py-12 sm:px-8">
-      <div className="mx-auto flex max-w-2xl flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
+      <div className="mx-auto flex max-w-6xl flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
         <div className="flex flex-col gap-1">
           <p className="font-[family-name:var(--font-fraunces)] text-base italic leading-snug text-foreground">
             {site.motto}
