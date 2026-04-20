@@ -202,10 +202,6 @@ export const site = {
       professional: "Professional",
       personal: "Personal projects",
     },
-    columnSubtitles: {
-      professional: "ChangeAble.ai & client delivery",
-      personal: "GPTs · experiments · builds",
-    },
     linkedinLine:
       "For role detail and experience, see LinkedIn—the timeline below is project- and feedback-shaped.",
   },

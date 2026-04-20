@@ -775,16 +775,10 @@ export function ReviewPinSection({ reviews }: Props) {
           <div className="w-full max-w-6xl px-0 sm:px-1">
             {splitReviewColumns ? (
               <div className="grid grid-cols-1 gap-2 md:grid-cols-2 md:gap-x-12 md:gap-y-2">
-                <p className="order-1 font-mono text-[10px] font-semibold uppercase tracking-[0.2em] text-muted md:order-none md:col-start-1 md:row-start-1">
-                  {site.timeline.snapshotColumns.professional}
-                </p>
-                <div className="order-2 space-y-4 pt-1 md:order-none md:col-start-1 md:row-start-2 md:pt-1">
+                <div className="space-y-4 pt-1 md:pt-1">
                   {professionalItems.map((r, i) => renderFlowItem(r, i))}
                 </div>
-                <p className="order-3 font-mono text-[10px] font-semibold uppercase tracking-[0.2em] text-muted md:order-none md:col-start-2 md:row-start-1 md:text-right">
-                  {site.timeline.snapshotColumns.personal}
-                </p>
-                <div className="order-4 md:order-none md:col-start-2 md:row-start-2">
+                <div>
                   {personalItems.map((r, i) => (
                     <div
                       key={r.id}
@@ -858,16 +852,6 @@ export function ReviewPinSection({ reviews }: Props) {
           Press Escape to skip the current direction.
         </p>
         <div className="w-full max-w-6xl px-0 sm:px-1">
-          {splitReviewColumns ? (
-            <div className="mb-3 grid grid-cols-2 gap-4 border-b border-border/50 pb-2 sm:mb-3 sm:gap-8 lg:gap-12">
-              <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.2em] text-muted">
-                {site.timeline.snapshotColumns.professional}
-              </p>
-              <p className="text-right font-mono text-[10px] font-semibold uppercase tracking-[0.2em] text-muted">
-                {site.timeline.snapshotColumns.personal}
-              </p>
-            </div>
-          ) : null}
           <div
             className={
               phase === "active"

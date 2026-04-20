@@ -20,11 +20,6 @@ const COLUMN_TITLE: Record<SnapshotColumn, string> = {
   personal: site.timeline.snapshotColumns.personal,
 };
 
-const COLUMN_SUBTITLE: Record<SnapshotColumn, string> = {
-  professional: site.timeline.columnSubtitles.professional,
-  personal: site.timeline.columnSubtitles.personal,
-};
-
 /** Work / ChangeAble milestones only this month — layout pairs them with the month heading on the right */
 function isOnlyProfessionalMilestones(
   parts: Record<SnapshotColumn, TimelineEvent[]>,
@@ -155,7 +150,6 @@ function MilestoneColumn({
 }) {
   const list = parts[col];
   const title = COLUMN_TITLE[col];
-  const subtitle = COLUMN_SUBTITLE[col];
 
   const cells: ReactNode[] = list.map((ev) => (
     <li key={ev.id} className="list-none">
@@ -169,12 +163,6 @@ function MilestoneColumn({
       aria-label={`${title}, ${monthLabel}`}
       className={`flex flex-col ${columnShellClass(col)}`}
     >
-      <div className="mb-2">
-        <h4 className="font-mono text-[10px] font-semibold uppercase tracking-[0.2em] text-muted">
-          {title}
-        </h4>
-        <p className="mt-1 text-xs leading-snug text-muted">{subtitle}</p>
-      </div>
       <ul className="flex flex-col gap-3">{cells}</ul>
     </div>
   );
