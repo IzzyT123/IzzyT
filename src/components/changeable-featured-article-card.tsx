@@ -38,7 +38,7 @@ export function ChangeableFeaturedArticleCard({
       </div>
       <div className="relative z-10 border-l-[3px] border-emerald-700/55 py-3.5 pl-4 pr-16 sm:py-4 sm:pl-5 sm:pr-24 md:pr-28">
         <div className="flex flex-wrap items-start justify-between gap-x-3 gap-y-1">
-          <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-emerald-900/70">
+          <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.2em] text-emerald-900/70">
             ChangeAble · Press
           </p>
           <time

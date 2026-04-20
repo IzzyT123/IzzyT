@@ -60,7 +60,7 @@ function MediaFrame({ children }: { children: ReactNode }) {
 }
 
 function linkClassName() {
-  return "text-[13px] font-medium underline decoration-border underline-offset-4 transition hover:decoration-foreground focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-foreground sm:text-sm";
+  return "text-sm font-medium underline decoration-border underline-offset-4 transition hover:decoration-foreground focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-foreground";
 }
 
 function DemoLightbox({
@@ -206,7 +206,7 @@ export function DemoShelf() {
                 }}
                 className="flex h-full flex-col border border-border bg-background p-3 shadow-sm sm:p-4"
               >
-                <p className="mb-2 text-[10px] font-medium uppercase tracking-[0.18em] text-muted">
+                <p className="mb-2 font-mono text-[10px] font-semibold uppercase tracking-[0.2em] text-muted">
                   {demo.eyebrow}
                 </p>
                 <button
@@ -228,7 +228,7 @@ export function DemoShelf() {
                     {demo.statsLine}
                   </p>
                 ) : null}
-                <p className="mt-2 flex-1 text-[13px] leading-snug text-muted sm:text-sm sm:leading-relaxed">
+                <p className="mt-2 flex-1 text-sm leading-relaxed text-muted">
                   {demo.proofLine}
                 </p>
                 <p className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-1">

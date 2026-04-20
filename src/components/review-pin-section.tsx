@@ -312,7 +312,7 @@ function ScrollReviewBubble({
       horizontal={h}
       enterScaleFrom={0.2}
     >
-      <div className="w-full max-w-[min(100%,42rem)] [&_blockquote]:text-[15px] [&_blockquote]:leading-snug sm:[&_blockquote]:text-base">
+      <div className="w-full max-w-[min(100%,42rem)] [&_blockquote]:text-base [&_blockquote]:leading-relaxed">
         <GptReviewBubble
           quote={review.body}
           quoteEn={review.quoteEn}
@@ -775,13 +775,13 @@ export function ReviewPinSection({ reviews }: Props) {
           <div className="w-full max-w-6xl px-0 sm:px-1">
             {splitReviewColumns ? (
               <div className="grid grid-cols-1 gap-2 md:grid-cols-2 md:gap-x-12 md:gap-y-2">
-                <p className="order-1 text-[10px] font-medium uppercase tracking-[0.2em] text-muted md:order-none md:col-start-1 md:row-start-1">
+                <p className="order-1 font-mono text-[10px] font-semibold uppercase tracking-[0.2em] text-muted md:order-none md:col-start-1 md:row-start-1">
                   {site.timeline.snapshotColumns.professional}
                 </p>
                 <div className="order-2 space-y-4 pt-1 md:order-none md:col-start-1 md:row-start-2 md:pt-1">
                   {professionalItems.map((r, i) => renderFlowItem(r, i))}
                 </div>
-                <p className="order-3 text-[10px] font-medium uppercase tracking-[0.2em] text-muted md:order-none md:col-start-2 md:row-start-1 md:text-right">
+                <p className="order-3 font-mono text-[10px] font-semibold uppercase tracking-[0.2em] text-muted md:order-none md:col-start-2 md:row-start-1 md:text-right">
                   {site.timeline.snapshotColumns.personal}
                 </p>
                 <div className="order-4 md:order-none md:col-start-2 md:row-start-2">
@@ -860,10 +860,10 @@ export function ReviewPinSection({ reviews }: Props) {
         <div className="w-full max-w-6xl px-0 sm:px-1">
           {splitReviewColumns ? (
             <div className="mb-3 grid grid-cols-2 gap-4 border-b border-border/50 pb-2 sm:mb-3 sm:gap-8 lg:gap-12">
-              <p className="text-[10px] font-medium uppercase tracking-[0.2em] text-muted">
+              <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.2em] text-muted">
                 {site.timeline.snapshotColumns.professional}
               </p>
-              <p className="text-right text-[10px] font-medium uppercase tracking-[0.2em] text-muted">
+              <p className="text-right font-mono text-[10px] font-semibold uppercase tracking-[0.2em] text-muted">
                 {site.timeline.snapshotColumns.personal}
               </p>
             </div>

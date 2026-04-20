@@ -6,7 +6,7 @@ export function Hero() {
       <div className="mx-auto max-w-6xl">
         <div className="flex flex-wrap items-center justify-end gap-3 sm:gap-5">
           <figure className="m-0 flex max-w-[min(100%,17.5rem)] items-center sm:max-w-xs">
-            <blockquote className="m-0 border-r-[3px] border-foreground/25 pr-3 text-right font-[family-name:var(--font-fraunces)] text-lg font-medium italic leading-snug text-foreground sm:pr-5 sm:text-xl sm:leading-snug md:text-2xl">
+            <blockquote className="m-0 border-r-[3px] border-foreground/25 pr-3 text-right font-[family-name:var(--font-fraunces)] text-lg font-medium italic leading-snug text-foreground sm:pr-5 sm:text-xl">
               <span aria-hidden="true" className="text-foreground/40">
                 &ldquo;
               </span>

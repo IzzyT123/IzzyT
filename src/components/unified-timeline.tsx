@@ -81,11 +81,11 @@ function MilestoneCard({
   return (
     <article className={`p-3 sm:p-4 ${milestoneShellClass(column)}`}>
       <div className="flex flex-wrap items-baseline justify-between gap-2">
-        <span className="font-mono text-[10px] font-medium uppercase tracking-wider text-muted">
+        <span className="font-mono text-[10px] font-semibold uppercase tracking-[0.2em] text-muted">
           {eventSubtypeLabel(event)}
         </span>
         <time
-          className="font-mono text-[11px] text-muted tabular-nums"
+          className="font-mono text-[10px] text-muted tabular-nums"
           dateTime={event.sortDate}
         >
           {formatDay(event.sortDate)}
