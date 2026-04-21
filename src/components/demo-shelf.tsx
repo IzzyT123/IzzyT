@@ -169,9 +169,15 @@ export function DemoShelf() {
   return (
     <section
       className="border-b border-border bg-surface px-5 py-5 sm:px-8 sm:py-6"
-      aria-label="Featured work"
+      aria-labelledby="now-heading"
     >
       <div className="mx-auto max-w-6xl">
+        <h2
+          id="now-heading"
+          className="mb-4 font-[family-name:var(--font-fraunces)] text-2xl font-semibold tracking-tight sm:mb-5 sm:text-3xl"
+        >
+          Now
+        </h2>
         <motion.div
           className="grid grid-cols-1 gap-5 md:grid-cols-2 md:gap-6 lg:grid-cols-3 lg:gap-5"
           initial={reduce ? "show" : "hidden"}
@@ -256,21 +262,6 @@ export function DemoShelf() {
           })}
         </motion.div>
 
-        <motion.p
-          className="mt-6 text-center sm:mt-7"
-          initial={reduce ? false : { opacity: 0 }}
-          whileInView={reduce ? undefined : { opacity: 1 }}
-          viewport={{ once: true, margin: "0px 0px -8% 0px" }}
-          transition={{ duration: 0.4, ease, delay: 0.1 }}
-        >
-          <a
-            href="#timeline"
-            className="inline-flex items-center gap-2 text-sm font-medium text-muted underline decoration-border underline-offset-4 transition hover:text-foreground hover:decoration-foreground"
-          >
-            <span aria-hidden>↓</span>
-            Scroll for the full timeline
-          </a>
-        </motion.p>
       </div>
 
       {lightbox ? (

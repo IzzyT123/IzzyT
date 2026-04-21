@@ -3,12 +3,12 @@ import Image from "next/image";
 import {
   compareEventsDesc,
   getTimelineEvents,
-  groupTimelineByMonth,
+  groupTimelineByYear,
   partitionMonthEvents,
   SNAPSHOT_COLUMNS,
   type SnapshotColumn,
   type TimelineEvent,
-  type TimelineMonthGroup,
+  type TimelineYearGroup,
 } from "@/data/build-timeline";
 import { getProjectDemoById, site, type ProjectDemo } from "@/data/site";
 import { FadeIn } from "@/components/fade-in";
@@ -37,11 +37,12 @@ function formatDay(iso: string) {
 }
 
 function eventSubtypeLabel(event: TimelineEvent): string {
-  if (event.kind === "launch") return "Launch";
-  if (event.kind === "series") return "Series";
-  if (event.lane === "changeable") return "ChangeAble.ai";
-  if (event.lane === "role") return "Role";
-  return "Milestone";
+  if (event.kind === "article") return "Press";
+  if (event.kind === "testimonial") return "Testimonial";
+  if (event.kind === "review") return "Review";
+  if (event.kind === "post") return "Post";
+  if (event.lane === "role" || event.lane === "changeable") return "Work";
+  return "Side project";
 }
 
 function milestoneShellClass(column: SnapshotColumn): string {
@@ -107,6 +108,29 @@ function MilestoneCard({
       <h4 className="mt-2 font-[family-name:var(--font-fraunces)] text-base font-semibold leading-snug sm:text-lg">
         {event.title}
       </h4>
+      {event.changeablePhases ? (
+        <ol className="mt-2 flex flex-col gap-1 border-l border-border pl-3 text-xs leading-relaxed text-muted sm:text-sm">
+          {[...event.changeablePhases]
+            .sort((a, b) => a.sortDate.localeCompare(b.sortDate))
+            .map((phase) => (
+              <li key={phase.sortDate}>
+                <span className="font-mono text-[10px] uppercase tracking-[0.15em] text-muted sm:text-[11px]">
+                  {phase.date}
+                </span>
+                <span className="mx-1.5" aria-hidden>
+                  ·
+                </span>
+                <span className="font-medium text-foreground">
+                  {phase.label}
+                </span>
+                <span className="mx-1.5" aria-hidden>
+                  —
+                </span>
+                <span>{phase.detail}</span>
+              </li>
+            ))}
+        </ol>
+      ) : null}
       <p className="mt-2 text-sm leading-relaxed text-muted">{bodyText}</p>
       {outbound ? (
         <a
@@ -163,6 +187,9 @@ function MilestoneColumn({
       aria-label={`${title}, ${monthLabel}`}
       className={`flex flex-col ${columnShellClass(col)}`}
     >
+      <p className="mb-2 hidden font-mono text-[10px] font-semibold uppercase tracking-[0.2em] text-muted md:block">
+        {title}
+      </p>
       <ul className="flex flex-col gap-3">{cells}</ul>
     </div>
   );
@@ -214,8 +241,8 @@ function MonthSnapshot({
 type MilestoneTimelineSegment = {
   type: "milestones";
   key: string;
-  monthKey: string;
-  monthLabel: string;
+  yearKey: string;
+  yearLabel: string;
   parts: Record<SnapshotColumn, TimelineEvent[]>;
   reviewsAfter: TimelineEvent[];
   sectionId?: string;
@@ -229,7 +256,7 @@ type ReviewTunnelSegment = {
 
 type TimelineSegment = MilestoneTimelineSegment | ReviewTunnelSegment;
 
-/** Buffered review-only months flush as a tunnel segment before the next milestone—merge into one reviews block with that month. */
+/** Buffered review-only years flush as a tunnel segment before the next milestone—merge into one reviews block with that year. */
 function mergeAdjacentTunnelIntoMilestones(
   segments: TimelineSegment[],
 ): TimelineSegment[] {
@@ -255,8 +282,7 @@ function mergeAdjacentTunnelIntoMilestones(
 }
 
 function buildTimelineSegments(
-  groups: TimelineMonthGroup[],
-  yearAnchorId: Map<string, string | undefined>,
+  groups: TimelineYearGroup[],
 ): TimelineSegment[] {
   const out: TimelineSegment[] = [];
   let reviewBuffer: TimelineEvent[] = [];
@@ -297,15 +323,15 @@ function buildTimelineSegments(
       flushTunnel();
       out.push({
         type: "milestones",
-        key: group.monthKey,
-        monthKey: group.monthKey,
-        monthLabel: group.monthLabel,
+        key: group.yearKey,
+        yearKey: group.yearKey,
+        yearLabel: group.yearLabel,
         parts,
         reviewsAfter: reviews,
-        sectionId: yearAnchorId.get(group.monthKey),
+        sectionId: `year-${group.yearKey}`,
       });
     } else if (reviews.length > 0) {
-      /** Months with press or ChangeAble testimonials keep their own heading; do not buffer into the next milestone. */
+      /** Years with press or ChangeAble testimonials keep their own heading; do not buffer into the next milestone. */
       if (
         reviews.some(
           (e) => e.kind === "article" || e.kind === "testimonial",
@@ -314,16 +340,16 @@ function buildTimelineSegments(
         flushTunnel();
         out.push({
           type: "milestones",
-          key: group.monthKey,
-          monthKey: group.monthKey,
-          monthLabel: group.monthLabel,
+          key: group.yearKey,
+          yearKey: group.yearKey,
+          yearLabel: group.yearLabel,
           parts,
           reviewsAfter: reviews,
-          sectionId: yearAnchorId.get(group.monthKey),
+          sectionId: `year-${group.yearKey}`,
         });
       } else {
         reviewBuffer.push(...reviews);
-        reviewBufferKeys.push(group.monthKey);
+        reviewBufferKeys.push(group.yearKey);
       }
     }
   }
@@ -331,31 +357,54 @@ function buildTimelineSegments(
   return mergeAdjacentTunnelIntoMilestones(out);
 }
 
-export function UnifiedTimeline() {
+export function UnifiedTimeline({
+  limitYears,
+}: {
+  /** When set, only the most recent N years of milestone groups are rendered; a "View full timeline" CTA is shown. */
+  limitYears?: number;
+} = {}) {
   const events = getTimelineEvents();
-  const groups = groupTimelineByMonth(events);
+  const allGroups = groupTimelineByYear(events);
+  const groups =
+    typeof limitYears === "number" ? allGroups.slice(0, limitYears) : allGroups;
+  const isTrimmed = groups.length < allGroups.length;
 
-  const seenYear = new Set<string>();
-  const yearAnchorId = new Map<string, string | undefined>();
-  for (const g of groups) {
-    const y = g.monthKey.slice(0, 4);
-    if (!seenYear.has(y)) {
-      seenYear.add(y);
-      yearAnchorId.set(g.monthKey, `year-${y}`);
-    } else {
-      yearAnchorId.set(g.monthKey, undefined);
-    }
-  }
+  const yearList = groups.map((g) => g.yearKey);
 
   return (
     <section
       id="timeline"
       className="scroll-mt-6 border-t border-border bg-background px-5 py-6 sm:px-8 sm:py-8"
-      aria-label="Timeline"
+      aria-labelledby="timeline-heading"
     >
       <div className="mx-auto max-w-6xl">
-        <div className="space-y-1 sm:space-y-2">
-          {buildTimelineSegments(groups, yearAnchorId).map((seg, gi) => {
+        <h2
+          id="timeline-heading"
+          className="mb-4 font-[family-name:var(--font-fraunces)] text-2xl font-semibold tracking-tight sm:mb-5 sm:text-3xl"
+        >
+          Timeline
+        </h2>
+        {yearList.length > 1 ? (
+          <nav
+            aria-label="Jump to year"
+            className="sticky top-0 z-20 -mx-5 mb-4 border-y border-border bg-background/95 px-5 py-2 backdrop-blur sm:-mx-8 sm:mb-5 sm:px-8"
+          >
+            <ul className="flex flex-wrap items-center gap-x-4 gap-y-1">
+              {yearList.map((y) => (
+                <li key={y}>
+                  <a
+                    href={`#year-${y}`}
+                    className="font-mono text-xs font-semibold tabular-nums text-muted underline decoration-transparent underline-offset-4 transition hover:text-foreground hover:decoration-foreground sm:text-sm"
+                  >
+                    {y}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        ) : null}
+        <div className="relative space-y-1 border-l border-border pl-5 sm:space-y-2 sm:pl-6">
+          {buildTimelineSegments(groups).map((seg, gi) => {
             if (seg.type === "review-tunnel") {
               return seg.reviews.length > 0 ? (
                 <FadeIn
@@ -380,22 +429,26 @@ export function UnifiedTimeline() {
                   id={seg.sectionId}
                   className="relative isolate scroll-mt-28"
                   role="group"
-                  aria-labelledby={`month-heading-${seg.monthKey}`}
+                  aria-labelledby={`year-heading-${seg.yearKey}`}
                 >
+                  <span
+                    aria-hidden
+                    className="absolute -left-[calc(1.25rem+4px)] top-2 h-2 w-2 rounded-full bg-foreground sm:-left-[calc(1.5rem+4px)]"
+                  />
                   {isOnlyProfessionalMilestones(seg.parts) ? (
                     <>
                       {/*
-                        Put the month title + review pin in one column on md+.
+                        Put the year title + review pin in one column on md+.
                         Otherwise the pin sat *below* the whole grid and lined up with the
                         bottom of the tall left column — huge gap under the heading.
                       */}
                       <div className="grid grid-cols-1 gap-5 md:grid-cols-2 md:items-start md:gap-x-10 md:gap-y-3">
                         <header className="relative z-10 order-1 min-w-0 bg-background pb-2 md:col-start-2 md:row-start-1 md:pb-0">
                           <h3
-                            id={`month-heading-${seg.monthKey}`}
+                            id={`year-heading-${seg.yearKey}`}
                             className="font-[family-name:var(--font-fraunces)] text-2xl font-semibold tracking-tight sm:text-3xl"
                           >
-                            {seg.monthLabel}
+                            {seg.yearLabel}
                           </h3>
                         </header>
                         <div
@@ -404,7 +457,7 @@ export function UnifiedTimeline() {
                           }`}
                         >
                           <MonthSnapshot
-                            monthLabel={seg.monthLabel}
+                            monthLabel={seg.yearLabel}
                             parts={seg.parts}
                           />
                         </div>
@@ -419,14 +472,14 @@ export function UnifiedTimeline() {
                     <>
                       <div className="relative z-10 mb-3 border-b border-border/60 bg-background pb-2 sm:mb-4 sm:pb-2.5">
                         <h3
-                          id={`month-heading-${seg.monthKey}`}
+                          id={`year-heading-${seg.yearKey}`}
                           className="font-[family-name:var(--font-fraunces)] text-2xl font-semibold tracking-tight sm:text-3xl"
                         >
-                          {seg.monthLabel}
+                          {seg.yearLabel}
                         </h3>
                       </div>
                       <MonthSnapshot
-                        monthLabel={seg.monthLabel}
+                        monthLabel={seg.yearLabel}
                         parts={seg.parts}
                       />
                       {seg.reviewsAfter.length > 0 ? (
@@ -441,6 +494,17 @@ export function UnifiedTimeline() {
             );
           })}
         </div>
+        {isTrimmed ? (
+          <p className="mt-8 sm:mt-10">
+            <a
+              href="/timeline"
+              className="inline-flex items-center gap-2 text-sm font-medium text-muted underline decoration-border underline-offset-4 transition hover:text-foreground hover:decoration-foreground"
+            >
+              View full timeline
+              <span aria-hidden>→</span>
+            </a>
+          </p>
+        ) : null}
       </div>
     </section>
   );

@@ -28,7 +28,7 @@ export function Hero() {
             </a>
             <a
               href={site.links.linkedin}
-              className="inline-flex items-center justify-center border border-accent bg-accent px-4 py-2.5 text-sm font-medium text-accent-foreground shadow-sm transition hover:-translate-y-0.5 hover:border-accent-hover hover:bg-accent-hover hover:shadow-[0_12px_28px_-10px_rgba(39,66,201,0.55)] sm:px-5"
+              className="inline-flex items-center justify-center border border-black bg-black px-4 py-2.5 text-sm font-medium text-accent-foreground shadow-sm transition hover:-translate-y-0.5 hover:border-neutral-800 hover:bg-neutral-800 hover:shadow-[0_12px_28px_-10px_rgba(0,0,0,0.55)] sm:px-5"
               rel="noopener noreferrer"
               target="_blank"
               aria-label={`${site.contactCta} — LinkedIn profile`}

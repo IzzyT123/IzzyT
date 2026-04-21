@@ -97,7 +97,7 @@ export default function Image() {
               fontWeight: 400,
             }}
           >
-            AI product engineer · ships AI tools, agents, and enterprise AI systems
+            AI product engineer shipping tools, agents, and enterprise systems
           </div>
         </div>
 

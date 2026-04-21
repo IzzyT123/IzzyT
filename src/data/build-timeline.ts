@@ -7,7 +7,9 @@ export type TimelineLane =
   | "changeable"
   | "gpt"
   | "degpt"
-  | "canimate";
+  | "canimate"
+  | "experiment"
+  | "post";
 
 export type TimelineKind =
   | "milestone"
@@ -15,7 +17,8 @@ export type TimelineKind =
   | "testimonial"
   | "article"
   | "launch"
-  | "series";
+  | "series"
+  | "post";
 
 export type TimelineEvent = {
   id: string;
@@ -37,6 +40,13 @@ export type TimelineEvent = {
   attribution?: string;
   /** Second line under name (role / organisation) for ChangeAble testimonials. */
   testimonialAttribution?: string;
+  /** When set, the milestone card renders a compact inline phase list (used for ChangeAble). */
+  changeablePhases?: ReadonlyArray<{
+    readonly sortDate: string;
+    readonly date: string;
+    readonly label: string;
+    readonly detail: string;
+  }>;
 };
 
 /** Snapshot columns: professional (ChangeAble & client work) vs personal projects & GPT. */
@@ -50,6 +60,8 @@ const LANE_TO_SNAPSHOT: Record<TimelineLane, SnapshotColumn> = {
   gpt: "personal",
   degpt: "personal",
   canimate: "personal",
+  experiment: "personal",
+  post: "personal",
 };
 
 export function partitionMonthEvents(
@@ -98,20 +110,21 @@ export function getTimelineEvents(): TimelineEvent[] {
     hrefLabel: "Open in ChatGPT",
   });
 
-  for (const phase of site.changeable.phases) {
+  const latestChangeablePhase = [...site.changeable.phases].sort((a, b) =>
+    b.sortDate.localeCompare(a.sortDate),
+  )[0];
+  if (latestChangeablePhase) {
     out.push({
-      id: `changeable-${phase.sortDate}`,
-      sortDate: phase.sortDate,
+      id: "changeable-consolidated",
+      sortDate: latestChangeablePhase.sortDate,
       lane: "changeable",
       kind: "milestone",
-      title: `${site.changeable.heading} · ${phase.label}`,
-      body: phase.detail,
+      title: site.changeable.heading,
+      body: site.changeable.summary,
       demoId: "changeable",
-      ...(phase.label === "Custom GPTs"
-        ? { demoThumbnailSrc: "/demos/changeable-gpt-poster.png" }
-        : {}),
       href: site.links.changeable,
       hrefLabel: "ChangeAble.ai",
+      changeablePhases: site.changeable.phases,
     });
   }
 
@@ -128,18 +141,39 @@ export function getTimelineEvents(): TimelineEvent[] {
     attribution: cmi.attribution,
   });
 
-  for (const item of site.sideProjects.items) {
-    const demoId = item.name === "DeGPT" ? "degpt" : "canimate";
+  for (const item of site.experiments.items) {
+    const slugLane: Partial<Record<string, TimelineLane>> = {
+      degpt: "degpt",
+      canimate: "canimate",
+    };
+    const lane: TimelineLane = slugLane[item.slug] ?? "experiment";
+    const href =
+      item.urlKey && item.urlKey in site.links
+        ? site.links[item.urlKey as keyof typeof site.links]
+        : undefined;
     out.push({
-      id: `side-${item.name.toLowerCase()}`,
+      id: `experiment-${item.slug}`,
       sortDate: item.sortDate,
-      lane: item.name === "DeGPT" ? "degpt" : "canimate",
-      kind: item.name === "Canimate" ? "series" : "launch",
+      lane,
+      kind: item.monthly ? "series" : "launch",
       title: item.name,
-      body: item.description,
-      demoId,
-      href: site.links[item.urlKey],
+      body: item.summary,
+      demoId: item.demoId,
+      href,
       hrefLabel: `Visit ${item.name}`,
+    });
+  }
+
+  for (const post of site.posts.items) {
+    out.push({
+      id: `post-${post.slug}`,
+      sortDate: post.date,
+      lane: "post",
+      kind: "post",
+      title: post.title,
+      body: post.excerpt,
+      href: `/blog/${post.slug}`,
+      hrefLabel: "Read post",
     });
   }
 
@@ -174,36 +208,32 @@ export function getTimelineEvents(): TimelineEvent[] {
   return out;
 }
 
-export function monthKeyFromSortDate(sortDate: string): string {
-  return sortDate.slice(0, 7);
+export function yearKeyFromSortDate(sortDate: string): string {
+  return sortDate.slice(0, 4);
 }
 
-export function formatMonthLabel(monthKey: string): string {
-  const [y, m] = monthKey.split("-").map(Number);
-  return new Date(y, m - 1, 1).toLocaleDateString("en-GB", {
-    month: "long",
-    year: "numeric",
-  });
+export function formatYearLabel(yearKey: string): string {
+  return yearKey;
 }
 
-export type TimelineMonthGroup = {
-  monthKey: string;
-  monthLabel: string;
+export type TimelineYearGroup = {
+  yearKey: string;
+  yearLabel: string;
   events: TimelineEvent[];
 };
 
-export function groupTimelineByMonth(events: TimelineEvent[]): TimelineMonthGroup[] {
+export function groupTimelineByYear(events: TimelineEvent[]): TimelineYearGroup[] {
   const map = new Map<string, TimelineEvent[]>();
   for (const e of events) {
-    const key = monthKeyFromSortDate(e.sortDate);
+    const key = yearKeyFromSortDate(e.sortDate);
     const list = map.get(key) ?? [];
     list.push(e);
     map.set(key, list);
   }
   const keys = [...map.keys()].sort((a, b) => b.localeCompare(a));
-  return keys.map((monthKey) => ({
-    monthKey,
-    monthLabel: formatMonthLabel(monthKey),
-    events: (map.get(monthKey) ?? []).sort(compareEventsDesc),
+  return keys.map((yearKey) => ({
+    yearKey,
+    yearLabel: formatYearLabel(yearKey),
+    events: (map.get(yearKey) ?? []).sort(compareEventsDesc),
   }));
 }

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { FadeIn } from "@/components/fade-in";
 import { site } from "@/data/site";
 
@@ -13,6 +14,24 @@ export function SiteFooter() {
           <p className="text-sm text-muted">{site.footer.credit}</p>
         </div>
         <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
+          <Link
+            href="/experiments"
+            className="text-sm font-medium underline decoration-border underline-offset-4 transition hover:decoration-foreground"
+          >
+            Experiments
+          </Link>
+          <Link
+            href="/timeline"
+            className="text-sm font-medium underline decoration-border underline-offset-4 transition hover:decoration-foreground"
+          >
+            Timeline
+          </Link>
+          <Link
+            href="/blog"
+            className="text-sm font-medium underline decoration-border underline-offset-4 transition hover:decoration-foreground"
+          >
+            Blog
+          </Link>
           <a
             href={site.links.github}
             className="text-sm font-medium underline decoration-border underline-offset-4 transition hover:decoration-foreground"

@@ -22,11 +22,11 @@ export const metadata: Metadata = {
     template: "%s · Izzy Thomson",
   },
   description:
-    "AI product engineer. Ships AI tools, agents, and enterprise AI systems—GPT Builder Pro (#1, 100K+ chats), ChangeAble.ai, and monthly public builds.",
+    "AI product engineer shipping tools, agents, and enterprise systems—GPT Builder Pro (#1, 100K+ chats), ChangeAble.ai, and monthly public builds.",
   openGraph: {
     title: "Izzy Thomson — AI product engineer",
     description:
-      "AI product engineer. Ships AI tools, agents, and enterprise AI systems—GPT Builder Pro (#1, 100K+ chats), ChangeAble.ai, and monthly public builds.",
+      "AI product engineer shipping tools, agents, and enterprise systems—GPT Builder Pro (#1, 100K+ chats), ChangeAble.ai, and monthly public builds.",
     url: siteUrl,
     siteName: "Izzy Thomson",
     locale: "en_GB",
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Izzy Thomson — AI product engineer",
     description:
-      "AI product engineer. Ships AI tools, agents, and enterprise AI systems—GPT Builder Pro (#1, 100K+ chats), ChangeAble.ai, and monthly public builds.",
+      "AI product engineer shipping tools, agents, and enterprise systems—GPT Builder Pro (#1, 100K+ chats), ChangeAble.ai, and monthly public builds.",
   },
   alternates: {
     canonical: siteUrl,

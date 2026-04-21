@@ -9,9 +9,34 @@ export type ProjectDemoMedia =
   | { kind: "image"; src: string; alt: string }
   | { kind: "video"; src: string; alt: string; poster: string };
 
+export type ExperimentEntry = {
+  readonly id: string;
+  readonly slug: string;
+  readonly name: string;
+  readonly period: string;
+  readonly sortDate: string;
+  readonly summary: string;
+  readonly body?: string;
+  readonly urlKey?: string;
+  readonly demoId?: string;
+  readonly media?: ProjectDemoMedia;
+  readonly tags?: readonly string[];
+  readonly monthly?: boolean;
+};
+
+export type PostEntry = {
+  readonly id: string;
+  readonly slug: string;
+  readonly title: string;
+  readonly date: string;
+  readonly excerpt: string;
+  readonly body: string;
+  readonly tags?: readonly string[];
+};
+
 export const site = {
   name: "Izzy Thomson",
-  role: "AI product engineer · product-minded · ships AI tools, agents, and enterprise AI systems",
+  role: "AI product engineer shipping tools, agents, and enterprise systems",
   motto: "Demo, don't memo.",
 
   /** Hero / footer button — opens LinkedIn profile. */
@@ -103,26 +128,62 @@ export const site = {
     ],
   },
 
-  sideProjects: {
-    heading: "Other builds",
+  experiments: {
+    heading: "Experiments",
+    intro:
+      "Monthly public builds and side projects—ship, learn, write up. Each link goes to the live product or a short write-up.",
     items: [
       {
-        name: "DeGPT",
-        urlKey: "degpt" as const,
-        period: "Dec 2025",
-        sortDate: "2025-12-01",
-        description:
-          "Fix ChatGPT copy-paste for real destinations—email, docs, slides, and more—with an optional Chrome extension. Built as a path to ship on the ChatGPT app platform; submitted when the store opened.",
-      },
-      {
+        id: "canimate",
+        slug: "canimate",
         name: "Canimate",
-        urlKey: "canimate" as const,
         period: "Ongoing",
         sortDate: "2026-04-01",
-        description:
+        summary:
           "Branded content from a URL—part of a monthly public build series where I ship experiments, document what I learn, and tighten my craft.",
+        urlKey: "canimate" as const,
+        demoId: "canimate",
+        monthly: true,
+      },
+      {
+        id: "degpt",
+        slug: "degpt",
+        name: "DeGPT",
+        period: "Dec 2025",
+        sortDate: "2025-12-01",
+        summary:
+          "Fix ChatGPT copy-paste for real destinations—email, docs, slides, and more—with an optional Chrome extension. Built as a path to ship on the ChatGPT app platform; submitted when the store opened.",
+        urlKey: "degpt" as const,
+        demoId: "degpt",
+        monthly: false,
       },
     ],
+  },
+
+  posts: {
+    heading: "Writing",
+    intro:
+      "Occasional notes on shipping AI products, tooling, and what I learn from monthly builds.",
+    items: [
+      {
+        id: "hello",
+        slug: "hello",
+        title: "Hello",
+        date: "2026-04-21",
+        excerpt:
+          "A small note on why this blog exists and what I plan to write about.",
+        body: `This is a placeholder first post so the blog route scaffolding has something to render. Replace or delete it in \`src/data/site.ts\` when you publish your first real post.
+
+## What to expect here
+
+- Short notes on shipping AI products and tooling.
+- Write-ups alongside the monthly public builds on [/experiments](/experiments).
+- Occasional longer pieces on things I've learned the hard way.
+
+Subscribe via [RSS](/blog/feed.xml) and catch new posts as they land.`,
+        tags: ["meta"],
+      },
+    ] as readonly PostEntry[],
   },
 
   /**
