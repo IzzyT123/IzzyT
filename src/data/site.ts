@@ -50,6 +50,7 @@ export const site = {
     gptBuilderPro: "https://chatgpt.com/g/g-VJPtFG34T-gpt-builder-pro-4-0",
     degpt: "https://degpt.app",
     canimate: "https://canimate.com",
+    skimless: "https://skimless.com",
   },
 
   now: {
@@ -133,6 +134,24 @@ export const site = {
     intro:
       "Monthly public builds and side projects—ship, learn, write up. Each link goes to the live product or a short write-up.",
     items: [
+      {
+        id: "skimless",
+        slug: "skimless",
+        name: "Skimless",
+        period: "May 2026",
+        sortDate: "2026-05-01",
+        summary:
+          "Tailored audio updates from the sources you already follow: YouTube channels, newsletters, RSS feeds, docs, and changelogs filtered around what you care about.",
+        body: `Skimless is my May 2026 experiment: a way to turn high-signal sources into short audio updates instead of another queue of tabs to skim.
+
+The product asks what topic to track, who the update is for, and what to prioritize or ignore. From there it watches YouTube channels, newsletters, RSS feeds, docs, and changelogs for updates that are worth your attention.
+
+The initial shape is a free weekday audio brief, with paid tiers for more sources, longer daily and weekly updates, shared team briefs, and MCP access so agents can use the same context.`,
+        urlKey: "skimless" as const,
+        demoId: "skimless",
+        tags: ["audio", "agents", "rss", "youtube"],
+        monthly: true,
+      },
       {
         id: "canimate",
         slug: "canimate",
@@ -228,6 +247,7 @@ Subscribe via [RSS](/blog/feed.xml) and catch new posts as they land.`,
     },
     {
       id: "canimate",
+      shelf: false,
       eyebrow: "Monthly experiment",
       title: "Canimate",
       proofLine:
@@ -239,6 +259,20 @@ Subscribe via [RSS](/blog/feed.xml) and catch new posts as they land.`,
         src: `/demos/canimate-demo.mp4${DEMO_MP4_CACHE}`,
         poster: "/demos/canimate-poster.png",
         alt: "Short screen recording of Canimate.",
+      },
+    },
+    {
+      id: "skimless",
+      eyebrow: "Monthly experiment",
+      title: "Skimless",
+      proofLine:
+        "Tailored audio updates from YouTube channels, newsletters, RSS feeds, docs, and changelogs.",
+      hrefKey: "skimless",
+      ctaLabel: "skimless.com",
+      media: {
+        kind: "image",
+        src: "/demos/skimless-poster.png",
+        alt: "Skimless landing page showing tailored audio updates from sources you follow.",
       },
     },
     {
