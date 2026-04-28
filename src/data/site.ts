@@ -156,7 +156,7 @@ The initial shape is a free weekday audio brief, with paid tiers for more source
         id: "canimate",
         slug: "canimate",
         name: "Canimate",
-        period: "Ongoing",
+        period: "March 2026",
         sortDate: "2026-04-01",
         summary:
           "Branded content from a URL—part of a monthly public build series where I ship experiments, document what I learn, and tighten my craft.",
