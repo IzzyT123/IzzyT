@@ -259,13 +259,13 @@ So the useful question becomes bigger than "build or buy?"
 
 I think a better model is external IP, built internally.
 
-By that I mean taking proven specialist knowledge, workflows, decision logic, and product patterns, then instantiating them inside a client's existing approved stack. The value is not a generic SaaS subscription and it is not time-and-materials development. The value is the shortcut: years of tested thinking turned into working software quickly, using the tools and controls the organisation already has.
+By that I mean taking proven specialist knowledge, workflows, decision logic, and product patterns, then instantiating them inside a client's existing approved stack. The value is the shortcut: years of tested thinking turned into working software quickly, using the tools and controls the organisation already has.
 
 I have learned this through [ChangeAble.ai](https://changeable.ai). The valuable part goes beyond the interface or the code. It is the accumulated understanding of change management: the jobs to be done, the pains to relieve, the gains to create, the documents people need, the review points, the governance concerns, the language practitioners use, and the places work usually slows down.
 
 AI makes that IP easier to turn into software and more valuable to express in different forms.
 
-A specialist product might still exist as SaaS. It might also become a GPT. It might become a set of n8n flows. It might become a custom app on a client's existing stack. It might become a library of prompts, templates, workflows, schemas, evaluations, and agents. The underlying asset is not one fixed product shape. It is the knowledge of how to solve the problem.
+A specialist product might still exist as SaaS. It might also become a GPT. It might become a set of n8n flows. It might become a custom app on a client's existing stack. It might become a library of prompts, templates, workflows, schemas, evaluations, and agents. The underlying asset is the knowledge of how to solve the problem, expressed through whichever product shape fits the context.
 
 That creates an awkward commercial question.
 
@@ -311,7 +311,7 @@ Demoing also changes buy-in. It is much easier to sell something that visibly sa
 
 There is less room for ambiguity when the product is on screen.
 
-This is also where AI computer use and AI QA become interesting. If agents can help test early flows, click through prototypes, find rough edges, and compare behaviour against expected outcomes, then the first human review can start at a higher level. The practitioner does not need to waste their scarce attention on the first obvious issues.
+This is also where AI computer use and AI QA become interesting. If agents can help test early flows, click through prototypes, find rough edges, and compare behaviour against expected outcomes, then the first human review can start at a higher level. The practitioner can spend their scarce attention on the issues that actually need their judgment.
 
 ## Context becomes the organisation's advantage
 
@@ -321,7 +321,7 @@ That has been uncomfortable to realise personally.
 
 Knowledge and critical thinking used to feel like things I could rely on. AI has made them less scarce. More people can now ask good questions, generate options, critique plans, learn quickly, and produce decent work.
 
-For now, early adopter mindset is an advantage. So is applying what I learn quickly. So is working longer hours than others while a new technology curve is still steep. But those are not permanent moats. People catch up along adoption curves.
+For now, early adopter mindset is an advantage. So is applying what I learn quickly. So is working longer hours than others while a new technology curve is still steep. Those moats are temporary because people catch up along adoption curves.
 
 The new advantage may be context.
 
@@ -417,7 +417,7 @@ IT and AI teams still matter, and their role changes. They become enablers, revi
 
 Domain experts also have to change. "I am not technical" will become a weaker excuse. If you understand a valuable problem deeply, you can now do much more with that understanding. You may never need to become a traditional engineer, but you probably do need to become fluent enough with AI tools to build, test, explain, and iterate.
 
-Maintenance remains the unsolved bit. Anyone can build now, or at least many more people can. Keeping software working, secure, useful, and aligned with a changing organisation is still hard. That will get easier too, but it is not zero yet.
+Maintenance remains the unsolved bit. Anyone can build now, or at least many more people can. Keeping software working, secure, useful, and aligned with a changing organisation is still hard. That will get easier too, but the cost is still above zero.
 
 Feedback remains another constraint. Building may be fast. Fixing may be fast. Adding features may be fast. Getting time from the people whose feedback matters can still be slow and expensive. That makes it even more important to use AI to improve the thing before asking for human attention.
 
