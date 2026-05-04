@@ -215,11 +215,15 @@ Every translation step lost something. Sometimes the lost thing was small, like 
 
 AI compresses that loop. The person with the problem can now build enough of the solution to make the conversation concrete. They can show the workflow. They can test the logic. They can feel where it is clunky. They can explain the missing bit by pointing at the thing, instead of writing another paragraph.
 
-That is why I think the target is not just MVPs. A minimum viable product is often enough to test whether an idea exists. But when the builder is also the domain expert, the bar should be higher. It should be closer to a minimum lovable product: something that already relieves the pain, does the job, and proves the workflow. The technical parts may still need help, but the shape of the solution can come directly from the person who understands the work.
+That is why I think the target is not just MVPs. A minimum viable product is often enough to test whether an idea exists. Lovable uses the phrase minimum lovable product, and I understand why: love is a much better ambition than viability. But I do not think it quite says what these AI-built domain tools should be aiming for.
+
+The aim should be a Minimum Solved Product.
+
+Not the minimum product someone might like. The minimum product that solves the user's problem at that point. Something that already relieves the pain, does the job, and proves the workflow. The technical parts may still need help, but the shape of the solution can come directly from the person who understands the work.
 
 The point of the MVP used to be: can we test whether this should exist?
 
-The point of an MLP in this new world might be: can the person with the problem build something good enough that the technical work is mainly hardening, integration, deployment, and maintenance?
+The point of an MSP in this new world might be: can the person with the problem build something good enough that the technical work is mainly hardening, integration, deployment, and maintenance?
 
 That is a very different distribution of effort.
 
