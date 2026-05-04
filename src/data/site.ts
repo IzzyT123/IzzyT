@@ -201,7 +201,7 @@ That sounds like a big claim, and I do not mean it literally yet. Software is st
 
 That changes the shape of product development. It changes who gets to build. It changes the value of domain knowledge. It changes the old build vs buy calculation. It changes how teams should communicate. It changes what personal and organisational moats look like.
 
-I am writing this partly because I want izzyt.com to become a public notebook for these ideas. Not a place for pretending to have final answers, and not a sales channel. More a journal of things I am noticing while building products, working with AI, and trying to understand where work is going.
+I am writing this partly because I want izzyt.com to become a public notebook for these ideas: a journal of things I am noticing while building products, working with AI, and trying to understand where work is going.
 
 ## Subject matter experts become builders
 
@@ -261,7 +261,7 @@ I think a better model is external IP, built internally.
 
 By that I mean taking proven specialist knowledge, workflows, decision logic, and product patterns, then instantiating them inside a client's existing approved stack. The value is not a generic SaaS subscription and it is not time-and-materials development. The value is the shortcut: years of tested thinking turned into working software quickly, using the tools and controls the organisation already has.
 
-I have learned this through [ChangeAble.ai](https://changeable.ai). Not as a sales point, but as a practical lesson. The valuable part is not just the interface or the code. It is the accumulated understanding of change management: the jobs to be done, the pains to relieve, the gains to create, the documents people need, the review points, the governance concerns, the language practitioners use, and the places work usually slows down.
+I have learned this through [ChangeAble.ai](https://changeable.ai). The valuable part is not just the interface or the code. It is the accumulated understanding of change management: the jobs to be done, the pains to relieve, the gains to create, the documents people need, the review points, the governance concerns, the language practitioners use, and the places work usually slows down.
 
 AI makes that IP easier to turn into software. It does not make the IP less valuable.
 
@@ -285,9 +285,11 @@ Every custom internal version can still link back to the original IP. For exampl
 
 I think an organisation's future IP may look less like a list of products and more like a library of solutions that become base context for AI.
 
-## Demo, don't memo
+## Demos, not memos
 
-The other phrase I keep coming back to is: demo, don't memo.
+The other phrase I keep coming back to is: demos, not memos.
+
+Matt Waite popularised that line after building PolitiFact in 2009. It feels even more relevant now. If software is cheap enough to build quickly, a demo is no longer just a communication tool. It is often the fastest way to think.
 
 A one-hour meeting with ten senior people can easily be more expensive than building a rough prototype. That sounds absurd until the cost of a first build collapses.
 
