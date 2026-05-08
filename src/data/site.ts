@@ -187,7 +187,8 @@ The initial shape is a free weekday audio brief, with paid tiers for more source
       {
         id: "cost-of-building-is-falling",
         slug: "cost-of-building-is-falling",
-        title: "The Cost of Building Is Falling. The Cost of Knowing Isn't.",
+        title:
+          "The Cost of Building Is Falling. The Cost of Knowing What to Build Isn't.",
         date: "2026-05-04",
         excerpt:
           "AI is making software faster to build, but the scarce part is shifting to domain knowledge, feedback loops, organisational context, IP, and maintenance.",
