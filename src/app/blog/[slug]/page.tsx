@@ -27,15 +27,41 @@ export async function generateStaticParams() {
 
 export const dynamicParams = false;
 
+const SITE_URL = "https://izzyt.com";
+
 export async function generateMetadata(
   { params }: { params: Promise<{ slug: string }> },
 ): Promise<Metadata> {
   const { slug } = await params;
   const post = findPost(slug);
   if (!post) return { title: "Post not found" };
+
+  const url = `${SITE_URL}/blog/${post.slug}`;
+
   return {
     title: post.title,
     description: post.excerpt,
+    keywords: post.tags ? [...post.tags] : undefined,
+    authors: [{ name: site.name, url: SITE_URL }],
+    alternates: {
+      canonical: url,
+    },
+    openGraph: {
+      type: "article",
+      title: post.title,
+      description: post.excerpt,
+      url,
+      siteName: site.name,
+      locale: "en_GB",
+      publishedTime: new Date(post.date).toISOString(),
+      authors: [site.name],
+      tags: post.tags ? [...post.tags] : undefined,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.title,
+      description: post.excerpt,
+    },
   };
 }
 
@@ -48,8 +74,40 @@ export default async function PostDetail({
   const post = findPost(slug);
   if (!post) notFound();
 
+  const url = `${SITE_URL}/blog/${post.slug}`;
+  const publishedIso = new Date(post.date).toISOString();
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: post.title,
+    description: post.excerpt,
+    datePublished: publishedIso,
+    dateModified: publishedIso,
+    inLanguage: "en-GB",
+    keywords: post.tags ? [...post.tags] : undefined,
+    url,
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": url,
+    },
+    author: {
+      "@type": "Person",
+      name: site.name,
+      url: SITE_URL,
+    },
+    publisher: {
+      "@type": "Person",
+      name: site.name,
+      url: SITE_URL,
+    },
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <header className="border-b border-border bg-surface px-5 py-6 sm:px-8 sm:py-8">
         <div className="mx-auto max-w-3xl">
           <Link

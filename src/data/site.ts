@@ -185,8 +185,8 @@ The initial shape is a free weekday audio brief, with paid tiers for more source
       "Occasional notes on shipping AI products, tooling, and what I learn from monthly builds.",
     items: [
       {
-        id: "what-you-do-with-10x",
-        slug: "what-you-do-with-10x",
+        id: "adopting-intelligence",
+        slug: "adopting-intelligence",
         title: "Adopting Intelligence",
         date: "2026-06-01",
         excerpt:
