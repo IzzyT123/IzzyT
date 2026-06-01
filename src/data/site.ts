@@ -187,7 +187,7 @@ The initial shape is a free weekday audio brief, with paid tiers for more source
       {
         id: "what-you-do-with-10x",
         slug: "what-you-do-with-10x",
-        title: "A Developer Can Now Do 10x. The Real Question Is What You Do With It.",
+        title: "Adopting Intelligence",
         date: "2026-06-01",
         excerpt:
           "The productivity gain from AI is real and compounding. The decision that actually matters is whether leaders spend it on cost cutting, more output, or far better quality. I think the winners will reframe AI as intelligence, and adoption as a mindset rather than a tool.",
