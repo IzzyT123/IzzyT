@@ -185,6 +185,137 @@ The initial shape is a free weekday audio brief, with paid tiers for more source
       "Occasional notes on shipping AI products, tooling, and what I learn from monthly builds.",
     items: [
       {
+        id: "what-you-do-with-10x",
+        slug: "what-you-do-with-10x",
+        title: "A Developer Can Now Do 10x. The Real Question Is What You Do With It.",
+        date: "2026-06-01",
+        excerpt:
+          "The productivity gain from AI is real and compounding. The decision that actually matters is whether leaders spend it on cost cutting, more output, or far better quality. I think the winners will reframe AI as intelligence, and adoption as a mindset rather than a tool.",
+        body: `Last month I wrote that the cost of building is falling while the cost of knowing what to build is not. This month I want to pick up where that left off, because the more I use these tools the more I think the interesting decision is not whether AI makes us faster. It clearly does. The interesting decision is what we choose to do with the time it gives back.
+
+## The 10x question
+
+A developer can now do something like ten times the work. So what does that mean?
+
+Does it mean you build ten times more websites? Does it mean you use a tenth of the developers? Or does it mean you build the same thing, ten times better?
+
+I think the honest answer is a mixture of all three, and the mix is the whole game.
+
+At Issoria, do we want to do ten times the work for ten times the customers? Yes, of course. But so does everyone else. If the gain is available to everyone, doing more of the same does not win. So we have to spend some of that new efficiency on a better product: communicating our value proposition more clearly, making video instead of slides, sharpening the thing itself rather than just shipping more of it. We are not trying to reduce headcount. We are trying to take market share with a better product and service, and that only works if the efficiency goes into quality, not just volume.
+
+That is the part I think most leaders are getting wrong. The default framing is cost reduction. Output goes up ten times, so surely you need a tenth of the people. But that is only one lever. Any business advantage can be spent on quantity, quality, or speed, and the mix you choose dictates where you land in your sector. If you want to win, as an individual or an organisation, you have to start framing AI as improved quality and increased output, not as a way to do the same work with fewer people.
+
+There is also a demand-side point that keeps getting skipped. Many sectors are going to see increased demand as well as increased supply. Cheaper, faster, better tends to grow markets, not shrink them. So I do not think this is simply less need for people. It is a redistribution of where people add value, plus a set of genuinely new roles, most of them clustered around AI itself.
+
+## Cut out the middle
+
+I called the first post's section demos, not memos, and I want to extend it.
+
+The instinct we have all been trained on is to optimise the middle. We strategise, plan, debate, calculate, model, and produce a beautiful analysis so that a human can then work out what to do with it. That made sense when building and acting were expensive. It makes much less sense now.
+
+So I keep asking a smaller set of questions. What do we actually have? Where does the context live? What is the absolute end goal? Then I try to delete everything in between.
+
+Do not optimise to create the best analysis so that humans can figure out the implication. Tell the AI what the end goal is and ask it for the so what. Get it to suggest the action, then bring human judgment to the decision rather than to the production. The analysis is no longer the deliverable. The decision is.
+
+## Compounding skills
+
+The reason the gain feels larger than ten times for me is that the skills compound.
+
+AI lets you work in a way that does not need perfect information. An instruction can contain useless detail, misspellings, half-formed thoughts, and the model still gets it. That means you can stop being precise on the way in. A catch-all intake beats a carefully formatted one, because the cost of being messy has dropped to almost nothing.
+
+That unlocks a stack of efficiencies that each multiply the others:
+
+- Dictate instead of type. Wispr Flow lets me speak my way through work, and I am roughly four times faster speaking than typing.
+- Meet instead of email. Even a one-person recording or voice memo works, as long as there is a transcript and any files travel with it.
+- Demo instead of memo. Turn up with a prototype instead of an abstract argument.
+- Add context from as many sources as could possibly be useful, rather than the minimum.
+
+Individually these are four, five, ten times improvements. Stacked together, they can compound into something closer to a hundred times. A workflow I actually use: build a rough prototype of a tool in Cursor that we could give a client for free, present it in a recorded meeting and ask for feedback there and then, push the transcript back into Cursor to finish the tool, then use a coding agent with the codebase and the transcript to produce the deck that goes out to clients.
+
+Issoria records all of its meetings, and that has quietly become one of our biggest compounding advantages. Every transcript can be dropped straight into a chatbot, a coding agent, a co-working agent, whatever fits. The AI strips out what is irrelevant and understands the full context of the conversation, even the parts that were not said cleanly. Nobody has to comb through with a fine-tooth comb to pull out the important bits, and nobody even has to have fully understood the meeting in the moment. I have noticed the model is often better than my own ear at catching what someone actually meant, as opposed to what I assumed they meant. Maybe I am just a bad listener. Either way, the transfer of information becomes so fast that it speeds up everything downstream.
+
+That is the real prize. Right now this advantage is not widely copied, and large organisations struggle to copy it at all because of governance, security, and structure. It will not last forever, but while it does it is worth exploiting to the maximum.
+
+## The data security bottleneck
+
+There is one obvious thing slowing this down, and it is data security.
+
+People say all sorts of things in a meeting. Names, client details, sensitive specifics about change programmes and projects. You do not want any of that going into a model. And today the only safe way to remove it is to strip it out by hand, because you cannot ask an AI to clean the transcript without first handing the sensitive data to the AI, which is the exact thing you were trying to avoid.
+
+What I think will be genuinely useful is a local model that never leaves the organisation's environment, protected the same way sensitive client data is protected today. Something inside Microsoft's stack, or similar, where you can throw in a transcript, an email, anything, and it does not delete the sensitive data so much as make it generic, so there is no way to trace it back to a specific client or person. Once it is genericised, the output is safe to use with everything else. Solve that, and the whole compounding workflow opens up for the kinds of organisations that currently cannot touch it.
+
+## Small and fast against big and careful
+
+A lot of the value we create is simply running this efficient workflow on behalf of organisations that structurally cannot.
+
+I can feel myself working at something like a hundred times the effective speed of someone inside a large client. Not because I am better at the job. Because I have tools available to me that they cannot have, and those tools compound. Same accuracy, far more speed. I think this is going to push large organisations towards exporting tasks to smaller ones that can operate this way, at least until the big organisations catch up.
+
+This is also why adoption is the differentiator. You cannot afford to be anything but an early adopter, because early adoption compounds into an advantage over everyone slower. To serve a client well, you have to adopt faster than that client does. The caveat is data security first, then adopt just after the initial bugs are found so you are not wasting time being the very first to hit every wall. Culture has to turn into early adoption with that one guardrail.
+
+## This is not a normal technology rollout
+
+Organisational change management has always been about getting people to adopt a new technology so the same job gets done better, faster, or cheaper. The easy move is to treat AI as exactly that: another system, another implementation, another adoption curve. Large organisations will do this, and their change managers will face the same adoption problems they always have.
+
+I think that is a mistake, or at least a missed opportunity. This is not really the adoption of a tool. It is a shift from human to AI-augmented human. Where you sit on the adoption curve of a specific tool matters far less than where you sit on the adoption curve of being an AI-augmented person. That is the thing that makes you win or lose.
+
+One small reframe that helps me: swap the word AI for intelligence. Instead of the implementation of AI, say the implementation of intelligence. It changes how people think about the problem and the benefit. Not every employee becomes a technologist, but everyone needs to know how to use intelligence to solve their own problems better, faster, or cheaper. Like Tesla being a technology company that happens to make cars, most large organisations are going to become technology businesses whether they intend to or not.
+
+So adoption becomes more important, but it is not the adoption of tools. It is the adoption of a mindset: people learning, experimenting, redesigning their own work, and improving their outputs faster than the market around them. Adoption as a strategic capability. That also shifts change work away from training and towards self-teaching. There will be new forms of training, including AI systems and chatbots built for the purpose, but the core capability an organisation needs to build is the ability for anyone to teach themselves anything.
+
+It helps to separate three different uses of AI when talking about change:
+
+1. AI as a tool to get the change work itself done, the natural progression of previous change toolkits and platforms, needed just to keep pace with the rising number of projects.
+2. Change management for teams introducing AI as a technology. This is classic change.
+3. Change management for organisations adopting the new mindset, where AI-augmented humans with effectively unlimited knowledge produce better outputs. This is the one almost nobody is doing yet.
+
+## A new social contract
+
+I think AI forces a new social contract inside organisations, and stakeholders need to know where their organisation actually stands. Every organisation will have to decide its position on the quality, output, and cost mix, and then be honest about how that mix will flex over time, the same way companies have always swung between investment and cost cutting.
+
+That contract has to answer the questions every employee is already asking quietly:
+
+- Am I still needed?
+- Will my expertise still matter?
+- Will junior roles disappear?
+- Will my work be judged against machine output?
+- Who actually gets the productivity gain?
+
+On employment, I think the disruption is real but not the one people describe. In the very short term, new graduates look most exposed, because the entry-level work is the easiest to absorb. But that is true of almost every technology shift, and it does not last. The harder decisions sit with employers. Do you retain the veterans who hold deep specialist knowledge and most of the organisation's context? Or do you hire young people who will adopt AI far faster? Are generalists better hires now that AI can teach anyone anything, or is the right move to upskill specialists so they can use AI on the hardest problems and have the confidence to oversee it?
+
+My own view is that we are heading into a transition period defined by one task: moving organisational knowledge out of the most experienced people and into the organisation itself, by building the context layer. Context is siloed today, and people will hold onto it because it is the last moat they have. AI destroys most moats. With intelligence cheap, context becomes the final one. That suggests people may need to be paid, or given ownership, in exchange for transferring what they know. After that, most successful businesses look like tech businesses, which means a lower average age, because younger people are AI-native and do not carry the old ways of working. Most people end up closer to product owners, and may need to be incentivised on that basis.
+
+This is where ownership gets interesting. People who understand a problem deeply will become builders, and they should want to own the asset, which is the solution. Companies that understand this will start to incentivise based on assets produced and equity in those solutions. You could imagine something like a DAO structure being optimal, where people are rewarded with sweat equity. We have also seen how badly those can go on incentive alignment and decision speed, so I suspect the real answer is a hybrid of a DAO and a traditional company. Maybe internal joint ventures, so builders solve hard problems inside the business instead of leaving to solve them outside it.
+
+## On burnout, and the mindset that handles it
+
+There is a cost to all this, and it is burnout. AI moves so fast that keeping up is exhausting, and there is real anxiety in constantly having to adapt. I think the next generation will be better at it, not because they are smarter, but because they will have grown up in a fast-moving environment and will be comfortable with chaos. That comfort with chaos may be the key difference between the people who pull ahead and the people who fall behind, and it is the thing the rest of us have to work on deliberately.
+
+The trick is not to let it hurt when it is time to move to the next tool. The rapid iteration mindset pays off quickly now, because the long term has become very short. It is a bit like dopamine versus long-term benefit. The dopamine hit usually wins unless you can reach the long-term benefit without too much pain. With AI the long term is so compressed that the benefit arrives almost immediately. So the whole skill is just to start, and to keep starting. The rest tends to take care of itself.
+
+There is a list going around of the skills people will need in an AI world: learning as a habit, adaptability, curiosity, organisations providing the tools and opportunities to learn, trusting your experts to decide closest to the action, taking pride in everyone's success, courage to move forward, and leaders giving people ownership. I agree with most of it. The ones I feel most strongly about are learning as a habit, adaptability, curiosity, and ownership. The shelf life of any specific piece of knowledge is heading towards zero, so resilience and a willingness to keep rebuilding your own workflow matter more than any individual skill. And organisations have to hold up their end: build that mindset, agree the social contract, provide the access and tools, and give people real ownership of what they create. If someone is effectively automating part of their own role, the honest questions are how they are rewarded for it, where they move next, and what the new role actually is.
+
+## Speak, do not type
+
+A smaller, practical thing I have become convinced of: people need to start speaking into their computers, especially for AI prompts.
+
+We are lazy for good reason. We want the most output for the least effort. That instinct usually pushes people towards shorter prompts, but with AI the quality of your prompt is directly reflected in the quality of the output, so less is almost never more. Speaking for five minutes feels like the same effort as typing for five minutes, but it gives the model far more context. The result is not five times better, but it is meaningfully better, for the same time spent. I type at maybe a fifth of the speed I speak, even though I speak slowly, so this matters even more for me.
+
+The problem is I cannot talk to my machine in a co-working space, so I have started working from home more, which is fine but not ideal long term. Wispr Flow helps because you can genuinely whisper, but you still cannot do that with confidence around other people. Someone needs to build a microphone that does not let sound escape, almost a noise-cancelling microphone in reverse. If I had the money, that is the hardware I would try to build.
+
+## A note on robots
+
+One last thought, on a completely different topic, because it has been bothering me.
+
+The standard argument for humanoid robots is that nature already built a general-purpose body for using tools and getting survival tasks done, and people accept a human shape. So we build humanoids, embody the AI, and train it over and over on specific tasks.
+
+But is that actually efficient? Instead of forcing the task to be solved by a human-shaped body, why not let the task dictate the body? Rather than building copies of humans, we could build evolution. Reward the AI for completing a set of tasks, or all human tasks, and then ask it to iterate on the body rather than just the skill. The form of the robot would fall out of that process.
+
+I understand we build humanoids because people accept them, and that acceptance has real value. But in the long run, the company that builds the robots that get the tasks done with a hundred times less energy is the one that wins. And it is worth asking, as with so much of this, whether game theory even applies cleanly to AI, or whether the usual assumptions about competition and equilibrium start to break when one of the players can iterate this fast.
+
+That is where my head has been this month. The gain is real. The decision is what we do with it. I think the people and organisations that frame it as quality and output, adopt the mindset before the tools, and share solutions instead of hoarding context, are going to pull away from everyone else.`,
+        tags: ["ai", "work", "leadership"],
+      },
+      {
         id: "cost-of-building-is-falling",
         slug: "cost-of-building-is-falling",
         title:
