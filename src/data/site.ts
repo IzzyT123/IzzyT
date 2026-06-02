@@ -254,7 +254,7 @@ This is also why adoption is the differentiator. You cannot afford to be anythin
 
 ## This is not a normal technology rollout
 
-Organisational change management has always been about getting people to adopt a new technology so the same job gets done better, faster, or cheaper. The easy move is to treat AI as exactly that: another system, another implementation, another adoption curve. Large organisations will do this, and their change managers will face the same adoption problems they always have.
+Organisational change management has always been about helping people through a change in how they work, whether that is a new process, a new structure, a new behaviour, or a new technology, so the organisation actually realises the benefit. The easy move is to treat AI as just another one of those changes: another system, another process, another implementation, another adoption curve. Large organisations will do this, and their change managers will face the same adoption problems they always have.
 
 I think that is a mistake, or at least a missed opportunity. This is not really the adoption of a tool. It is a shift from human to AI-augmented human. Where you sit on the adoption curve of a specific tool matters far less than where you sit on the adoption curve of being an AI-augmented person. That is the thing that makes you win or lose.
 
