@@ -3,6 +3,8 @@ import type { TimelineEvent } from "@/data/build-timeline";
 type Props = {
   event: TimelineEvent;
   dateLabel: string;
+  /** Larger Fraunces italic quote for the standalone testimonials deck. */
+  featured?: boolean;
 };
 
 function initialsFromName(name: string): string {
@@ -15,10 +17,18 @@ function initialsFromName(name: string): string {
 /**
  * ChangeAble product testimonials — distinct from GPT speech bubbles and press article cards.
  */
-export function ChangeableTestimonialCard({ event, dateLabel }: Props) {
+export function ChangeableTestimonialCard({
+  event,
+  dateLabel,
+  featured = false,
+}: Props) {
   const quote = event.body;
   const name = event.title;
   const line2 = event.testimonialAttribution ?? "";
+
+  const quoteClass = featured
+    ? "mt-4 border-none pl-10 font-[family-name:var(--font-fraunces)] text-xl italic leading-relaxed text-foreground sm:pl-11 sm:text-2xl"
+    : "mt-3 border-none pl-10 text-sm italic leading-relaxed text-muted sm:pl-11 sm:text-base";
 
   return (
     <article className="relative w-full max-w-[min(100%,48rem)] border border-border/80 bg-surface px-4 pb-4 pt-5 shadow-[0_2px_14px_-4px_rgba(0,0,0,0.09)] sm:px-5 sm:pb-5 sm:pt-6">
@@ -36,9 +46,7 @@ export function ChangeableTestimonialCard({ event, dateLabel }: Props) {
           {dateLabel}
         </time>
       </div>
-      <blockquote className="mt-3 border-none pl-10 text-sm italic leading-relaxed text-muted sm:pl-11 sm:text-base">
-        {quote}
-      </blockquote>
+      <blockquote className={quoteClass}>{quote}</blockquote>
       <footer className="mt-4 flex items-start gap-3 border-t border-border/50 pt-4 pl-10 sm:pl-11">
         <div
           className="flex size-10 shrink-0 items-center justify-center rounded-full bg-[var(--surface-muted)] font-mono text-xs font-semibold text-muted ring-1 ring-border/60"

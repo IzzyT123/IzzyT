@@ -51,7 +51,9 @@ function TestimonialCardSwitch({ event }: { event: TimelineEvent }) {
     );
   }
   if (event.kind === "testimonial") {
-    return <ChangeableTestimonialCard event={event} dateLabel={dateLabel} />;
+    return (
+      <ChangeableTestimonialCard event={event} dateLabel={dateLabel} featured />
+    );
   }
   return (
     <GptReviewBubble
@@ -198,7 +200,8 @@ export function TestimonialDeck({ items }: Props) {
         })}
       </div>
 
-      <div className="relative mt-8 sm:mt-10">
+      <div className="mt-8 flex min-h-[26rem] items-center sm:mt-10 sm:min-h-[24rem]">
+        <div className="relative w-full">
         {hasStack ? (
           <>
             <div
@@ -232,6 +235,7 @@ export function TestimonialDeck({ items }: Props) {
               </motion.div>
             </AnimatePresence>
           )}
+        </div>
         </div>
       </div>
 
