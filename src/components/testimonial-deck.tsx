@@ -5,7 +5,6 @@ import { AnimatePresence, motion, type PanInfo } from "framer-motion";
 import type { TimelineEvent, TimelineKind } from "@/data/build-timeline";
 import { ChangeableFeaturedArticleCard } from "@/components/changeable-featured-article-card";
 import { ChangeableTestimonialCard } from "@/components/changeable-testimonial-card";
-import { GptReviewBubble } from "@/components/gpt-review-bubble";
 import { usePrefersReducedMotion } from "@/hooks/use-prefers-reduced-motion";
 
 type Props = {
@@ -56,16 +55,15 @@ function TestimonialCardSwitch({ event }: { event: TimelineEvent }) {
     );
   }
   return (
-    <GptReviewBubble
-      quote={event.body}
+    <ChangeableTestimonialCard
+      event={event}
+      dateLabel={dateLabel}
+      featured
+      label="GPT Builder Pro · User feedback"
+      name="GPT Builder Pro"
+      attribution="ChatGPT user review"
       quoteEn={event.quoteEn}
       lang={event.lang ?? "en"}
-      dateLabel={dateLabel}
-      dateTime={event.sortDate}
-      motionIndex={0}
-      motionStyle={{ opacity: 1 }}
-      bubbleFill="surface"
-      shellClassName="shadow-none"
     />
   );
 }
@@ -200,7 +198,7 @@ export function TestimonialDeck({ items }: Props) {
         })}
       </div>
 
-      <div className="mt-8 flex min-h-[26rem] items-center sm:mt-10 sm:min-h-[24rem]">
+      <div className="mt-8 flex min-h-[28rem] items-center sm:mt-10">
         <div className="relative w-full">
         {hasStack ? (
           <>
