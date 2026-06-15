@@ -294,10 +294,6 @@ export function TestimonialDeck({ items }: Props) {
         </button>
       </div>
 
-      <p className="mt-4 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-muted">
-        <span aria-hidden>&larr; &rarr;</span> to navigate
-      </p>
-
       <p className="sr-only" aria-live="polite">
         Testimonial {safeIndex + 1} of {count}
       </p>
