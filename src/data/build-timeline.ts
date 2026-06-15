@@ -208,6 +208,34 @@ export function getTimelineEvents(): TimelineEvent[] {
   return out;
 }
 
+/** Display order within the testimonials deck: lead with customer proof, then press, then GPT reviews. */
+const DECK_KIND_ORDER: Record<string, number> = {
+  testimonial: 0,
+  article: 1,
+  review: 2,
+};
+
+/**
+ * Quote-like events for the standalone testimonials deck (/testimonials).
+ * Ordered so the newest ChangeAble customer testimonial leads, followed by the press
+ * feature, then GPT Builder user reviews — each group newest-first.
+ */
+export function getTestimonialDeckEvents(): TimelineEvent[] {
+  return getTimelineEvents()
+    .filter(
+      (e) =>
+        e.kind === "testimonial" ||
+        e.kind === "review" ||
+        e.kind === "article",
+    )
+    .sort((a, b) => {
+      const ka = DECK_KIND_ORDER[a.kind] ?? 99;
+      const kb = DECK_KIND_ORDER[b.kind] ?? 99;
+      if (ka !== kb) return ka - kb;
+      return compareEventsDesc(a, b);
+    });
+}
+
 export function yearKeyFromSortDate(sortDate: string): string {
   return sortDate.slice(0, 4);
 }

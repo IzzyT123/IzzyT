@@ -27,6 +27,12 @@ export function SiteFooter() {
             Timeline
           </Link>
           <Link
+            href="/testimonials"
+            className="text-sm font-medium underline decoration-border underline-offset-4 transition hover:decoration-foreground"
+          >
+            Testimonials
+          </Link>
+          <Link
             href="/blog"
             className="text-sm font-medium underline decoration-border underline-offset-4 transition hover:decoration-foreground"
           >
