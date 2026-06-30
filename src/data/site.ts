@@ -185,6 +185,114 @@ The initial shape is a free weekday audio brief, with paid tiers for more source
       "Occasional notes on shipping AI products, tooling, and what I learn from monthly builds.",
     items: [
       {
+        id: "distributing-intelligence",
+        slug: "distributing-intelligence",
+        title: "Distributing Intelligence",
+        date: "2026-07-01",
+        excerpt:
+          "The most underrated benefit of AI for enterprise is the communication it strips out. Not less human contact, but less overhead. Once meetings are recorded and AI gives each person only the parts that matter, silos start to dissolve, and remote work starts to look like the cure rather than the cause.",
+        body: `Last month, in Adopting Intelligence, I argued that the real shift is not the adoption of a tool but the move from human to AI-augmented human. This month I want to follow one thread out of that idea as far as it will go, because I think it leads somewhere most people are not looking.
+
+Here is the claim. The most underrated benefit of AI for enterprise is the sheer amount of communication it strips out.
+
+I know how that sounds, especially to the change managers I work with. So let me be precise. I do not mean less human communication. I mean less of the overhead. The standing meeting that exists because nobody trusts the last one to have landed. The email chain that is really a decision nobody wants to own. The hours spent training someone on a process a model could explain on demand. The constant asking up and across for advice, opinions, and sign-off that exists mostly because the information was never where the person needed it.
+
+Strip that out and you do not get a colder company. You get the opposite. The human time left over goes to the things humans are actually for: strategy, judgement, alignment, and the slow work of relationships. We get to talk to each other about where we are going instead of who is doing what by when. We get to spend more of our attention on people and less on process. And the whole organisation moves faster, because the thing slowing it down was never the work. It was the coordination.
+
+## Lines, not people
+
+It is worth being honest about why large organisations are slow, because it is not the reason we usually give.
+
+We talk as if big companies are slow because of bureaucracy, or caution, or culture. Those matter, but they are symptoms. The underlying cause is arithmetic. Every time you add a person, you do not add one new relationship. You add a line of communication to everyone they need to coordinate with. Add enough people and the number of possible lines grows roughly with the square of the headcount. Ten people have a few dozen possible connections. A thousand people have closer to half a million. The work scales in a straight line. The communication required to keep the work coherent does not.
+
+That is why a startup of five can out-manoeuvre an incumbent of fifty thousand despite having a rounding error of the resources. It is not that the small team is smarter. It is that information reaches everyone who needs it almost for free, and in the large company it does not. Most of what a big organisation spends its energy on is fighting the cost of its own internal communication.
+
+Which means the single largest efficiency gain available to a large organisation is not a better product or a leaner process. It is the ability to move information through itself faster. AI is the first tool I have seen that attacks that directly, instead of adding another channel to an already overloaded system.
+
+I have written before about demos over memos, about turning up with a working prototype instead of an hour of ten people debating the first step. That is one instance of the same move: delete the coordination, keep the outcome. But the deeper version is not about how we make decisions. It is about how information itself travels.
+
+## Recording everything
+
+Start with something small and almost embarrassingly practical. Over the last year, most of my efficiency gains have come from consuming other people's information asynchronously. I watch recordings back at one and a half or two times speed. I have them playing while I work on something else, or running in the background while a long agent task churns away. I take in far more of what is happening across the organisation than I used to, and I spend far less time doing it.
+
+It turns out that, for spreading information, a recording usually beats a presentation. A live presentation costs everyone the same hour at the same time and does not survive the meeting. A recorded Loom, or a Fathom or Teams capture, costs the presenter once and can be consumed by anyone, at any speed, whenever they need it. You lose the ability to ask a question in the moment. You gain back almost all of the man-hours. For a lot of internal communication, that is a trade worth making, and we make it far too rarely.
+
+But watching things back faster is the trivial version. The real unlock is what happens when you connect AI to the recordings.
+
+Organisations can now connect Claude, Copilot, ChatGPT, or their own internal model to their meeting recordings, through MCP or a similar layer. Once that connection exists, two things become possible, and the second one matters far more than the first.
+
+The first is search. You can ask a question and have an agent sift every transcript from the week to find the answer, instead of trying to remember which call it came up on. Useful, but obvious.
+
+The second is distribution. The agent can push information to people who did not know they needed it. That is the part that changes how an organisation feels.
+
+I now get a daily brief assembled from meetings I did not attend. It tells me what came up across other people's and other teams' calls that is likely to be relevant to me, and it links me straight to the timestamp, or to the whole recording on the rare occasions all of it is worth my time. I do not have to watch hours of video. I also do not miss the one exchange buried in someone else's call that changes what I am working on. And I can calibrate it as I go. If it surfaces something useless, I say so. If I find out it missed something, I tell it, and the next brief is sharper.
+
+Sit with that second use for a moment, because it is genuinely new. For most of the history of organisations, the limit on sharing information has not been whether the information existed. It has been that the person holding it had no idea you would want it. Nobody can model what everyone else in the company would find useful. So relevant things stay local, not out of malice, but out of ignorance of each other's needs. An AI that understands both the conversation and what each person cares about can close that gap. It can route the right fragment of a sales call to the product team and the right fragment of a support call to engineering, without anyone deciding in advance that those were connected.
+
+## Silos were a choice
+
+This is where it stops being about efficiency and starts being about silos.
+
+We tend to treat silos as a cultural failing, something to be fixed with reorganisations and away-days. But a silo is mostly just information that never travelled. It is context trapped in a team, a meeting, or a single person's head, because there was no cheap way to move it and no way to know who else it would have helped. Some of it is hoarded deliberately, because in a world where knowledge is power, being the person who knows is a kind of job security. Most of it is simply stranded.
+
+When you record what happens and let AI distribute the relevant parts, both causes erode. The stranded context gets routed to whoever needs it. And hoarding stops working as a strategy, because the information is in the system whether or not any individual chooses to share it. I wrote last month that as intelligence gets cheap, context becomes the last moat. The other side of that coin is that an organisation which captures its own context stops being held hostage to whoever happens to hold it.
+
+What you are really building, quietly, is a layer that records how the organisation actually works. Not the org chart. Not the process map someone wrote two years ago that nobody follows. The real thing: how decisions actually get made, who actually talks to whom, where work actually slows down. That layer is worth more than any single document inside it, and most companies have never had it, because the raw material evaporated the moment each meeting ended.
+
+AI adds one more thing on top. It notices. A person passing on information can only relay what they understood and thought to mention. An agent reading everything can flag the connection nobody saw, the second team hitting the same problem as the first, the customer comment that quietly contradicts the roadmap. Some of that is signal humans miss because no one person sees the whole picture. Some of it is signal humans suppress because surfacing it is not in their interest. The machine has neither limitation.
+
+## The governance work
+
+None of this is free, and the bill arrives as governance.
+
+The moment you start recording, you are responsible for what gets captured. People say things in meetings that should never go near a model: names, client details, personal circumstances, the sensitive specifics of someone's situation. So the process has to change before the technology does. We have had to get disciplined about recordings starting and stopping around the relevant, non-personal part, with the human conversation kept off the record. There are real questions about which team's data is shared with which other team, what sits behind which security level, and who is allowed to query what.
+
+We are lucky to be small. At our size we can share almost everything with almost everyone and protect people simply by not recording the personal stuff in the first place. A large organisation has a harder version of the same problem, and there is genuine work in aligning on what should and should not be captured before any of the benefit shows up. I wrote last month about the technical side of this, the need for a local model that can make sensitive data generic without ever leaking it. The governance side is the human counterpart: deciding, deliberately and in advance, what is even allowed to exist as a recording. The companies that do that piece of work properly are the ones that get to keep the rich data source. The ones that skip it will either leak something they regret or, more likely, get scared and record nothing.
+
+## The remote U-turn
+
+Now the part I have changed my mind about.
+
+If the advantage comes from recording what happens and letting AI move it around, then the question of where people physically sit looks completely different. A remote, recorded organisation digitises its own context by default. Every meeting is already a transcript. Every decision already has a trail. An in-person organisation has its richest context happen in rooms and corridors where nothing is captured, and then wonders why its knowledge keeps walking out of the door.
+
+So here is the claim I did not expect to be making. Remote work, done properly, is the cure for silos, not the cause. We have spent three years assuming the opposite.
+
+I think the return-to-office wave has been driven by a lack of trust far more than by evidence. And the evidence, now that we have a lot of it, does not say what the mandates imply.
+
+Working from home has not collapsed and it has not taken over. Stanford's WFH Research, which has surveyed hundreds of thousands of people, finds it has settled at roughly a quarter of all paid days in the United States, about three times the pre-pandemic rate, and essentially flat since 2023. That is an equilibrium, not a trend on its way somewhere. Employees value the flexibility at around the equivalent of an eight percent pay rise, which is part of why mandates land so badly.
+
+On the question executives claim to care about, performance, the best evidence points the other way. The most rigorous study of hybrid work, a randomised controlled trial of more than 1,600 employees published in Nature in 2024 by Nick Bloom and colleagues, found that letting people work from home two days a week cut quit rates by about a third while having no measurable effect on performance, promotions, or even the lines of code engineers wrote. The managers in that experiment went in expecting hybrid to hurt productivity and came out, on average, believing the opposite.
+
+And when researchers looked at whether return-to-office mandates actually improve the business, they did not find it. A University of Pittsburgh study of S&P 500 firms found that RTO mandates produced no significant change in financial performance or company value, but did produce a significant drop in employee job satisfaction. The mandates were more common at firms with weak recent stock performance. The authors' blunt reading was that they look less like a performance strategy and more like a way for management to reassert control and have someone to blame.
+
+Even the physical evidence shows people quietly voting. Office occupancy, measured by Kastle's badge swipes, plateaued near half of pre-pandemic levels for years. Even the record-setting week at the end of 2025 averaged about 56 percent, with the Tuesday peak around two thirds and Friday down near a third. After every mandate, people optimise for the middle of the week and avoid the edges.
+
+None of this has stopped the mandates, and the ones making the most noise come from some of the strongest companies in the world. Elon Musk told Tesla staff in 2022 to do a minimum of forty hours in the office or be assumed to have resigned, and that anyone who objected should pretend to work somewhere else. He later called working from home morally wrong. Amazon moved to five days from the start of 2025, with Andy Jassy citing culture, collaboration, and invention. JPMorgan followed, and Jamie Dimon dismissed a petition signed by more than a thousand of his own staff in language I will not reproduce in full. Google, Apple, and Meta settled on three days, Disney on four.
+
+It is easy to read that list and conclude the serious companies have decided. But look at what Dimon asked for in the same breath as the mandate. He told the bank to find ten percent of efficiency, and he defined it as ten percent fewer reports, meetings, documents, and training sessions. Read that again. The most forceful return-to-office leader in the world diagnosed his company's problem as too much communication overhead, the exact thing I am arguing AI removes. He is right about the disease. He has reached for the wrong cure. You do not get less low-value communication by putting everyone in the same building. If anything you get more, because proximity manufactures meetings. You get less of it by capturing what matters and letting a machine carry it to the people who need it.
+
+So I think the mandates are a detour. Organisations pulled people back because they did not trust what they could not see, and because they never gave remote work long enough to reveal its real advantage, which only shows up once you record and route information well. My prediction is that this reverses over the coming decade. Not all at once, and not to fully remote everywhere, but back towards remote and hybrid as the default, pushed by the data on performance and attrition, by the cost of all that half-empty real estate, and by employees who, given the choice, keep choosing it. Roughly half of remote-capable workers, in survey after survey, say they would quit or start looking rather than accept a five-day mandate. That is not a workforce that has been persuaded.
+
+## The human side
+
+There is a real cost to all of this, and I do not want to wave it away.
+
+If the machine takes over the transactional communication, the human communication that remains has to get better, and that does not happen by accident. The relationships, the trust, the reading of a room, the goodwill you build up and spend later when something goes wrong: historically we got all of it for free as a by-product of being in the same place. Strip out the transactional reasons to be together and you can accidentally strip out the human ones too. So organisations have to do something they have never had to do deliberately before, which is manufacture connection on purpose. Offsites that exist only to build relationships. Time with customers that is not about closing anything. The deliberate practice of skills that used to develop on their own.
+
+That leaves two open problems, and which one you have depends on where you sit. If you are remote, your context is captured almost for free, and your hard problem is human connection: how to build the trust and relationships the office used to hand you. If you are in person, connection comes more or less for free, and your hard problem is the opposite: how to capture the rich context that currently happens in rooms and disappears. Almost nobody has both. The organisations that win the next decade will be the ones that work out how to get the half they are missing, instead of assuming their current setup gives them both.
+
+## Where this leaves me
+
+So here is where the month lands.
+
+The biggest benefit of AI inside an organisation is not that it writes our documents or answers our questions. It is that it can take in more information than any of us could, work out which fragment matters to which person, and deliver it with almost no human in the loop. Automated communication, plus the ability to spot the relevant thing humans miss, either because no one of us sees the whole picture or because it was in someone's interest not to share it.
+
+That capability changes the calculation on almost everything, including where we sit. It tells me the value of remote work has only just been discovered, and that we wrote it off years too early, before we had the tools that make it pay. The work now is not to argue about office days. It is to decide, deliberately, what your organisation records and how it moves what it learns. Get that right and the silos quietly disappear. Get it right and remote stops being a concession you tolerate and becomes the way the best-informed organisations run.
+
+We spent a hundred years building companies around the cost of moving information between people. That cost is collapsing. Almost everything about how we organise was an answer to a question that is about to stop being asked.`,
+        tags: ["ai", "work", "remote"],
+      },
+      {
         id: "adopting-intelligence",
         slug: "adopting-intelligence",
         title: "Adopting Intelligence",
