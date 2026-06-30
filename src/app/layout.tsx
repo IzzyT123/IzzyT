@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { DM_Sans, Fraunces } from "next/font/google";
+import { SiteAnalytics } from "@/components/site-analytics";
 import "./globals.css";
 
 const dmSans = DM_Sans({
@@ -53,7 +54,10 @@ export default function RootLayout({
       lang="en-GB"
       className={`${dmSans.variable} ${fraunces.variable} h-full scroll-smooth antialiased`}
     >
-      <body className="min-h-full font-sans text-foreground">{children}</body>
+      <body className="min-h-full font-sans text-foreground">
+        {children}
+        <SiteAnalytics />
+      </body>
     </html>
   );
 }
