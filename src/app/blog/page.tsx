@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { site } from "@/data/site";
 import { SiteFooter } from "@/components/site-footer";
+import { BlogPlayButton } from "@/components/blog-play-button";
 
 export const metadata: Metadata = {
   title: "Blog",
@@ -75,7 +76,7 @@ export default function BlogIndex() {
           ) : (
             <ul className="flex flex-col divide-y divide-border border-y border-border">
               {posts.map((post) => (
-                <li key={post.id}>
+                <li key={post.id} className="relative">
                   <Link
                     href={`/blog/${post.slug}`}
                     className="block py-5 transition-colors hover:bg-surface sm:py-6"
@@ -84,12 +85,21 @@ export default function BlogIndex() {
                       {formatPostDate(post.date)}
                     </p>
                     <h2 className="mt-1 font-[family-name:var(--font-fraunces)] text-xl font-semibold tracking-tight sm:text-2xl">
-                      {post.title}
+                      <span className={post.audio?.src ? "pr-12" : undefined}>
+                        {post.title}
+                      </span>
                     </h2>
                     <p className="mt-2 text-sm leading-relaxed text-muted sm:text-base">
                       {post.excerpt}
                     </p>
                   </Link>
+                  {post.audio?.src ? (
+                    <BlogPlayButton
+                      src={post.audio.src}
+                      title={post.title}
+                      className="absolute right-0 top-1/2 -translate-y-1/2"
+                    />
+                  ) : null}
                 </li>
               ))}
             </ul>

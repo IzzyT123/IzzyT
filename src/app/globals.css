@@ -36,3 +36,15 @@ body {
   background: var(--foreground);
   color: var(--surface);
 }
+
+.word-token {
+  border-radius: 2px;
+  transition:
+    background-color 100ms linear,
+    color 100ms linear;
+}
+
+.word-active {
+  background: var(--foreground);
+  color: var(--surface);
+}

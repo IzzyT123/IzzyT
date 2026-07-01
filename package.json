@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "gen:timings": "node scripts/generate-audio-timings.mts"
   },
   "dependencies": {
     "@vercel/analytics": "^2.0.1",

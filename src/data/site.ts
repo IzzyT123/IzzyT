@@ -32,6 +32,11 @@ export type PostEntry = {
   readonly excerpt: string;
   readonly body: string;
   readonly tags?: readonly string[];
+  /** Optional narration. `words` points at a per-word timings JSON for highlighting. */
+  readonly audio?: {
+    readonly src: string;
+    readonly words?: string;
+  };
 };
 
 export const site = {
@@ -295,6 +300,10 @@ And this reaches further than where we sit. If the cost of moving information is
 
 We spent a hundred years building companies around the cost of moving information between people. That cost is collapsing. Almost everything about how we organise was an answer to a question that is about to stop being asked.`,
         tags: ["ai", "work", "remote"],
+        audio: {
+          src: "/audio/Distributing_Intelligence.mp3",
+          words: "/audio/distributing-intelligence.words.json",
+        },
       },
       {
         id: "adopting-intelligence",

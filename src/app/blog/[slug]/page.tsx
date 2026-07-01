@@ -1,15 +1,31 @@
+import { readFile } from "node:fs/promises";
+import path from "node:path";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import ReactMarkdown from "react-markdown";
 import { site, type PostEntry } from "@/data/site";
 import { SiteFooter } from "@/components/site-footer";
+import { PostAudioReader, type WordTiming } from "@/components/post-audio-reader";
+import { tokenizePost } from "@/lib/post-tokens";
 
 function findPost(slug: string): PostEntry | undefined {
   for (const p of site.posts.items) {
     if (p.slug === slug) return p;
   }
   return undefined;
+}
+
+async function loadWordTimings(rel?: string): Promise<WordTiming[] | null> {
+  if (!rel) return null;
+  try {
+    const filePath = path.join(process.cwd(), "public", rel.replace(/^\/+/, ""));
+    const raw = await readFile(filePath, "utf8");
+    const parsed: unknown = JSON.parse(raw);
+    return Array.isArray(parsed) ? (parsed as WordTiming[]) : null;
+  } catch {
+    return null;
+  }
 }
 
 function formatPostDate(iso: string): string {
@@ -74,6 +90,10 @@ export default async function PostDetail({
   const post = findPost(slug);
   if (!post) notFound();
 
+  const hasAudio = Boolean(post.audio?.src);
+  const words = hasAudio ? await loadWordTimings(post.audio?.words) : null;
+  const blocks = hasAudio ? tokenizePost(post.title, post.body).blocks : null;
+
   const url = `${SITE_URL}/blog/${post.slug}`;
   const publishedIso = new Date(post.date).toISOString();
   const jsonLd = {
@@ -131,9 +151,17 @@ export default async function PostDetail({
 
       <article className="border-b border-border bg-background px-5 py-8 sm:px-8 sm:py-10">
         <div className="mx-auto max-w-3xl">
-          <div className="prose prose-neutral max-w-none text-base leading-relaxed text-foreground [&_a]:text-foreground [&_a]:underline [&_a]:decoration-border [&_a]:underline-offset-4 hover:[&_a]:decoration-foreground [&_h2]:mt-8 [&_h2]:font-[family-name:var(--font-fraunces)] [&_h2]:text-xl [&_h2]:font-semibold [&_h3]:mt-6 [&_h3]:font-semibold [&_p]:mt-4 [&_ul]:mt-4 [&_ul]:list-disc [&_ul]:pl-5 [&_ol]:mt-4 [&_ol]:list-decimal [&_ol]:pl-5 [&_li]:mt-1 [&_blockquote]:mt-4 [&_blockquote]:border-l-2 [&_blockquote]:border-border [&_blockquote]:pl-4 [&_blockquote]:italic [&_code]:rounded [&_code]:bg-surface [&_code]:px-1.5 [&_code]:py-0.5 [&_code]:text-[0.9em]">
-            <ReactMarkdown>{post.body}</ReactMarkdown>
-          </div>
+          {post.audio?.src && blocks ? (
+            <PostAudioReader
+              src={post.audio.src}
+              words={words}
+              blocks={blocks}
+            />
+          ) : (
+            <div className="prose prose-neutral max-w-none text-base leading-relaxed text-foreground [&_a]:text-foreground [&_a]:underline [&_a]:decoration-border [&_a]:underline-offset-4 hover:[&_a]:decoration-foreground [&_h2]:mt-8 [&_h2]:font-[family-name:var(--font-fraunces)] [&_h2]:text-xl [&_h2]:font-semibold [&_h3]:mt-6 [&_h3]:font-semibold [&_p]:mt-4 [&_ul]:mt-4 [&_ul]:list-disc [&_ul]:pl-5 [&_ol]:mt-4 [&_ol]:list-decimal [&_ol]:pl-5 [&_li]:mt-1 [&_blockquote]:mt-4 [&_blockquote]:border-l-2 [&_blockquote]:border-border [&_blockquote]:pl-4 [&_blockquote]:italic [&_code]:rounded [&_code]:bg-surface [&_code]:px-1.5 [&_code]:py-0.5 [&_code]:text-[0.9em]">
+              <ReactMarkdown>{post.body}</ReactMarkdown>
+            </div>
+          )}
 
           {post.tags && post.tags.length > 0 ? (
             <ul className="mt-8 flex flex-wrap gap-2">
