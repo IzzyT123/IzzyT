@@ -28,13 +28,24 @@ export default function BlogIndex() {
     <>
       <header className="border-b border-border bg-surface px-5 py-6 sm:px-8 sm:py-8">
         <div className="mx-auto max-w-3xl">
-          <Link
-            href="/"
-            className="inline-flex items-center gap-2 text-sm font-medium text-muted underline decoration-border underline-offset-4 transition hover:text-foreground hover:decoration-foreground"
-          >
-            <span aria-hidden>←</span>
-            Home
-          </Link>
+          <div className="flex items-center justify-between gap-4">
+            <Link
+              href="/"
+              className="inline-flex items-center gap-2 text-sm font-medium text-muted underline decoration-border underline-offset-4 transition hover:text-foreground hover:decoration-foreground"
+            >
+              <span aria-hidden>←</span>
+              Home
+            </Link>
+            <a
+              href={site.links.linkedin}
+              className="text-sm font-medium underline decoration-border underline-offset-4 transition hover:decoration-foreground"
+              rel="noopener noreferrer"
+              target="_blank"
+              aria-label="Follow Izzy Thomson on LinkedIn"
+            >
+              Follow on LinkedIn
+            </a>
+          </div>
           <h1 className="mt-4 font-[family-name:var(--font-fraunces)] text-3xl font-semibold tracking-tight sm:text-4xl">
             {site.posts.heading}
           </h1>

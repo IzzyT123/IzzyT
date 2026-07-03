@@ -130,13 +130,24 @@ export default async function PostDetail({
       />
       <header className="border-b border-border bg-surface px-5 py-6 sm:px-8 sm:py-8">
         <div className="mx-auto max-w-3xl">
-          <Link
-            href="/blog"
-            className="inline-flex items-center gap-2 text-sm font-medium text-muted underline decoration-border underline-offset-4 transition hover:text-foreground hover:decoration-foreground"
-          >
-            <span aria-hidden>←</span>
-            Blog
-          </Link>
+          <div className="flex items-center justify-between gap-4">
+            <Link
+              href="/blog"
+              className="inline-flex items-center gap-2 text-sm font-medium text-muted underline decoration-border underline-offset-4 transition hover:text-foreground hover:decoration-foreground"
+            >
+              <span aria-hidden>←</span>
+              Blog
+            </Link>
+            <a
+              href={site.links.linkedin}
+              className="text-sm font-medium underline decoration-border underline-offset-4 transition hover:decoration-foreground"
+              rel="noopener noreferrer"
+              target="_blank"
+              aria-label="Follow Izzy Thomson on LinkedIn"
+            >
+              Follow on LinkedIn
+            </a>
+          </div>
           <p className="mt-5 font-mono text-[10px] font-semibold uppercase tracking-[0.2em] text-muted">
             {formatPostDate(post.date)}
           </p>
@@ -175,6 +186,25 @@ export default async function PostDetail({
               ))}
             </ul>
           ) : null}
+
+          <aside className="mt-10 border border-border bg-surface p-6 sm:p-8">
+            <h2 className="font-[family-name:var(--font-fraunces)] text-xl font-semibold tracking-tight">
+              Enjoyed this? Let&rsquo;s connect.
+            </h2>
+            <p className="mt-2 text-sm leading-relaxed text-muted sm:text-base">
+              I write about shipping AI products, tooling, and what I learn from
+              monthly builds. Follow or connect on LinkedIn to catch the next one.
+            </p>
+            <a
+              href={site.links.linkedin}
+              className="mt-5 inline-flex items-center justify-center border border-black bg-black px-5 py-2.5 text-sm font-medium text-accent-foreground shadow-sm transition hover:-translate-y-0.5 hover:border-neutral-800 hover:bg-neutral-800 hover:shadow-[0_12px_28px_-10px_rgba(0,0,0,0.55)]"
+              rel="noopener noreferrer"
+              target="_blank"
+              aria-label="Connect with Izzy Thomson on LinkedIn"
+            >
+              Connect on LinkedIn
+            </a>
+          </aside>
         </div>
       </article>
 
