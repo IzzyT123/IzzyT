@@ -190,6 +190,282 @@ The initial shape is a free weekday audio brief, with paid tiers for more source
       "Occasional notes on shipping AI products, tooling, and what I learn from monthly builds.",
     items: [
       {
+        id: "software-nobody-opens",
+        slug: "software-nobody-opens",
+        title: "Software Nobody Opens",
+        date: "2026-08-01",
+        excerpt:
+          "I built an analytics dashboard, then realised my workflow was to turn structured data into charts, screenshot the charts, and ask AI to turn them back into decisions. The next software may be built for agents, judged by the actions it enables, and sometimes deleted as soon as the problem is solved.",
+        body: `Last month, in Distributing Intelligence, I wrote about what happens when an organisation captures what it knows and lets AI move the right information to the right person.
+
+This month I have been thinking about what happens next.
+
+Because if all that intelligence arrives as another report for someone to read, another dashboard for someone to check, or another presentation for someone to sit through, we have not removed much work. We have just used the most powerful technology we have ever built to produce paperwork faster.
+
+I think the next shift is from software designed to help humans understand what is happening to software designed to help agents do something about it.
+
+The best software may become software nobody opens.
+
+## The copy-to-markdown moment
+
+DeGPT.ai is still my favourite project for learning because it is so simple. There are fewer places for me to hide my own bad decisions.
+
+As part of building it, I created a full analytics admin console. It had the charts, tables, filters, and reassuring seriousness of a proper software product. I could open it and see what was happening.
+
+Then I noticed what I was actually doing.
+
+I would look through the analytics, take screenshots of the interesting bits, paste them into my AI software development agent, and ask it to analyse what was happening and suggest what I should change.
+
+The data started in a database. I turned it into charts. I turned the charts into screenshots. I gave the screenshots to an AI so it could turn them back into data and tell me what to do.
+
+I had built a tiny Heath Robinson machine with a chart library.
+
+So I added one button: copy to markdown.
+
+The button copies every useful piece of analytics into a format I can paste directly into the agent. It is not as visually impressive as the dashboard. It is much more useful.
+
+The next step is obvious. I should not be copying it at all. The agent should be able to access the data through an API or MCP, combine it with qualitative feedback, external research, the codebase, and the goals of the product, then suggest the next action automatically.
+
+The dashboard is still helpful. I want to be able to check the numbers, challenge the interpretation, and understand why a change is being suggested. But it is no longer the end of the workflow.
+
+It is the human inspection window into a workflow that should mostly happen somewhere else.
+
+## Reports are a very slow API
+
+Most business software has been designed around a human being the final consumer.
+
+Data goes into a dashboard. The dashboard goes into an analysis. The analysis goes into a report. The report goes into a meeting. The meeting produces a decision. The decision becomes a task. Eventually, if everyone still remembers why they started, something changes.
+
+Every arrow adds delay.
+
+AI makes it possible to produce the dashboard, analysis, report, meeting notes, and task almost instantly. But automating every stage of an old process is not the same as designing a better process.
+
+In fact, it may make the problem worse. The cost of producing reports is moving towards zero. The amount of human attention available to read them is not.
+
+A report is useful when it helps someone make a decision, understand a risk, or hold somebody accountable. A report that does none of those things is just data wearing office clothes.
+
+So when I say reporting is dead, I do not mean that measurement is dead. I do not mean visualisation is dead, and I definitely do not mean accountability is dead.
+
+I mean the report should stop being the default destination.
+
+The destination should be an action, a decision, or a clearly recorded reason for doing nothing.
+
+The report can be generated when someone needs to inspect the evidence. The visualisation can appear when a human needs to understand a pattern. The analysis can be preserved so that the decision can be challenged later.
+
+But none of those things has to sit in the middle of every workflow.
+
+Instead of:
+
+Feedback → analysis → report → meeting → decision → action
+
+The useful flow becomes:
+
+Feedback → proposed action → human judgement where required → action → measurement
+
+The analysis still happens. It just becomes working rather than the artefact everyone is waiting for.
+
+## The next user is an agent
+
+We spend a lot of time thinking about user experience. What should be on the homepage? How should the navigation work? Which chart communicates the result most clearly? How many clicks does it take to complete the task?
+
+Those questions still matter when the user is a person.
+
+An agent has different needs.
+
+It does not care whether the chart has rounded corners. It does not need a carefully arranged dashboard. It does not get tired halfway down a table or become distracted because someone has put a red notification badge in the corner.
+
+It needs the complete data, a clear explanation of what the data means, where it came from, how current it is, what it is allowed to do, and how it should report back.
+
+That means software increasingly needs two interfaces.
+
+The human interface lets people understand, question, approve, override, and remain accountable.
+
+The agent interface lets the work move.
+
+For DeGPT, the copy-to-markdown button is the most basic possible agent interface. It works because the product is small and I am manually carrying the context between systems. At a larger scale, the design needs to be more deliberate.
+
+Can the agent access the full state without reading screenshots?
+
+Does it know what each metric actually means?
+
+Can it connect quantitative data to customer feedback and previous decisions?
+
+Can it take a bounded action rather than merely suggest one?
+
+Does every action leave a record?
+
+Can the action be reversed?
+
+Does the agent know when it needs a human?
+
+These may become as normal as the questions we ask about mobile responsiveness or accessibility today.
+
+Someone will inevitably call this Agent Experience, or AX, because no change in technology is complete until it has acquired a two-letter discipline.
+
+The best agent experience will probably be almost invisible. Structured information. Predictable tools. Useful errors. Clear permissions. A complete record of what happened.
+
+Not very exciting to look at. Extremely useful to build on.
+
+## From feedback to execution
+
+I have written before about creating loops where information improves a product or business. What I had not properly noticed was how many human stopping points I was still building into those loops.
+
+The analytics console was one of them.
+
+Imagine the complete version of the DeGPT workflow.
+
+The agent can read all of the quantitative analytics. It can combine them with the qualitative feedback people have submitted. It can research relevant changes outside the product. It can see the codebase and understand the product goals. It can suggest an improvement, explain the evidence, and pass the approved change to a development agent.
+
+The human decision moves from "what do these charts mean?" to "is this the right thing to do?"
+
+That is a much better use of human judgement.
+
+Some changes could happen automatically because they are cheap, reversible, and low risk. Others should require approval. High-risk or strategic changes may still need a proper discussion.
+
+The point is not to remove humans from every decision. It is to stop requiring humans to manually transport information between every stage of the decision.
+
+This applies far beyond software development.
+
+A meeting does not need to become an AI-generated report that nobody reads. It can become a set of proposed actions, routed to the people responsible, with the relevant evidence attached.
+
+Customer feedback does not need to become a quarterly presentation. It can become a product experiment.
+
+Operational data does not need to wait for a monthly review. It can trigger an investigation while the problem is still happening.
+
+The old model treated analysis as a product. The new model treats analysis as part of the machinery.
+
+Humans still need to see enough to trust the machinery. We just do not need to stand inside it moving every cog by hand.
+
+## Software with a best-before date
+
+Once I started questioning who software is being built for, I found myself questioning how long it needs to exist.
+
+We have treated software like a building. It requires a business case, an architect, approval, funding, construction, maintenance, and somebody prepared to defend its existence for the next ten years.
+
+Some software deserves that treatment.
+
+Systems that hold important records, manage identities, take payments, support customers, or operate critical processes need to be reliable and maintained. Long-term needs will still require serious products, SaaS platforms, technical teams, support, security, and governance.
+
+But not every problem is a ten-year problem.
+
+Some software only needs to exist for the length of a programme. Some only needs to survive a project. Some might be useful for a month, a week, or one afternoon.
+
+That software is less like a building and more like scaffolding.
+
+Nobody complains that scaffolding was unsuccessful because it was taken down. Its disappearance is evidence that it completed the job.
+
+As building becomes cheaper, the minimum useful lifespan of software falls with it. If someone can build a tool in an hour that saves three hours of work, it may already have paid for itself. It does not need a product roadmap and an annual user conference.
+
+I think we will end up with at least three broad lifetimes.
+
+Long-term software will still be professionally built or bought, maintained, secured, supported, and governed.
+
+Medium-term software may be built by the person or team with the problem, with technical support and approved infrastructure. It might live for the duration of a client engagement, transformation, internal process, or temporary market need.
+
+Short-term software can be built by the user, solve one immediate problem, and disappear.
+
+Today we already accept this behaviour with spreadsheets. Nobody expects every spreadsheet used to answer a question to become an enterprise platform. AI means those spreadsheets can now become small applications, automations, or agents.
+
+The fact that something contains code does not automatically mean it deserves immortality.
+
+## Disposable does not mean irresponsible
+
+There is an obvious danger here.
+
+A thousand employees building a thousand untracked applications, each with access to sensitive data and no named owner, is not innovation. It is an incident report with a short delay.
+
+Disposable software should mean planned mortality, not disposable responsibility.
+
+The level of governance should depend on what the software can access, what it can change, how many people depend on it, and what happens if it fails. A tool does not become safe merely because its creator promises to delete it on Friday.
+
+Organisations need to give people a safe place to build.
+
+That probably means approved models, secure sandboxes, reusable components, controlled access to data, logging, expiry dates, and a clear route for something temporary to become something permanent.
+
+Every small internal tool could have an owner and a best-before date. When that date arrives, one of three things happens:
+
+- It has finished its job and is deleted.
+- It is still useful, so its life is deliberately extended.
+- It has become important, so it is professionalised.
+
+The dangerous outcome is not that software gets thrown away. It is that something built by one person on a Tuesday afternoon quietly becomes business-critical, and by Christmas everyone is too frightened to touch it.
+
+A best-before date forces the question.
+
+Is this still useful? Does anyone depend on it? Does it now deserve proper engineering, support, and governance?
+
+That also creates a better way to identify which ideas are worth investing in.
+
+Instead of asking a committee to predict whether an internal product will be valuable, let the person with the problem build a safe version. If nobody uses it, dispose of it. If a whole team starts depending on it, the business case has written itself.
+
+The strongest signal that software should become a product may be that people refuse to let it die.
+
+## Software can be disposable. People cannot.
+
+Organisations should want people to solve their own problems.
+
+The person doing the work can see friction that a central technology team will never see. They know which repeated task is irritating, which handoff fails, which exception ruins the process, and which tiny change would save them an hour every week.
+
+Giving that person the ability to build something changes their relationship with work. They stop being only a user of systems designed elsewhere and become someone who can improve the environment around them.
+
+But the incentive has to make sense.
+
+You cannot create a builder culture by teaching people that every successful automation makes them less necessary. If someone improves or removes part of their role, the reward should be more ownership, better problems, and the opportunity to build again.
+
+The reusable asset is not always the software. Sometimes it is the person becoming better at noticing and solving problems.
+
+That may matter more in a world where the software itself only lives for a month.
+
+## The ability to let go
+
+The falling cost of building changes the value of keeping what we have already built.
+
+When creating the first version was expensive, protecting it made sense. When a replacement can be created quickly, attachment becomes one of the larger costs.
+
+This may be where creative people have an unexpected advantage.
+
+AI attracts people who like logic, systems, and optimisation. But creatives are used to producing drafts, rejecting ideas, changing direction, and separating the work from the final outcome. They know that throwing something away is not always failure. Sometimes it is simply how the better thing appears.
+
+The strongest combination may be creatives who adopt the technology and logicians who become comfortable throwing systems away.
+
+Organisations will need the same ability.
+
+The goal is not constant chaos for its own sake. Nobody benefits from changing tools every morning because somebody on LinkedIn used the word "game-changing" again.
+
+The goal is to reduce the emotional and financial cost of changing direction when the evidence changes.
+
+Success becomes less about whether the first plan was correct and more about how quickly the organisation notices that it was wrong, learns, and moves.
+
+That requires stable goals but disposable routes.
+
+It requires software that can change without the organisation feeling that every previous investment must be defended forever. It requires people who can discard a solution without treating that as a judgement on the person who created it.
+
+The project plan will still exist, mainly so reality has something to ignore.
+
+## Where this leaves me
+
+So here is where the month lands.
+
+Software is gaining a new user and a much wider range of lifespans.
+
+The new user is the agent. It needs structured context, clearly defined tools, permissions, provenance, and a way to act. Humans still need an interface because humans remain responsible for judgement, challenge, and accountability. But we should stop forcing a person to sit between every piece of information and every useful outcome.
+
+At the same time, not every piece of software needs to become a permanent product. Some should last for years. Some should last for the project. Some should solve the problem and disappear.
+
+I still believe maintenance is one of the hardest parts of building software. The answer may not be to maintain everything. It may be to become much more deliberate about what deserves to survive.
+
+We used to treat the dashboard as the finished product. I now think it is often just a window cut into the machinery because humans occasionally need to look inside.
+
+The valuable thing is not what the screen says. It is what changes because the system knew.
+
+The next great piece of software may be something nobody logs into, which solves a problem, leaves behind a clean decision trail, and then disappears.
+
+That is a terrible way to sell annual licences.
+
+It may be a very good way to get work done.`,
+        tags: ["ai", "software", "work"],
+      },
+      {
         id: "distributing-intelligence",
         slug: "distributing-intelligence",
         title: "Distributing Intelligence",
