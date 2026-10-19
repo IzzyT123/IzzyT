@@ -36,7 +36,7 @@ export function ExperimentsTeaser({ limit = 3 }: { limit?: number } = {}) {
         <div className="flex flex-wrap items-baseline justify-between gap-3">
           <h2
             id="experiments-teaser-heading"
-            className="font-[family-name:var(--font-fraunces)] text-2xl font-semibold tracking-tight sm:text-3xl"
+            className="font-[family-name:var(--font-fraunces)] text-2xl font-bold uppercase tracking-tight sm:text-3xl"
           >
             {site.experiments.heading}
           </h2>
@@ -57,8 +57,8 @@ export function ExperimentsTeaser({ limit = 3 }: { limit?: number } = {}) {
             const posterSrc = media ? posterSrcForMedia(media) : undefined;
             return (
               <li key={item.id} className="list-none">
-                <article className="flex h-full flex-col border border-border bg-background p-3 shadow-sm transition-colors hover:border-foreground/35 sm:p-4">
-                  <p className="mb-2 font-mono text-[10px] font-semibold uppercase tracking-[0.2em] text-muted">
+                <article className="flex h-full flex-col border border-border border-t-[3px] border-t-accent bg-background p-3 shadow-sm transition-colors hover:border-accent/60 sm:p-4">
+                  <p className="mb-2 font-mono text-[10px] font-semibold uppercase tracking-[0.2em] text-accent">
                     {item.monthly ? "Monthly build" : "Side project"} · {item.period}
                   </p>
                   {posterSrc ? (
@@ -77,7 +77,7 @@ export function ExperimentsTeaser({ limit = 3 }: { limit?: number } = {}) {
                       />
                     </Link>
                   ) : null}
-                  <h3 className="mt-3 font-[family-name:var(--font-fraunces)] text-base font-semibold leading-snug sm:text-lg">
+                  <h3 className="mt-3 font-[family-name:var(--font-fraunces)] text-lg font-bold uppercase leading-snug tracking-tight sm:text-xl">
                     <Link
                       href={`/experiments/${item.slug}`}
                       className="underline decoration-transparent underline-offset-4 transition hover:decoration-foreground"

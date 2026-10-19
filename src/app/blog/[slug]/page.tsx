@@ -128,33 +128,44 @@ export default async function PostDetail({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <header className="border-b border-border bg-surface px-5 py-6 sm:px-8 sm:py-8">
+      <header className="border-b border-border bg-accent px-5 py-6 text-accent-foreground sm:px-8 sm:py-8">
         <div className="mx-auto max-w-3xl">
           <div className="flex items-center justify-between gap-4">
             <Link
               href="/blog"
-              className="inline-flex items-center gap-2 text-sm font-medium text-muted underline decoration-border underline-offset-4 transition hover:text-foreground hover:decoration-foreground"
+              className="inline-flex items-center gap-2 text-sm font-medium text-white/85 underline decoration-white/30 underline-offset-4 transition hover:text-white hover:decoration-white"
             >
               <span aria-hidden>←</span>
               Blog
             </Link>
-            <a
-              href={site.links.linkedin}
-              className="text-sm font-medium underline decoration-border underline-offset-4 transition hover:decoration-foreground"
-              rel="noopener noreferrer"
-              target="_blank"
-              aria-label="Follow Izzy Thomson on LinkedIn"
-            >
-              Follow on LinkedIn
-            </a>
+            <div className="flex items-center gap-4">
+              <a
+                href={site.links.x}
+                className="text-sm font-medium text-white/85 underline decoration-white/30 underline-offset-4 transition hover:text-white hover:decoration-white"
+                rel="noopener noreferrer"
+                target="_blank"
+                aria-label="Follow Izzy Thomson on X"
+              >
+                Follow on X
+              </a>
+              <a
+                href={site.links.linkedin}
+                className="text-sm font-medium text-white/85 underline decoration-white/30 underline-offset-4 transition hover:text-white hover:decoration-white"
+                rel="noopener noreferrer"
+                target="_blank"
+                aria-label="Follow Izzy Thomson on LinkedIn"
+              >
+                Follow on LinkedIn
+              </a>
+            </div>
           </div>
-          <p className="mt-5 font-mono text-[10px] font-semibold uppercase tracking-[0.2em] text-muted">
+          <p className="mt-5 font-mono text-[10px] font-semibold uppercase tracking-[0.2em] text-white/75">
             {formatPostDate(post.date)}
           </p>
-          <h1 className="mt-2 font-[family-name:var(--font-fraunces)] text-3xl font-semibold leading-tight tracking-tight sm:text-4xl">
+          <h1 className="mt-2 font-[family-name:var(--font-fraunces)] text-3xl font-extrabold uppercase leading-tight tracking-tight text-white sm:text-4xl">
             {post.title}
           </h1>
-          <p className="mt-3 text-base leading-relaxed text-muted sm:text-lg">
+          <p className="mt-3 text-base leading-relaxed text-white/90 sm:text-lg">
             {post.excerpt}
           </p>
         </div>
@@ -169,7 +180,7 @@ export default async function PostDetail({
               blocks={blocks}
             />
           ) : (
-            <div className="prose prose-neutral max-w-none text-base leading-relaxed text-foreground [&_a]:text-foreground [&_a]:underline [&_a]:decoration-border [&_a]:underline-offset-4 hover:[&_a]:decoration-foreground [&_h2]:mt-8 [&_h2]:font-[family-name:var(--font-fraunces)] [&_h2]:text-xl [&_h2]:font-semibold [&_h3]:mt-6 [&_h3]:font-semibold [&_p]:mt-4 [&_ul]:mt-4 [&_ul]:list-disc [&_ul]:pl-5 [&_ol]:mt-4 [&_ol]:list-decimal [&_ol]:pl-5 [&_li]:mt-1 [&_blockquote]:mt-4 [&_blockquote]:border-l-2 [&_blockquote]:border-border [&_blockquote]:pl-4 [&_blockquote]:italic [&_code]:rounded [&_code]:bg-surface [&_code]:px-1.5 [&_code]:py-0.5 [&_code]:text-[0.9em]">
+            <div className="prose prose-neutral max-w-none text-base leading-relaxed text-foreground [&_a]:text-accent [&_a]:underline [&_a]:decoration-border [&_a]:underline-offset-4 hover:[&_a]:decoration-accent [&_h2]:mt-8 [&_h2]:font-[family-name:var(--font-fraunces)] [&_h2]:text-2xl [&_h2]:font-bold [&_h2]:uppercase [&_h3]:mt-6 [&_h3]:font-semibold [&_p]:mt-4 [&_ul]:mt-4 [&_ul]:list-disc [&_ul]:pl-5 [&_ol]:mt-4 [&_ol]:list-decimal [&_ol]:pl-5 [&_li]:mt-1 [&_blockquote]:mt-4 [&_blockquote]:border-l-[3px] [&_blockquote]:border-accent [&_blockquote]:pl-4 [&_code]:rounded [&_code]:bg-surface [&_code]:px-1.5 [&_code]:py-0.5 [&_code]:text-[0.9em]">
               <ReactMarkdown>{post.body}</ReactMarkdown>
             </div>
           )}
@@ -187,23 +198,34 @@ export default async function PostDetail({
             </ul>
           ) : null}
 
-          <aside className="mt-10 border border-border bg-surface p-6 sm:p-8">
-            <h2 className="font-[family-name:var(--font-fraunces)] text-xl font-semibold tracking-tight">
+          <aside className="mt-10 border border-border border-t-[3px] border-t-accent bg-surface p-6 sm:p-8">
+            <h2 className="font-[family-name:var(--font-fraunces)] text-xl font-bold uppercase tracking-tight">
               Enjoyed this? Let&rsquo;s connect.
             </h2>
             <p className="mt-2 text-sm leading-relaxed text-muted sm:text-base">
               I write about shipping AI products, tooling, and what I learn from
-              monthly builds. Follow or connect on LinkedIn to catch the next one.
+              monthly builds. Follow or connect on LinkedIn or X to catch the next one.
             </p>
-            <a
-              href={site.links.linkedin}
-              className="mt-5 inline-flex items-center justify-center border border-black bg-black px-5 py-2.5 text-sm font-medium text-accent-foreground shadow-sm transition hover:-translate-y-0.5 hover:border-neutral-800 hover:bg-neutral-800 hover:shadow-[0_12px_28px_-10px_rgba(0,0,0,0.55)]"
-              rel="noopener noreferrer"
-              target="_blank"
-              aria-label="Connect with Izzy Thomson on LinkedIn"
-            >
-              Connect on LinkedIn
-            </a>
+            <div className="mt-5 flex flex-wrap items-center gap-3">
+              <a
+                href={site.links.linkedin}
+                className="inline-flex items-center justify-center border border-accent bg-accent px-5 py-2.5 text-sm font-medium text-accent-foreground shadow-sm transition hover:-translate-y-0.5 hover:bg-accent-hover"
+                rel="noopener noreferrer"
+                target="_blank"
+                aria-label="Connect with Izzy Thomson on LinkedIn"
+              >
+                Connect on LinkedIn
+              </a>
+              <a
+                href={site.links.x}
+                className="inline-flex items-center justify-center border border-border bg-background px-5 py-2.5 text-sm font-medium text-foreground transition hover:-translate-y-0.5 hover:border-accent hover:text-accent"
+                rel="noopener noreferrer"
+                target="_blank"
+                aria-label="Follow Izzy Thomson on X"
+              >
+                Follow on X
+              </a>
+            </div>
           </aside>
         </div>
       </article>

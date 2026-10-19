@@ -174,7 +174,7 @@ export function DemoShelf() {
       <div className="mx-auto max-w-6xl">
         <h2
           id="now-heading"
-          className="mb-4 font-[family-name:var(--font-fraunces)] text-2xl font-semibold tracking-tight sm:mb-5 sm:text-3xl"
+          className="mb-4 font-[family-name:var(--font-fraunces)] text-2xl font-bold uppercase tracking-tight sm:mb-5 sm:text-3xl"
         >
           Now
         </h2>
@@ -210,9 +210,9 @@ export function DemoShelf() {
                     transition: { duration: 0.45, ease },
                   },
                 }}
-                className="flex h-full flex-col border border-border bg-background p-3 shadow-sm sm:p-4"
+                className="flex h-full flex-col border border-border border-t-[3px] border-t-accent bg-background p-3 shadow-sm transition hover:border-accent/60 sm:p-4"
               >
-                <p className="mb-2 font-mono text-[10px] font-semibold uppercase tracking-[0.2em] text-muted">
+                <p className="mb-2 font-mono text-[10px] font-semibold uppercase tracking-[0.2em] text-accent">
                   {demo.eyebrow}
                 </p>
                 <button
@@ -226,7 +226,7 @@ export function DemoShelf() {
                     <DemoMedia media={demo.media} reduceMotion={reduce} />
                   </MediaFrame>
                 </button>
-                <h2 className="mt-3 font-[family-name:var(--font-fraunces)] text-base font-semibold leading-snug sm:text-lg">
+                <h2 className="mt-3 font-[family-name:var(--font-fraunces)] text-lg font-bold uppercase leading-snug tracking-tight text-foreground sm:text-xl">
                   {demo.title}
                 </h2>
                 {demo.statsLine ? (

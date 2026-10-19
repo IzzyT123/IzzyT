@@ -48,8 +48,9 @@ function eventSubtypeLabel(event: TimelineEvent): string {
 function milestoneShellClass(column: SnapshotColumn): string {
   switch (column) {
     case "professional":
+      return "border border-border border-l-[3px] border-l-accent bg-surface shadow-sm transition-colors hover:border-accent/60";
     case "personal":
-      return "border border-border bg-surface shadow-sm transition-colors hover:border-foreground/35";
+      return "border border-border bg-surface shadow-sm transition-colors hover:border-accent/50";
     default:
       return "";
   }
@@ -105,7 +106,7 @@ function MilestoneCard({
           />
         </a>
       ) : null}
-      <h4 className="mt-2 font-[family-name:var(--font-fraunces)] text-base font-semibold leading-snug sm:text-lg">
+      <h4 className="mt-2 font-[family-name:var(--font-fraunces)] text-xl font-bold uppercase leading-snug tracking-tight sm:text-2xl">
         {event.title}
       </h4>
       {event.changeablePhases ? (
@@ -380,7 +381,7 @@ export function UnifiedTimeline({
       <div className="mx-auto max-w-6xl">
         <h2
           id="timeline-heading"
-          className="mb-4 font-[family-name:var(--font-fraunces)] text-2xl font-semibold tracking-tight sm:mb-5 sm:text-3xl"
+          className="mb-4 font-[family-name:var(--font-fraunces)] text-2xl font-bold uppercase tracking-tight sm:mb-5 sm:text-3xl"
         >
           Timeline
         </h2>

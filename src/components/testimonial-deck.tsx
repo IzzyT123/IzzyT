@@ -188,8 +188,8 @@ export function TestimonialDeck({ items }: Props) {
               aria-pressed={activeFilter}
               className={`border px-3 py-1.5 font-mono text-[10px] font-semibold uppercase tracking-[0.2em] transition ${
                 activeFilter
-                  ? "border-foreground bg-foreground text-background"
-                  : "border-border bg-surface text-muted hover:border-foreground/40 hover:text-foreground"
+                  ? "border-accent bg-accent text-accent-foreground"
+                  : "border-border bg-surface text-muted hover:border-accent/50 hover:text-foreground"
               }`}
             >
               {f.label}

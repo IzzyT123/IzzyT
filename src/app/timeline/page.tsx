@@ -12,11 +12,11 @@ export const metadata: Metadata = {
 export default function TimelinePage() {
   return (
     <>
-      <header className="border-b border-border bg-surface px-5 py-6 sm:px-8 sm:py-8">
+      <header className="border-b border-border bg-accent px-5 py-6 text-accent-foreground sm:px-8 sm:py-8">
         <div className="mx-auto max-w-6xl">
           <Link
             href="/"
-            className="inline-flex items-center gap-2 text-sm font-medium text-muted underline decoration-border underline-offset-4 transition hover:text-foreground hover:decoration-foreground"
+            className="inline-flex items-center gap-2 text-sm font-medium text-white/85 underline decoration-white/30 underline-offset-4 transition hover:text-white hover:decoration-white"
           >
             <span aria-hidden>←</span>
             Home

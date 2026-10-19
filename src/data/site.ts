@@ -41,7 +41,7 @@ export type PostEntry = {
 
 export const site = {
   name: "Izzy Thomson",
-  role: "AI product engineer shipping tools, agents, and enterprise systems",
+  role: "Building AI agents for big companies as Head of AI at Issoria. Shipping my own AI apps on the side and posting what I learn.",
   motto: "Demo, don't memo.",
 
   /** Hero / footer button — opens LinkedIn profile. */
@@ -49,6 +49,8 @@ export const site = {
 
   links: {
     linkedin: "https://www.linkedin.com/in/izzy-thomson-0b286b23/",
+    x: "https://x.com/IzzyT_com",
+    xHandle: "@IzzyT_com",
     github: "https://github.com/IzzyT123/",
     changeable: "https://changeable.ai",
     issoria: "https://www.issoriachange.com",
@@ -116,7 +118,7 @@ export const site = {
   /** Approximate public launch in the ChatGPT GPT era (for timeline anchor). */
   roleAiProduct: {
     sortDate: ROLE_AI_PRODUCT_SORT_DATE,
-    title: "AI product engineer focus",
+    title: "Head of AI at Issoria",
     detail:
       "Moved into owning ChangeAble.ai delivery: LLM systems, product architecture, and enterprise adoption.",
   },
@@ -185,7 +187,7 @@ The initial shape is a free weekday audio brief, with paid tiers for more source
   },
 
   posts: {
-    heading: "Writing",
+    heading: "Blog",
     intro:
       "Occasional notes on shipping AI products, tooling, and what I learn from monthly builds.",
     items: [

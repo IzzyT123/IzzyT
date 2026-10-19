@@ -74,29 +74,29 @@ export default async function ExperimentDetail({
 
   return (
     <>
-      <header className="border-b border-border bg-surface px-5 py-6 sm:px-8 sm:py-8">
+      <header className="border-b border-border bg-accent px-5 py-6 text-accent-foreground sm:px-8 sm:py-8">
         <div className="mx-auto max-w-3xl">
           <Link
             href="/experiments"
-            className="inline-flex items-center gap-2 text-sm font-medium text-muted underline decoration-border underline-offset-4 transition hover:text-foreground hover:decoration-foreground"
+            className="inline-flex items-center gap-2 text-sm font-medium text-white/85 underline decoration-white/30 underline-offset-4 transition hover:text-white hover:decoration-white"
           >
             <span aria-hidden>←</span>
             Experiments
           </Link>
-          <p className="mt-5 font-mono text-[10px] font-semibold uppercase tracking-[0.2em] text-muted">
+          <p className="mt-5 font-mono text-[10px] font-semibold uppercase tracking-[0.2em] text-white/75">
             {item.monthly ? "Monthly build" : "Side project"} · {item.period}
           </p>
-          <h1 className="mt-2 font-[family-name:var(--font-fraunces)] text-3xl font-semibold leading-tight tracking-tight sm:text-4xl">
+          <h1 className="mt-2 font-[family-name:var(--font-fraunces)] text-3xl font-extrabold uppercase leading-tight tracking-tight text-white sm:text-4xl">
             {item.name}
           </h1>
-          <p className="mt-3 text-base leading-relaxed text-muted sm:text-lg">
+          <p className="mt-3 text-base leading-relaxed text-white/90 sm:text-lg">
             {item.summary}
           </p>
           {externalHref ? (
             <p className="mt-4">
               <a
                 href={externalHref}
-                className="text-sm font-medium underline decoration-border underline-offset-4 transition hover:decoration-foreground"
+                className="text-sm font-medium text-white underline decoration-white/40 underline-offset-4 transition hover:decoration-white"
                 rel="noopener noreferrer"
                 target="_blank"
               >

@@ -26,7 +26,7 @@ export function WritingTeaser({ limit = 3 }: { limit?: number } = {}) {
         <div className="flex flex-wrap items-baseline justify-between gap-3">
           <h2
             id="writing-teaser-heading"
-            className="font-[family-name:var(--font-fraunces)] text-2xl font-semibold tracking-tight sm:text-3xl"
+            className="font-[family-name:var(--font-fraunces)] text-2xl font-bold uppercase tracking-tight sm:text-3xl"
           >
             {site.posts.heading}
           </h2>
@@ -46,12 +46,12 @@ export function WritingTeaser({ limit = 3 }: { limit?: number } = {}) {
             <li key={post.id}>
               <Link
                 href={`/blog/${post.slug}`}
-                className="block py-5 transition-colors hover:bg-surface sm:py-6"
+                className="block py-5 transition-colors hover:bg-surface sm:px-3 sm:py-6"
               >
-                <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.2em] text-muted">
+                <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.2em] text-accent">
                   {formatPostDate(post.date)}
                 </p>
-                <h3 className="mt-1 font-[family-name:var(--font-fraunces)] text-xl font-semibold tracking-tight sm:text-2xl">
+                <h3 className="mt-1 font-[family-name:var(--font-fraunces)] text-xl font-bold uppercase tracking-tight text-foreground sm:text-2xl">
                   {post.title}
                 </h3>
                 <p className="mt-2 text-sm leading-relaxed text-muted sm:text-base">

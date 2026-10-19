@@ -1,15 +1,15 @@
 @import "tailwindcss";
 
 :root {
-  --background: #efe8d7;
-  --foreground: #241f18;
-  --muted: #6b6254;
-  --border: #d9cfb9;
-  --surface: #fbf6e9;
-  --surface-muted: #ebe4d3;
-  --accent: #000000;
-  --accent-hover: #000000;
-  --accent-foreground: #fbf6e9;
+  --background: #f4f6fb;
+  --foreground: #0f1d3a;
+  --muted: #4a5d80;
+  --border: #d3dfef;
+  --surface: #ffffff;
+  --surface-muted: #e8eef8;
+  --accent: #1f3b73;
+  --accent-hover: #162b56;
+  --accent-foreground: #ffffff;
 }
 
 @theme inline {
@@ -23,7 +23,8 @@
   --color-accent-hover: var(--accent-hover);
   --color-accent-foreground: var(--accent-foreground);
   --font-sans: var(--font-dm-sans), ui-sans-serif, system-ui, sans-serif;
-  --font-display: var(--font-fraunces), ui-serif, Georgia, serif;
+  --font-display: var(--font-fraunces), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-fraunces), ui-sans-serif, system-ui, sans-serif;
 }
 
 body {
@@ -33,8 +34,8 @@ body {
 }
 
 ::selection {
-  background: var(--foreground);
-  color: var(--surface);
+  background: var(--accent);
+  color: var(--accent-foreground);
 }
 
 .word-token {
@@ -45,6 +46,6 @@ body {
 }
 
 .word-active {
-  background: var(--foreground);
-  color: var(--surface);
+  background: var(--accent);
+  color: var(--accent-foreground);
 }

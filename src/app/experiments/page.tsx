@@ -35,19 +35,19 @@ export default function ExperimentsPage() {
 
   return (
     <>
-      <header className="border-b border-border bg-surface px-5 py-6 sm:px-8 sm:py-8">
+      <header className="border-b border-border bg-accent px-5 py-6 text-accent-foreground sm:px-8 sm:py-8">
         <div className="mx-auto max-w-6xl">
           <Link
             href="/"
-            className="inline-flex items-center gap-2 text-sm font-medium text-muted underline decoration-border underline-offset-4 transition hover:text-foreground hover:decoration-foreground"
+            className="inline-flex items-center gap-2 text-sm font-medium text-white/85 underline decoration-white/30 underline-offset-4 transition hover:text-white hover:decoration-white"
           >
             <span aria-hidden>←</span>
             Home
           </Link>
-          <h1 className="mt-4 font-[family-name:var(--font-fraunces)] text-3xl font-semibold tracking-tight sm:text-4xl">
+          <h1 className="mt-4 font-[family-name:var(--font-fraunces)] text-3xl font-extrabold uppercase tracking-tight text-white sm:text-4xl">
             {site.experiments.heading}
           </h1>
-          <p className="mt-2 max-w-2xl text-sm leading-relaxed text-muted sm:text-base">
+          <p className="mt-2 max-w-2xl text-sm leading-relaxed text-white/90 sm:text-base">
             {site.experiments.intro}
           </p>
         </div>
@@ -69,8 +69,8 @@ export default function ExperimentsPage() {
                 const posterSrc = media ? posterSrcForMedia(media) : undefined;
                 return (
                   <li key={item.id} className="list-none">
-                    <article className="flex h-full flex-col border border-border bg-surface p-3 shadow-sm transition-colors hover:border-foreground/35 sm:p-4">
-                      <p className="mb-2 font-mono text-[10px] font-semibold uppercase tracking-[0.2em] text-muted">
+                    <article className="flex h-full flex-col border border-border border-t-[3px] border-t-accent bg-surface p-3 shadow-sm transition-colors hover:border-accent/60 sm:p-4">
+                      <p className="mb-2 font-mono text-[10px] font-semibold uppercase tracking-[0.2em] text-accent">
                         {item.monthly ? "Monthly build" : "Side project"} · {item.period}
                       </p>
                       {posterSrc ? (
@@ -89,7 +89,7 @@ export default function ExperimentsPage() {
                           />
                         </Link>
                       ) : null}
-                      <h2 className="mt-3 font-[family-name:var(--font-fraunces)] text-base font-semibold leading-snug sm:text-lg">
+                      <h2 className="mt-3 font-[family-name:var(--font-fraunces)] text-lg font-bold uppercase leading-snug tracking-tight sm:text-xl">
                         <Link
                           href={`/experiments/${item.slug}`}
                           className="underline decoration-transparent underline-offset-4 transition hover:decoration-foreground"
