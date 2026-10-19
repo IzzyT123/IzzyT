@@ -63,65 +63,70 @@ export default function ExperimentsPage() {
               No experiments published yet. Check back soon.
             </p>
           ) : (
-            <ul className="grid grid-cols-1 gap-5 md:grid-cols-2 md:gap-6 lg:grid-cols-3 lg:gap-5">
+            <ul className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
               {items.map((item) => {
                 const media = experimentMedia(item);
                 const posterSrc = media ? posterSrcForMedia(media) : undefined;
+                const externalHref =
+                  item.urlKey && item.urlKey in site.links
+                    ? site.links[item.urlKey as keyof typeof site.links]
+                    : undefined;
                 return (
                   <li key={item.id} className="list-none">
-                    <article className="flex h-full flex-col border border-border border-t-[3px] border-t-accent bg-surface p-3 shadow-sm transition-colors hover:border-accent/60 sm:p-4">
-                      <p className="mb-2 font-mono text-[10px] font-semibold uppercase tracking-[0.2em] text-accent">
-                        {item.monthly ? "Monthly build" : "Side project"} · {item.period}
-                      </p>
+                    <article className="group flex h-full flex-col border border-border bg-surface shadow-[0_1px_3px_rgba(15,29,58,0.04),0_10px_28px_-12px_rgba(15,29,58,0.08)] transition duration-200 hover:-translate-y-0.5 hover:border-accent/60 hover:shadow-[0_14px_34px_-10px_rgba(31,59,115,0.14)]">
+                      <div className="flex items-center justify-between gap-2 border-b border-border bg-background/50 px-5 py-3">
+                        <span className="font-mono text-[10px] font-bold uppercase tracking-[0.16em] text-accent">
+                          {item.monthly ? "Monthly build" : "Side project"} ·{" "}
+                          {item.period}
+                        </span>
+                      </div>
                       {posterSrc ? (
                         <Link
                           href={`/experiments/${item.slug}`}
-                          className="relative block aspect-video overflow-hidden border border-border"
+                          className="relative block aspect-video overflow-hidden border-b border-border bg-background"
                           aria-label={`Open ${item.name}`}
                         >
                           <Image
                             src={posterSrc}
                             alt={media?.alt ?? ""}
                             fill
-                            className="object-cover"
+                            className="object-cover transition duration-300 group-hover:scale-[1.015]"
                             sizes="(max-width: 768px) 100vw, 33vw"
                             loading="lazy"
                           />
                         </Link>
                       ) : null}
-                      <h2 className="mt-3 font-[family-name:var(--font-fraunces)] text-lg font-bold uppercase leading-snug tracking-tight sm:text-xl">
+                      <div className="flex flex-1 flex-col p-5 sm:p-6">
+                        <h2 className="text-xl font-bold leading-snug tracking-tight text-foreground sm:text-2xl">
+                          <Link
+                            href={`/experiments/${item.slug}`}
+                            className="transition-colors hover:text-accent"
+                          >
+                            {item.name}
+                          </Link>
+                        </h2>
+                        <p className="mt-2.5 flex-1 text-sm leading-relaxed text-muted">
+                          {item.summary}
+                        </p>
+                      </div>
+                      <div className="flex items-center justify-between gap-2 border-t border-border/80 bg-background/35 px-5 py-3.5">
                         <Link
                           href={`/experiments/${item.slug}`}
-                          className="underline decoration-transparent underline-offset-4 transition hover:decoration-foreground"
+                          className="font-mono text-xs font-semibold uppercase tracking-[0.14em] text-accent transition hover:underline"
                         >
-                          {item.name}
+                          Read write-up →
                         </Link>
-                      </h2>
-                      <p className="mt-2 flex-1 text-sm leading-relaxed text-muted">
-                        {item.summary}
-                      </p>
-                      <p className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-1">
-                        <Link
-                          href={`/experiments/${item.slug}`}
-                          className="text-sm font-medium underline decoration-border underline-offset-4 transition hover:decoration-foreground"
-                        >
-                          Read more
-                        </Link>
-                        {item.urlKey && item.urlKey in site.links ? (
+                        {externalHref ? (
                           <a
-                            href={
-                              site.links[
-                                item.urlKey as keyof typeof site.links
-                              ]
-                            }
-                            className="text-sm font-medium text-muted underline decoration-border underline-offset-4 transition hover:text-foreground hover:decoration-foreground"
+                            href={externalHref}
+                            className="font-mono text-xs font-medium uppercase tracking-[0.14em] text-muted transition hover:text-foreground"
                             rel="noopener noreferrer"
                             target="_blank"
                           >
-                            Visit site
+                            Visit site ↗
                           </a>
                         ) : null}
-                      </p>
+                      </div>
                     </article>
                   </li>
                 );

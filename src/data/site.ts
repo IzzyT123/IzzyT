@@ -105,21 +105,25 @@ export const site = {
     clientPlatforms: [
       {
         name: "Microsoft Copilot",
+        tag: "M365 · Copilot Studio",
         detail:
           "Building M365 Copilot agents and Copilot Studio workflows wired into SharePoint, Teams, and locked enterprise templates.",
       },
       {
         name: "Claude",
+        tag: "Anthropic · Skills",
         detail:
           "Designing Anthropic Claude agents, custom skills, and structured document pipelines for large-scale transformation programmes.",
       },
       {
         name: "Amazon Quick",
+        tag: "AWS · Enterprise",
         detail:
           "Deploying enterprise AI assistants, knowledge workflows, and automation inside Amazon Quick and AWS environments.",
       },
       {
         name: "Clients' Internal AI Tooling",
+        tag: "Private VPC · Custom",
         detail:
           "Configuring bespoke multi-skill agents and internal apps inside clients' proprietary GPT and AI platforms when data cannot leave their boundary.",
       },

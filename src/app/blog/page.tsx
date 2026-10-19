@@ -96,32 +96,61 @@ export default function BlogIndex() {
               </p>
             </div>
           ) : (
-            <ul className="flex flex-col divide-y divide-border border-y border-border">
-              {posts.map((post) => (
-                <li key={post.id} className="relative">
-                  <Link
-                    href={`/blog/${post.slug}`}
-                    className="block py-5 transition-colors hover:bg-surface sm:px-3 sm:py-6"
-                  >
-                    <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.2em] text-accent">
-                      {formatPostDate(post.date)}
-                    </p>
-                    <h2 className="mt-1 font-[family-name:var(--font-fraunces)] text-xl font-bold uppercase tracking-tight sm:text-2xl">
-                      <span className={post.audio?.src ? "pr-12" : undefined}>
-                        {post.title}
-                      </span>
-                    </h2>
-                    <p className="mt-2 text-sm leading-relaxed text-muted sm:text-base">
-                      {post.excerpt}
-                    </p>
-                  </Link>
-                  {post.audio?.src ? (
-                    <BlogPlayButton
-                      src={post.audio.src}
-                      title={post.title}
-                      className="absolute right-0 top-1/2 -translate-y-1/2"
-                    />
-                  ) : null}
+            <ul className="flex flex-col gap-6">
+              {posts.map((post, idx) => (
+                <li key={post.id}>
+                  <article className="group relative flex flex-col justify-between border border-border bg-surface shadow-[0_1px_3px_rgba(15,29,58,0.04),0_10px_28px_-12px_rgba(15,29,58,0.08)] transition duration-200 hover:-translate-y-0.5 hover:border-accent/60 hover:shadow-[0_14px_34px_-10px_rgba(31,59,115,0.14)]">
+                    <div className="flex items-center justify-between gap-3 border-b border-border/80 bg-background/50 px-6 py-3">
+                      <div className="flex items-center gap-2.5">
+                        <span className="font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-accent">
+                          {String(idx + 1).padStart(2, "0")}
+                        </span>
+                        <span className="h-3 w-px bg-border" aria-hidden />
+                        <time
+                          dateTime={post.date}
+                          className="font-mono text-[11px] font-semibold uppercase tracking-[0.16em] text-muted"
+                        >
+                          {formatPostDate(post.date)}
+                        </time>
+                      </div>
+                      {post.audio?.src ? (
+                        <div className="relative z-20">
+                          <BlogPlayButton
+                            src={post.audio.src}
+                            title={post.title}
+                          />
+                        </div>
+                      ) : post.tags && post.tags.length > 0 ? (
+                        <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-muted">
+                          {post.tags.slice(0, 2).join(" · ")}
+                        </span>
+                      ) : null}
+                    </div>
+                    <Link
+                      href={`/blog/${post.slug}`}
+                      className="flex flex-1 flex-col justify-between p-6 sm:p-7"
+                    >
+                      <div>
+                        <h2 className="text-xl font-bold leading-snug tracking-tight text-foreground transition-colors group-hover:text-accent sm:text-2xl">
+                          {post.title}
+                        </h2>
+                        <p className="mt-3 text-sm leading-relaxed text-muted sm:text-base">
+                          {post.excerpt}
+                        </p>
+                      </div>
+                      <div className="mt-6 flex items-center justify-between border-t border-border/70 pt-4">
+                        <span className="font-mono text-[11px] font-semibold uppercase tracking-[0.16em] text-accent">
+                          Read article
+                        </span>
+                        <span
+                          aria-hidden
+                          className="font-mono text-sm text-accent transition-transform duration-200 group-hover:translate-x-1"
+                        >
+                          →
+                        </span>
+                      </div>
+                    </Link>
+                  </article>
                 </li>
               ))}
             </ul>

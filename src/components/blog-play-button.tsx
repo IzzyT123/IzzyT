@@ -49,12 +49,22 @@ export function BlogPlayButton({
         type="button"
         onClick={toggle}
         aria-label={playing ? `Pause "${title}"` : `Listen to "${title}"`}
-        className={`flex h-9 w-9 items-center justify-center rounded-full border border-border bg-surface text-foreground transition hover:bg-foreground hover:text-background ${className ?? ""}`}
+        className={`inline-flex items-center gap-1.5 border px-2.5 py-1 font-mono text-[10px] font-semibold uppercase tracking-[0.16em] transition ${
+          playing
+            ? "border-accent bg-accent text-accent-foreground"
+            : "border-border bg-surface text-foreground hover:border-accent hover:bg-accent hover:text-accent-foreground"
+        } ${className ?? ""}`}
       >
         {playing ? (
-          <Pause className="h-4 w-4" aria-hidden fill="currentColor" />
+          <>
+            <Pause className="h-3 w-3" aria-hidden fill="currentColor" />
+            <span>Pause</span>
+          </>
         ) : (
-          <Play className="ml-0.5 h-4 w-4" aria-hidden fill="currentColor" />
+          <>
+            <Play className="h-3 w-3" aria-hidden fill="currentColor" />
+            <span>Listen</span>
+          </>
         )}
       </button>
     </>

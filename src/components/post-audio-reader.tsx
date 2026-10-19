@@ -250,7 +250,7 @@ export function PostAudioReader({
           type="button"
           onClick={togglePlay}
           aria-label={playing ? "Pause narration" : "Play narration"}
-          className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-foreground text-background transition hover:opacity-90"
+          className="flex h-10 w-10 shrink-0 items-center justify-center border border-accent bg-accent text-accent-foreground transition hover:bg-accent-hover"
         >
           {playing ? (
             <Pause className="h-4 w-4" aria-hidden fill="currentColor" />

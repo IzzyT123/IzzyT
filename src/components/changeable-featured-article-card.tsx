@@ -25,46 +25,46 @@ export function ChangeableFeaturedArticleCard({
   attribution,
 }: Props) {
   return (
-    <article className="relative w-full max-w-[min(100%,52rem)] overflow-hidden border border-border bg-surface shadow-[0_2px_12px_-4px_rgba(15,29,58,0.08)]">
+    <article className="relative w-full overflow-hidden border border-border bg-surface shadow-[0_1px_3px_rgba(15,29,58,0.04),0_10px_28px_-12px_rgba(15,29,58,0.08)]">
       <div
-        className="pointer-events-none absolute bottom-2 right-4 z-0 select-none text-accent/[0.08] sm:bottom-3 sm:right-5"
+        className="pointer-events-none absolute bottom-3 right-5 z-0 select-none text-accent/[0.06]"
         aria-hidden
       >
         <Megaphone
-          className="h-24 w-24 sm:h-28 sm:w-28 md:h-32 md:w-32"
+          className="h-24 w-24 sm:h-28 sm:w-28"
           strokeWidth={1.15}
           aria-hidden
         />
       </div>
-      <div className="relative z-10 border-l-[3px] border-accent py-3.5 pl-4 pr-16 sm:py-4 sm:pl-5 sm:pr-24 md:pr-28">
-        <div className="flex flex-wrap items-start justify-between gap-x-3 gap-y-1">
-          <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.2em] text-accent">
-            ChangeAble.ai · Press
-          </p>
-          <time
-            className="shrink-0 font-mono text-[10px] text-muted tabular-nums"
-            dateTime={dateTime}
-          >
-            {dateLabel}
-          </time>
+      <div className="relative z-10 flex items-center justify-between gap-3 border-b border-border/80 bg-background/50 px-5 py-3 sm:px-6">
+        <p className="font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-accent">
+          Press Feature · Change Management Institute
+        </p>
+        <time
+          className="shrink-0 font-mono text-[10px] font-semibold uppercase tracking-[0.16em] text-muted tabular-nums"
+          dateTime={dateTime}
+        >
+          {dateLabel}
+        </time>
+      </div>
+      <div className="relative z-10 flex flex-col justify-between gap-4 p-5 sm:flex-row sm:items-center sm:p-6">
+        <div className="max-w-3xl">
+          <h3 className="text-lg font-bold leading-snug tracking-tight text-foreground sm:text-xl">
+            {title}
+          </h3>
+          <p className="mt-2 text-sm leading-relaxed text-muted">{body}</p>
+          {attribution ? (
+            <p className="mt-2 font-mono text-xs text-muted/90">{attribution}</p>
+          ) : null}
         </div>
-        <h3 className="mt-1.5 font-[family-name:var(--font-fraunces)] text-lg font-bold uppercase leading-snug tracking-tight text-foreground sm:text-xl">
-          {title}
-        </h3>
-        <p className="mt-2 text-sm leading-relaxed text-muted">{body}</p>
-        {attribution ? (
-          <p className="mt-2 text-xs leading-snug text-muted/90">{attribution}</p>
-        ) : null}
         <a
           href={href}
           rel="noopener noreferrer"
           target="_blank"
-          className="relative z-10 mt-3 inline-flex items-center gap-1.5 border border-border bg-background px-3 py-2 text-sm font-medium text-foreground shadow-sm transition hover:border-accent hover:bg-[var(--surface-muted)]"
+          className="relative z-10 inline-flex shrink-0 items-center gap-2 border border-accent bg-accent px-4 py-2.5 font-mono text-xs font-semibold uppercase tracking-[0.14em] text-accent-foreground transition hover:bg-accent-hover"
         >
           {hrefLabel}
-          <span aria-hidden className="text-muted">
-            ↗
-          </span>
+          <span aria-hidden>↗</span>
         </a>
       </div>
     </article>

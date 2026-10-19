@@ -264,10 +264,10 @@ export function TestimonialDeck({ items }: Props) {
                   aria-selected={current}
                   aria-label={`Testimonial ${i + 1} of ${count}`}
                   onClick={() => goTo(i)}
-                  className={`size-2.5 rounded-full border transition ${
+                  className={`size-2.5 border transition ${
                     current
-                      ? "border-foreground bg-foreground"
-                      : "border-border bg-transparent hover:border-foreground/50"
+                      ? "border-accent bg-accent"
+                      : "border-border bg-transparent hover:border-accent/50"
                   }`}
                 />
               );
