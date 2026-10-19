@@ -74,12 +74,6 @@ export default function ExperimentsPage() {
                 return (
                   <li key={item.id} className="list-none">
                     <article className="group flex h-full flex-col border border-border bg-surface shadow-[0_1px_3px_rgba(15,29,58,0.04),0_10px_28px_-12px_rgba(15,29,58,0.08)] transition duration-200 hover:-translate-y-0.5 hover:border-accent/60 hover:shadow-[0_14px_34px_-10px_rgba(31,59,115,0.14)]">
-                      <div className="flex items-center justify-between gap-2 border-b border-border bg-background/50 px-5 py-3">
-                        <span className="font-mono text-[10px] font-bold uppercase tracking-[0.16em] text-accent">
-                          {item.monthly ? "Monthly build" : "Side project"} ·{" "}
-                          {item.period}
-                        </span>
-                      </div>
                       {posterSrc ? (
                         <Link
                           href={`/experiments/${item.slug}`}
@@ -96,8 +90,12 @@ export default function ExperimentsPage() {
                           />
                         </Link>
                       ) : null}
-                      <div className="flex flex-1 flex-col p-5 sm:p-6">
-                        <h2 className="text-xl font-bold leading-snug tracking-tight text-foreground sm:text-2xl">
+                      <div className="flex flex-1 flex-col p-6">
+                        <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.16em] text-accent">
+                          {item.monthly ? "Monthly build" : "Side project"} ·{" "}
+                          {item.period}
+                        </p>
+                        <h2 className="mt-1.5 text-xl font-bold leading-snug tracking-tight text-foreground sm:text-2xl">
                           <Link
                             href={`/experiments/${item.slug}`}
                             className="transition-colors hover:text-accent"
@@ -108,24 +106,24 @@ export default function ExperimentsPage() {
                         <p className="mt-2.5 flex-1 text-sm leading-relaxed text-muted">
                           {item.summary}
                         </p>
-                      </div>
-                      <div className="flex items-center justify-between gap-2 border-t border-border/80 bg-background/35 px-5 py-3.5">
-                        <Link
-                          href={`/experiments/${item.slug}`}
-                          className="font-mono text-xs font-semibold uppercase tracking-[0.14em] text-accent transition hover:underline"
-                        >
-                          Read write-up →
-                        </Link>
-                        {externalHref ? (
-                          <a
-                            href={externalHref}
-                            className="font-mono text-xs font-medium uppercase tracking-[0.14em] text-muted transition hover:text-foreground"
-                            rel="noopener noreferrer"
-                            target="_blank"
+                        <div className="mt-6 flex items-center justify-between gap-2 border-t border-border/80 pt-4">
+                          <Link
+                            href={`/experiments/${item.slug}`}
+                            className="text-sm font-semibold text-accent transition hover:underline"
                           >
-                            Visit site ↗
-                          </a>
-                        ) : null}
+                            Read write-up →
+                          </Link>
+                          {externalHref ? (
+                            <a
+                              href={externalHref}
+                              className="text-sm font-medium text-muted transition hover:text-foreground"
+                              rel="noopener noreferrer"
+                              target="_blank"
+                            >
+                              Visit site ↗
+                            </a>
+                          ) : null}
+                        </div>
                       </div>
                     </article>
                   </li>

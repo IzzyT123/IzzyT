@@ -25,10 +25,10 @@ export function WritingTeaser({ limit = 4 }: { limit?: number } = {}) {
       aria-labelledby="writing-teaser-heading"
     >
       <div className="mx-auto max-w-6xl">
-        <div className="flex flex-wrap items-end justify-between gap-4 border-b border-border pb-5">
+        <div className="flex flex-wrap items-end justify-between gap-4">
           <div>
-            <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.2em] text-accent">
-              03 // Notes &amp; Essays
+            <p className="font-mono text-xs font-semibold uppercase tracking-[0.18em] text-accent">
+              Posting What I Learn
             </p>
             <h2
               id="writing-teaser-heading"
@@ -42,66 +42,55 @@ export function WritingTeaser({ limit = 4 }: { limit?: number } = {}) {
           </div>
           <Link
             href="/blog"
-            className="inline-flex items-center gap-2 border border-border bg-surface px-4 py-2 font-mono text-xs font-semibold uppercase tracking-[0.14em] text-foreground shadow-2xs transition hover:border-accent hover:text-accent"
+            className="text-sm font-semibold text-accent transition hover:underline"
           >
-            All posts <span aria-hidden>→</span>
+            Read all posts <span aria-hidden>→</span>
           </Link>
         </div>
 
         <ul className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-2">
-          {posts.map((post, idx) => (
+          {posts.map((post) => (
             <li key={post.id} className="flex">
-              <article className="group relative flex w-full flex-col justify-between border border-border bg-surface shadow-[0_1px_3px_rgba(15,29,58,0.04),0_10px_28px_-12px_rgba(15,29,58,0.08)] transition duration-200 hover:-translate-y-0.5 hover:border-accent/60 hover:shadow-[0_14px_34px_-10px_rgba(31,59,115,0.14)]">
-                {/* Top Card Metadata Bar */}
-                <div className="flex items-center justify-between gap-3 border-b border-border/80 bg-background/50 px-6 py-3">
-                  <div className="flex items-center gap-2.5">
-                    <span className="font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-accent">
-                      {String(idx + 1).padStart(2, "0")}
-                    </span>
-                    <span className="h-3 w-px bg-border" aria-hidden />
+              <article className="group relative flex w-full flex-col justify-between border border-border bg-surface p-6 shadow-[0_1px_3px_rgba(15,29,58,0.04),0_10px_28px_-12px_rgba(15,29,58,0.08)] transition duration-200 hover:-translate-y-0.5 hover:border-accent/60 hover:shadow-[0_14px_34px_-10px_rgba(31,59,115,0.14)] sm:p-7">
+                <div>
+                  <div className="flex items-center justify-between gap-3">
                     <time
                       dateTime={post.date}
-                      className="font-mono text-[11px] font-semibold uppercase tracking-[0.16em] text-muted"
+                      className="font-mono text-[11px] font-semibold uppercase tracking-[0.16em] text-accent"
                     >
                       {formatPostDate(post.date)}
                     </time>
+                    {post.audio?.src ? (
+                      <div className="relative z-20">
+                        <BlogPlayButton
+                          src={post.audio.src}
+                          title={post.title}
+                        />
+                      </div>
+                    ) : null}
                   </div>
-                  {post.audio?.src ? (
-                    <div className="relative z-20">
-                      <BlogPlayButton src={post.audio.src} title={post.title} />
-                    </div>
-                  ) : post.tags && post.tags.length > 0 ? (
-                    <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-muted">
-                      {post.tags.slice(0, 2).join(" · ")}
-                    </span>
-                  ) : null}
-                </div>
 
-                {/* Card Body */}
-                <Link
-                  href={`/blog/${post.slug}`}
-                  className="flex flex-1 flex-col justify-between p-6 sm:p-7"
-                >
-                  <div>
+                  <Link href={`/blog/${post.slug}`} className="mt-3 block">
                     <h3 className="text-xl font-bold leading-snug tracking-tight text-foreground transition-colors group-hover:text-accent sm:text-2xl">
                       {post.title}
                     </h3>
                     <p className="mt-3 text-sm leading-relaxed text-muted sm:text-[15px]">
                       {post.excerpt}
                     </p>
-                  </div>
+                  </Link>
+                </div>
 
-                  <div className="mt-6 flex items-center justify-between border-t border-border/70 pt-4">
-                    <span className="font-mono text-[11px] font-semibold uppercase tracking-[0.16em] text-accent">
-                      Read article
-                    </span>
-                    <span
-                      aria-hidden
-                      className="font-mono text-sm text-accent transition-transform duration-200 group-hover:translate-x-1"
-                    >
-                      →
-                    </span>
-                  </div>
+                <Link
+                  href={`/blog/${post.slug}`}
+                  className="mt-6 flex items-center justify-between border-t border-border/70 pt-4 text-sm font-semibold text-accent"
+                >
+                  <span>Read post</span>
+                  <span
+                    aria-hidden
+                    className="transition-transform duration-200 group-hover:translate-x-1"
+                  >
+                    →
+                  </span>
                 </Link>
               </article>
             </li>

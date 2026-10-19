@@ -68,40 +68,25 @@ function DemoMedia({
 
 function MediaFrame({
   children,
-  windowTitle,
   badge,
   flush = false,
 }: {
   children: ReactNode;
-  windowTitle?: string;
   badge?: string;
   flush?: boolean;
 }) {
   return (
     <div
-      className={`group relative overflow-hidden bg-surface ${
-        flush ? "" : "border border-border shadow-xs transition hover:border-accent"
+      className={`group relative overflow-hidden bg-background ${
+        flush
+          ? ""
+          : "border border-border transition duration-200 hover:border-accent"
       }`}
     >
-      {windowTitle ? (
-        <div className="flex items-center justify-between border-b border-border bg-background/80 px-3.5 py-2">
-          <div className="flex items-center gap-2">
-            <span className="inline-block h-2 w-2 bg-accent/70" aria-hidden />
-            <span className="font-mono text-[10px] font-medium tracking-[0.12em] text-muted">
-              {windowTitle}
-            </span>
-          </div>
-          {badge ? (
-            <span className="font-mono text-[10px] font-semibold uppercase tracking-[0.14em] text-accent">
-              {badge} ⤢
-            </span>
-          ) : null}
-        </div>
-      ) : null}
-      <div className="relative aspect-video bg-background">
+      <div className="relative aspect-video">
         {children}
-        {!windowTitle && badge ? (
-          <span className="pointer-events-none absolute bottom-2.5 right-2.5 border border-white/25 bg-accent/90 px-2.5 py-1 font-mono text-[10px] font-semibold uppercase tracking-[0.16em] text-white backdrop-blur-xs">
+        {badge ? (
+          <span className="pointer-events-none absolute bottom-3 right-3 border border-white/20 bg-foreground/80 px-2.5 py-1 font-mono text-[10px] font-semibold uppercase tracking-[0.14em] text-white backdrop-blur-xs transition group-hover:bg-accent">
             {badge} ⤢
           </span>
         ) : null}
@@ -250,221 +235,170 @@ export function DemoShelf() {
     b.date.localeCompare(a.date),
   );
   const cmi = site.changeable.cmiFeaturedArticle;
-  const featuredGptReviews = gptData.reviews.slice(0, 6);
+  const featuredGptReviews = gptData.reviews.slice(0, 3);
 
   return (
     <>
       {/* SECTION 1: ENTERPRISE AI & CLIENT WORK */}
       <section
-        id="enterprise-work"
+        id="work"
         className="border-b border-border bg-background px-5 py-12 sm:px-8 sm:py-16"
         aria-labelledby="enterprise-heading"
       >
         <div className="mx-auto max-w-6xl">
-          <div className="flex flex-wrap items-end justify-between gap-4 border-b border-border pb-5">
-            <div>
-              <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.2em] text-accent">
-                01 // Head of AI at Issoria
-              </p>
-              <h2
-                id="enterprise-heading"
-                className="mt-1 font-[family-name:var(--font-fraunces)] text-3xl font-extrabold uppercase tracking-tight text-foreground sm:text-4xl"
-              >
-                Enterprise AI &amp; Client Work
-              </h2>
-            </div>
-            <div className="flex flex-wrap items-center gap-3">
-              <a
-                href={site.links.changeable}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 border border-accent bg-accent px-4 py-2 font-mono text-xs font-semibold uppercase tracking-[0.14em] text-accent-foreground shadow-2xs transition hover:bg-accent-hover"
-              >
-                ChangeAble.ai <span aria-hidden>↗</span>
-              </a>
-              <a
-                href={site.links.issoria}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 border border-border bg-surface px-4 py-2 font-mono text-xs font-semibold uppercase tracking-[0.14em] text-foreground shadow-2xs transition hover:border-accent hover:text-accent"
-              >
-                issoriachange.com <span aria-hidden>↗</span>
-              </a>
-            </div>
+          <div>
+            <p className="font-mono text-xs font-semibold uppercase tracking-[0.18em] text-accent">
+              Head of AI at Issoria
+            </p>
+            <h2
+              id="enterprise-heading"
+              className="mt-1 font-[family-name:var(--font-fraunces)] text-3xl font-extrabold uppercase tracking-tight text-foreground sm:text-4xl"
+            >
+              Enterprise AI &amp; Client Work
+            </h2>
           </div>
 
-          {/* Flagship Product: ChangeAble.ai Architectural Showcase Card */}
-          <article className="mt-8 border border-border bg-surface shadow-[0_1px_3px_rgba(15,29,58,0.04),0_12px_32px_-12px_rgba(15,29,58,0.08)]">
-            {/* Top Card Chrome Bar */}
-            <div className="flex flex-wrap items-center justify-between gap-3 border-b border-border bg-background/60 px-5 py-3 sm:px-6">
-              <div className="flex items-center gap-2.5">
-                <span className="bg-accent px-2 py-0.5 font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-accent-foreground">
-                  Flagship Platform
-                </span>
-                <span className="font-mono text-[11px] font-semibold uppercase tracking-[0.16em] text-muted">
-                  Enterprise Change Management AI
-                </span>
-              </div>
-              <a
-                href={site.links.changeable}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="font-mono text-xs font-semibold text-accent transition hover:underline"
+          {/* Flagship Product: ChangeAble.ai — Single Clean Split Card */}
+          <article className="mt-6 grid grid-cols-1 gap-8 border border-border bg-surface p-6 shadow-[0_1px_3px_rgba(15,29,58,0.04),0_12px_32px_-12px_rgba(15,29,58,0.08)] sm:p-8 lg:grid-cols-12 lg:gap-10">
+            {/* Left 7 Cols: Product Video + Early GPT Suite Thumbnail */}
+            <div className="flex flex-col justify-between gap-4 lg:col-span-7">
+              <button
+                type="button"
+                className="w-full cursor-zoom-in p-0 text-left focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-foreground"
+                onClick={() => openDemoLightbox(changeableDemo)}
+                aria-haspopup="dialog"
+                aria-label={`Open larger video preview: ${changeableDemo.title}`}
               >
-                changeable.ai ↗
-              </a>
-            </div>
+                <MediaFrame badge="Expand video">
+                  <DemoMedia
+                    media={changeableDemo.media}
+                    reduceMotion={reduce}
+                    sizes="(max-width: 1024px) 100vw, 58vw"
+                  />
+                </MediaFrame>
+              </button>
 
-            <div className="grid grid-cols-1 divide-y divide-border lg:grid-cols-12 lg:divide-x lg:divide-y-0">
-              {/* Left 7 Cols: Media Viewport + Early GPT Suite Thumbnail */}
-              <div className="flex flex-col justify-between gap-4 bg-background/35 p-5 sm:p-6 lg:col-span-7">
+              {/* Early Custom GPTs origin strip */}
+              <div className="flex flex-col gap-4 border border-border bg-background/50 p-3.5 sm:flex-row sm:items-center">
                 <button
                   type="button"
-                  className="w-full cursor-zoom-in p-0 text-left focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-foreground"
-                  onClick={() => openDemoLightbox(changeableDemo)}
-                  aria-haspopup="dialog"
-                  aria-label={`Open larger video preview: ${changeableDemo.title}`}
+                  onClick={() =>
+                    openCustomLightbox({
+                      id: "changeable-early-gpts",
+                      title: "Early ChangeAble Custom GPT Suite (2024)",
+                      href: site.links.changeable,
+                      ctaLabel: "ChangeAble.ai",
+                      media: EARLY_GPT_MEDIA,
+                    })
+                  }
+                  className="group relative aspect-video w-full shrink-0 cursor-zoom-in overflow-hidden border border-border sm:w-40"
+                  aria-label="Open screenshot of early ChangeAble custom GPT suite"
                 >
-                  <MediaFrame
-                    windowTitle="changeable.ai — product walkthrough"
-                    badge="Expand video"
-                  >
-                    <DemoMedia
-                      media={changeableDemo.media}
-                      reduceMotion={reduce}
-                      sizes="(max-width: 1024px) 100vw, 58vw"
-                    />
-                  </MediaFrame>
+                  <Image
+                    src={EARLY_GPT_MEDIA.src}
+                    alt={EARLY_GPT_MEDIA.alt}
+                    fill
+                    className="object-cover transition duration-300 group-hover:scale-105"
+                    sizes="160px"
+                  />
+                  <span className="pointer-events-none absolute bottom-1.5 right-1.5 bg-foreground/80 px-1.5 py-0.5 font-mono text-[9px] font-semibold uppercase tracking-[0.12em] text-white">
+                    Zoom ⤢
+                  </span>
                 </button>
-
-                {/* Secondary thumbnail: Early Custom GPTs poster */}
-                <div className="flex flex-col gap-4 border border-border bg-surface p-3.5 sm:flex-row sm:items-center">
-                  <button
-                    type="button"
-                    onClick={() =>
-                      openCustomLightbox({
-                        id: "changeable-early-gpts",
-                        title: "Early ChangeAble Custom GPT Suite (2024)",
-                        href: site.links.changeable,
-                        ctaLabel: "ChangeAble.ai",
-                        media: EARLY_GPT_MEDIA,
-                      })
-                    }
-                    className="group relative aspect-video w-full shrink-0 cursor-zoom-in overflow-hidden border border-border sm:w-44"
-                    aria-label="Open screenshot of early ChangeAble custom GPT suite"
-                  >
-                    <Image
-                      src={EARLY_GPT_MEDIA.src}
-                      alt={EARLY_GPT_MEDIA.alt}
-                      fill
-                      className="object-cover transition duration-300 group-hover:scale-105"
-                      sizes="176px"
-                    />
-                    <span className="pointer-events-none absolute bottom-1.5 right-1.5 bg-accent/90 px-1.5 py-0.5 font-mono text-[9px] font-semibold uppercase tracking-[0.14em] text-white">
-                      Zoom ⤢
-                    </span>
-                  </button>
-                  <div className="min-w-0 flex-1">
-                    <p className="font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-accent">
-                      2024 Origin · Custom GPT Suite
-                    </p>
-                    <p className="mt-1 text-xs leading-relaxed text-muted sm:text-sm">
-                      Started as custom GPTs generating structured Excel outputs (Issoria AI Benefits Tracker, Change Impact Assessment) before evolving into the full ChangeAble.ai platform and internal client deployments.
-                    </p>
-                  </div>
+                <div className="min-w-0 flex-1">
+                  <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.16em] text-accent">
+                    2024 Prototype → Enterprise Platform
+                  </p>
+                  <p className="mt-1 text-xs leading-relaxed text-muted sm:text-sm">
+                    Started as custom GPTs generating structured Excel outputs before evolving into the full ChangeAble.ai platform and internal client deployments.
+                  </p>
                 </div>
               </div>
+            </div>
 
-              {/* Right 5 Cols: Product Story + Progression Table */}
-              <div className="flex flex-col justify-between p-6 sm:p-8 lg:col-span-5">
-                <div>
-                  <h3 className="text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
-                    {site.changeable.heading}
-                  </h3>
-                  <p className="mt-3 text-sm leading-relaxed text-muted sm:text-[15px]">
-                    {site.changeable.summary}
-                  </p>
+            {/* Right 5 Cols: Product Story + Clean Progression List */}
+            <div className="flex flex-col justify-between lg:col-span-5">
+              <div>
+                <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.18em] text-accent">
+                  Flagship Product
+                </p>
+                <h3 className="mt-1.5 text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
+                  {site.changeable.heading}
+                </h3>
+                <p className="mt-3 text-sm leading-relaxed text-muted sm:text-base">
+                  {site.changeable.summary}
+                </p>
 
-                  <div className="mt-6 border border-border divide-y divide-border bg-background/25">
-                    {site.changeable.phases.map((phase, idx) => (
-                      <div key={phase.sortDate} className="p-3.5 sm:p-4">
-                        <div className="flex items-center justify-between gap-2">
-                          <span className="font-sm font-semibold text-foreground">
-                            {phase.label}
-                          </span>
-                          <span className="font-mono text-[10px] font-semibold uppercase tracking-[0.16em] text-accent">
-                            0{idx + 1} · {phase.date}
-                          </span>
-                        </div>
-                        <p className="mt-1 text-xs leading-relaxed text-muted sm:text-sm">
-                          {phase.detail}
-                        </p>
+                <ol className="mt-6 space-y-4 border-l-2 border-border pl-5">
+                  {site.changeable.phases.map((phase) => (
+                    <li key={phase.sortDate}>
+                      <div className="flex items-baseline gap-2.5">
+                        <span className="text-sm font-bold text-foreground">
+                          {phase.label}
+                        </span>
+                        <span className="font-mono text-[11px] font-medium text-accent">
+                          {phase.date}
+                        </span>
                       </div>
-                    ))}
-                  </div>
-                </div>
+                      <p className="mt-1 text-xs leading-relaxed text-muted sm:text-sm">
+                        {phase.detail}
+                      </p>
+                    </li>
+                  ))}
+                </ol>
+              </div>
 
-                <div className="mt-6 flex flex-wrap items-center justify-between gap-3 border-t border-border pt-5">
-                  <a
-                    href={site.links.changeable}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 border border-accent bg-accent px-4 py-2 font-mono text-xs font-semibold uppercase tracking-[0.14em] text-accent-foreground transition hover:bg-accent-hover"
-                  >
-                    Visit ChangeAble.ai <span aria-hidden>↗</span>
-                  </a>
-                  <a
-                    href={site.links.issoria}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="font-mono text-xs font-semibold uppercase tracking-[0.14em] text-muted transition hover:text-foreground"
-                  >
-                    Issoria Change ↗
-                  </a>
-                </div>
+              <div className="mt-8 flex flex-wrap items-center gap-4 border-t border-border pt-5">
+                <a
+                  href={site.links.changeable}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 border border-accent bg-accent px-5 py-2.5 text-sm font-semibold text-accent-foreground transition hover:bg-accent-hover"
+                >
+                  <span>Visit ChangeAble.ai</span>
+                  <span aria-hidden>↗</span>
+                </a>
+                <a
+                  href={site.links.issoria}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 border border-border bg-background px-4 py-2.5 text-sm font-medium text-foreground transition hover:border-accent hover:text-accent"
+                >
+                  <span>issoriachange.com</span>
+                  <span aria-hidden>↗</span>
+                </a>
               </div>
             </div>
           </article>
 
-          {/* Client AI Tooling Matrix: Copilot, Claude, Amazon Quick, Internal AI Tooling */}
-          <div id="client-builds" className="mt-12">
-            <div className="flex flex-wrap items-end justify-between gap-3">
-              <div>
-                <p className="font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-accent">
-                  Enterprise Advisory &amp; Engineering
-                </p>
-                <h3 className="mt-1 text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
-                  Client AI Builds — Inside the Enterprise Boundary
-                </h3>
-              </div>
-              <p className="font-mono text-xs text-muted">
-                When data cannot leave the client&apos;s environment
+          {/* Client AI Tooling: Copilot, Claude, Amazon Quick, Internal AI Tooling */}
+          <div id="client-builds" className="mt-14">
+            <div className="max-w-3xl">
+              <p className="font-mono text-xs font-semibold uppercase tracking-[0.18em] text-accent">
+                Enterprise Advisory &amp; Engineering
+              </p>
+              <h3 className="mt-1 text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
+                Client AI Builds — Inside the Enterprise Boundary
+              </h3>
+              <p className="mt-2 text-sm leading-relaxed text-muted sm:text-base">
+                When enterprise data residency or procurement rules out external SaaS, I design and build working AI agents directly inside the platforms big companies already have approved:
               </p>
             </div>
-            <p className="mt-2 max-w-3xl text-sm leading-relaxed text-muted sm:text-base">
-              When enterprise data residency or procurement rules out external SaaS, I design and build working AI agents directly inside the platforms big companies already have approved:
-            </p>
 
-            {/* 4-Column Architectural Hairline Matrix */}
-            <div className="mt-6 grid grid-cols-1 gap-px border border-border bg-border shadow-[0_1px_3px_rgba(15,29,58,0.04),0_10px_28px_-12px_rgba(15,29,58,0.08)] sm:grid-cols-2 lg:grid-cols-4">
-              {site.changeable.clientPlatforms.map((platform, idx) => (
+            <div className="mt-6 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+              {site.changeable.clientPlatforms.map((platform) => (
                 <div
                   key={platform.name}
-                  className="flex flex-col justify-between bg-surface"
+                  className="flex flex-col justify-between border border-border bg-surface p-6 shadow-[0_1px_3px_rgba(15,29,58,0.04),0_8px_24px_-12px_rgba(15,29,58,0.07)]"
                 >
-                  <div className="flex items-center justify-between border-b border-border/80 bg-background/50 px-5 py-3">
-                    <span className="font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-accent">
-                      0{idx + 1}
-                    </span>
-                    <span className="font-mono text-[10px] font-semibold uppercase tracking-[0.14em] text-muted">
+                  <div>
+                    <span className="inline-block border border-border bg-background px-2.5 py-1 font-mono text-[10px] font-semibold uppercase tracking-[0.14em] text-accent">
                       {platform.tag}
                     </span>
-                  </div>
-                  <div className="flex-1 p-5 sm:p-6">
-                    <h4 className="text-lg font-bold tracking-tight text-foreground">
+                    <h4 className="mt-4 text-lg font-bold tracking-tight text-foreground">
                       {platform.name}
                     </h4>
-                    <p className="mt-2.5 text-sm leading-relaxed text-muted">
+                    <p className="mt-2 text-sm leading-relaxed text-muted">
                       {platform.detail}
                     </p>
                   </div>
@@ -474,11 +408,11 @@ export function DemoShelf() {
           </div>
 
           {/* Enterprise Testimonials + CMI Press Feature */}
-          <div className="mt-12">
-            <div className="flex flex-wrap items-end justify-between gap-3">
+          <div className="mt-14">
+            <div className="flex flex-wrap items-end justify-between gap-4">
               <div>
-                <p className="font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-accent">
-                  Verified Impact
+                <p className="font-mono text-xs font-semibold uppercase tracking-[0.18em] text-accent">
+                  Client Feedback
                 </p>
                 <h3 className="mt-1 text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
                   What Enterprise Clients &amp; Industry Say
@@ -486,36 +420,26 @@ export function DemoShelf() {
               </div>
               <Link
                 href="/testimonials"
-                className="inline-flex items-center gap-2 border border-border bg-surface px-4 py-2 font-mono text-xs font-semibold uppercase tracking-[0.14em] text-foreground shadow-2xs transition hover:border-accent hover:text-accent"
+                className="text-sm font-semibold text-accent transition hover:underline"
               >
-                All testimonials <span aria-hidden>→</span>
+                View all testimonials <span aria-hidden>→</span>
               </Link>
             </div>
 
             <div className="mt-6 grid grid-cols-1 gap-5 md:grid-cols-2">
-              {testimonials.map((t, idx) => (
+              {testimonials.map((t) => (
                 <article
                   key={t.id}
-                  className="flex flex-col justify-between border border-border bg-surface shadow-[0_1px_3px_rgba(15,29,58,0.04),0_10px_28px_-12px_rgba(15,29,58,0.08)]"
+                  className="flex flex-col justify-between border border-border bg-surface p-6 shadow-[0_1px_3px_rgba(15,29,58,0.04),0_8px_24px_-12px_rgba(15,29,58,0.07)] sm:p-7"
                 >
-                  <div className="flex items-center justify-between border-b border-border/80 bg-background/50 px-6 py-2.5">
-                    <span className="font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-accent">
-                      Enterprise Client Quote
-                    </span>
-                    <span className="font-mono text-[10px] font-semibold text-muted">
-                      0{idx + 1}
-                    </span>
-                  </div>
-                  <div className="flex-1 p-6">
-                    <blockquote className="text-sm leading-relaxed text-foreground sm:text-[15px]">
-                      &ldquo;{t.quote}&rdquo;
-                    </blockquote>
-                  </div>
-                  <footer className="border-t border-border/80 bg-background/35 px-6 py-3.5">
+                  <blockquote className="text-sm leading-relaxed text-foreground sm:text-base">
+                    &ldquo;{t.quote}&rdquo;
+                  </blockquote>
+                  <footer className="mt-5 border-t border-border/70 pt-4">
                     <p className="text-sm font-bold text-foreground">
                       {t.name}
                     </p>
-                    <p className="mt-0.5 font-mono text-[11px] text-muted">
+                    <p className="mt-0.5 text-xs text-muted">
                       {t.attributionLine}
                     </p>
                   </footer>
@@ -545,10 +469,10 @@ export function DemoShelf() {
         aria-labelledby="shipped-apps-heading"
       >
         <div className="mx-auto max-w-6xl">
-          <div className="flex flex-wrap items-end justify-between gap-4 border-b border-border pb-5">
+          <div className="flex flex-wrap items-end justify-between gap-4">
             <div>
-              <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.2em] text-accent">
-                02 // Independent Builds &amp; Public Launches
+              <p className="font-mono text-xs font-semibold uppercase tracking-[0.18em] text-accent">
+                Independent Builds &amp; Public Launches
               </p>
               <h2
                 id="shipped-apps-heading"
@@ -559,35 +483,16 @@ export function DemoShelf() {
             </div>
             <Link
               href="/experiments"
-              className="inline-flex items-center gap-2 border border-border bg-surface px-4 py-2 font-mono text-xs font-semibold uppercase tracking-[0.14em] text-foreground shadow-2xs transition hover:border-accent hover:text-accent"
+              className="text-sm font-semibold text-accent transition hover:underline"
             >
               All experiments <span aria-hidden>→</span>
             </Link>
           </div>
 
-          {/* Featured Hit: GPT Builder Pro 4.0 Architectural Card */}
-          <article className="mt-8 border border-border bg-surface shadow-[0_1px_3px_rgba(15,29,58,0.04),0_12px_32px_-12px_rgba(15,29,58,0.08)]">
-            <div className="flex flex-wrap items-center justify-between gap-3 border-b border-border bg-background/60 px-5 py-3 sm:px-6">
-              <div className="flex items-center gap-2.5">
-                <span className="bg-accent px-2 py-0.5 font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-accent-foreground">
-                  #1 GPT Builder Globally
-                </span>
-                <span className="font-mono text-[11px] font-semibold uppercase tracking-[0.16em] text-muted">
-                  OpenAI GPT Store
-                </span>
-              </div>
-              <a
-                href={site.links.gptBuilderPro}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="font-mono text-xs font-semibold text-accent transition hover:underline"
-              >
-                chatgpt.com ↗
-              </a>
-            </div>
-
-            <div className="grid grid-cols-1 divide-y divide-border lg:grid-cols-12 lg:divide-x lg:divide-y-0">
-              <div className="bg-background/35 p-5 sm:p-6 lg:col-span-7">
+          {/* Featured Hit: GPT Builder Pro 4.0 */}
+          <article className="mt-6 border border-border bg-surface p-6 shadow-[0_1px_3px_rgba(15,29,58,0.04),0_12px_32px_-12px_rgba(15,29,58,0.08)] sm:p-8">
+            <div className="grid grid-cols-1 gap-8 lg:grid-cols-12 lg:gap-10">
+              <div className="lg:col-span-7">
                 <button
                   type="button"
                   className="w-full cursor-zoom-in p-0 text-left focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-foreground"
@@ -595,10 +500,7 @@ export function DemoShelf() {
                   aria-haspopup="dialog"
                   aria-label={`Open larger video preview: ${gptBuilderDemo.title}`}
                 >
-                  <MediaFrame
-                    windowTitle="chatgpt.com — GPT Builder Pro 4.0"
-                    badge="Expand video"
-                  >
+                  <MediaFrame badge="Expand video">
                     <DemoMedia
                       media={gptBuilderDemo.media}
                       reduceMotion={reduce}
@@ -608,23 +510,29 @@ export function DemoShelf() {
                 </button>
               </div>
 
-              <div className="flex flex-col justify-between p-6 sm:p-8 lg:col-span-5">
+              <div className="flex flex-col justify-between lg:col-span-5">
                 <div>
-                  <h3 className="text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
+                  <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.18em] text-accent">
+                    OpenAI GPT Store · #1 Globally in Category
+                  </p>
+                  <h3 className="mt-1.5 text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
                     {gptBuilderDemo.title}
                   </h3>
-                  <p className="mt-3 text-sm leading-relaxed text-muted sm:text-[15px]">
+                  <p className="mt-3 text-sm leading-relaxed text-muted sm:text-base">
                     {gptBuilderDemo.proofLine}
                   </p>
 
-                  {/* 3-Column Architectural Stat Strip */}
-                  <div className="mt-6 grid grid-cols-3 gap-px border border-border bg-border">
-                    {site.gptBuilderPro.stats.map((stat) => (
-                      <div key={stat.label} className="bg-background/40 p-3.5">
+                  {/* Clean 3-Stat Row */}
+                  <div className="mt-6 grid grid-cols-3 divide-x divide-border border-y border-border py-4">
+                    {site.gptBuilderPro.stats.map((stat, idx) => (
+                      <div
+                        key={stat.label}
+                        className={idx === 0 ? "pr-3" : "px-3"}
+                      >
                         <p className="font-[family-name:var(--font-fraunces)] text-2xl font-extrabold uppercase leading-none text-accent sm:text-3xl">
                           {stat.value}
                         </p>
-                        <p className="mt-1.5 font-mono text-[10px] font-semibold uppercase tracking-[0.14em] text-muted">
+                        <p className="mt-1 font-mono text-[10px] font-medium uppercase tracking-[0.12em] text-muted">
                           {stat.label}
                         </p>
                       </div>
@@ -632,46 +540,39 @@ export function DemoShelf() {
                   </div>
                 </div>
 
-                <div className="mt-6 flex flex-wrap items-center justify-between gap-3 border-t border-border pt-5">
+                <div className="mt-6 flex flex-wrap items-center gap-4">
                   <a
                     href={site.links.gptBuilderPro}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 border border-accent bg-accent px-4 py-2 font-mono text-xs font-semibold uppercase tracking-[0.14em] text-accent-foreground transition hover:bg-accent-hover"
+                    className="inline-flex items-center gap-2 border border-accent bg-accent px-5 py-2.5 text-sm font-semibold text-accent-foreground transition hover:bg-accent-hover"
                   >
-                    Open in ChatGPT <span aria-hidden>↗</span>
+                    <span>Open in ChatGPT</span>
+                    <span aria-hidden>↗</span>
                   </a>
                   <Link
                     href="/testimonials"
-                    className="font-mono text-xs font-semibold uppercase tracking-[0.14em] text-muted transition hover:text-foreground"
+                    className="text-sm font-medium text-muted transition hover:text-foreground"
                   >
-                    More reviews →
+                    Read user reviews →
                   </Link>
                 </div>
               </div>
             </div>
 
-            {/* Full-Width Verified User Reviews Strip */}
-            <div className="border-t border-border bg-background/45 p-5 sm:p-6">
-              <div className="mb-3.5 flex flex-wrap items-center justify-between gap-2">
-                <p className="font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-accent">
-                  Verified User Feedback · Sampled from 1,000+ Ratings
-                </p>
-                <span className="font-mono text-xs font-bold tracking-widest text-accent">
-                  ★★★★★ 4.4 / 5.0
-                </span>
-              </div>
-              <div className="grid grid-cols-1 gap-px border border-border bg-border sm:grid-cols-2 lg:grid-cols-3">
+            {/* Clean 3-Column User Feedback Strip */}
+            <div className="mt-8 border-t border-border pt-6">
+              <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
                 {featuredGptReviews.map((r) => (
                   <div
                     key={r.id}
-                    className="flex flex-col justify-between bg-surface p-4"
+                    className="border border-border bg-background/45 px-4 py-3.5"
                   >
-                    <p className="text-xs leading-relaxed text-foreground sm:text-sm">
+                    <p className="text-sm leading-relaxed text-foreground">
                       &ldquo;{r.textEn ?? r.text}&rdquo;
                     </p>
-                    <p className="mt-2.5 font-mono text-[10px] uppercase tracking-[0.14em] text-muted">
-                      ★ ChatGPT Store User
+                    <p className="mt-2 font-mono text-[10px] font-semibold uppercase tracking-[0.14em] text-accent">
+                      ★★★★★ ChatGPT Store Review
                     </p>
                   </div>
                 ))}
@@ -713,22 +614,7 @@ export function DemoShelf() {
                   }}
                   className="group flex h-full flex-col border border-border bg-surface shadow-[0_1px_3px_rgba(15,29,58,0.04),0_10px_28px_-12px_rgba(15,29,58,0.08)] transition duration-200 hover:-translate-y-0.5 hover:border-accent/60 hover:shadow-[0_14px_34px_-10px_rgba(31,59,115,0.14)]"
                 >
-                  {/* Top Card Metadata Bar */}
-                  <div className="flex items-center justify-between gap-2 border-b border-border bg-background/50 px-5 py-3">
-                    <span className="font-mono text-[10px] font-bold uppercase tracking-[0.16em] text-accent">
-                      {demo.eyebrow}
-                    </span>
-                    <a
-                      href={href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="font-mono text-[10px] font-semibold uppercase tracking-[0.12em] text-muted transition hover:text-accent"
-                    >
-                      {demo.ctaLabel} ↗
-                    </a>
-                  </div>
-
-                  {/* Flush Media Viewport */}
+                  {/* Flush Media Viewport at Top of Card */}
                   <button
                     type="button"
                     className="w-full cursor-zoom-in border-b border-border p-0 text-left focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-foreground"
@@ -753,8 +639,11 @@ export function DemoShelf() {
                   </button>
 
                   {/* Card Body */}
-                  <div className="flex flex-1 flex-col p-5 sm:p-6">
-                    <h3 className="text-xl font-bold leading-snug tracking-tight text-foreground sm:text-2xl">
+                  <div className="flex flex-1 flex-col p-6">
+                    <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.16em] text-accent">
+                      {demo.eyebrow}
+                    </p>
+                    <h3 className="mt-1.5 text-xl font-bold leading-snug tracking-tight text-foreground sm:text-2xl">
                       <a
                         href={href}
                         target="_blank"
@@ -765,33 +654,33 @@ export function DemoShelf() {
                       </a>
                     </h3>
                     {demo.statsLine ? (
-                      <p className="mt-2 inline-block self-start border border-border bg-background/60 px-2.5 py-1 font-mono text-[11px] font-semibold tabular-nums text-accent">
+                      <p className="mt-1.5 font-mono text-xs font-medium text-accent">
                         {demo.statsLine}
                       </p>
                     ) : null}
-                    <p className="mt-3 flex-1 text-sm leading-relaxed text-muted">
+                    <p className="mt-2.5 flex-1 text-sm leading-relaxed text-muted">
                       {demo.proofLine}
                     </p>
-                  </div>
 
-                  {/* Card Footer Bar */}
-                  <div className="flex items-center justify-between gap-2 border-t border-border/80 bg-background/35 px-5 py-3.5">
-                    <a
-                      href={href}
-                      className="inline-flex items-center gap-1.5 font-mono text-xs font-semibold uppercase tracking-[0.14em] text-accent transition hover:underline"
-                      rel="noopener noreferrer"
-                      target="_blank"
-                    >
-                      Launch {demo.ctaLabel} <span aria-hidden>↗</span>
-                    </a>
-                    {demo.experimentSlug ? (
-                      <Link
-                        href={`/experiments/${demo.experimentSlug}`}
-                        className="font-mono text-xs font-medium uppercase tracking-[0.14em] text-muted transition hover:text-foreground"
+                    <div className="mt-6 flex items-center justify-between gap-2 border-t border-border/80 pt-4">
+                      <a
+                        href={href}
+                        className="inline-flex items-center gap-1.5 text-sm font-semibold text-accent transition hover:underline"
+                        rel="noopener noreferrer"
+                        target="_blank"
                       >
-                        Write-up →
-                      </Link>
-                    ) : null}
+                        <span>{demo.ctaLabel}</span>
+                        <span aria-hidden>↗</span>
+                      </a>
+                      {demo.experimentSlug ? (
+                        <Link
+                          href={`/experiments/${demo.experimentSlug}`}
+                          className="text-sm font-medium text-muted transition hover:text-foreground"
+                        >
+                          Write-up →
+                        </Link>
+                      ) : null}
+                    </div>
                   </div>
                 </motion.article>
               );

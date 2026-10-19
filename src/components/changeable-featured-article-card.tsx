@@ -25,7 +25,7 @@ export function ChangeableFeaturedArticleCard({
   attribution,
 }: Props) {
   return (
-    <article className="relative w-full overflow-hidden border border-border bg-surface shadow-[0_1px_3px_rgba(15,29,58,0.04),0_10px_28px_-12px_rgba(15,29,58,0.08)]">
+    <article className="relative w-full overflow-hidden border border-border bg-surface p-6 shadow-[0_1px_3px_rgba(15,29,58,0.04),0_8px_24px_-12px_rgba(15,29,58,0.07)] sm:p-7">
       <div
         className="pointer-events-none absolute bottom-3 right-5 z-0 select-none text-accent/[0.06]"
         aria-hidden
@@ -36,34 +36,35 @@ export function ChangeableFeaturedArticleCard({
           aria-hidden
         />
       </div>
-      <div className="relative z-10 flex items-center justify-between gap-3 border-b border-border/80 bg-background/50 px-5 py-3 sm:px-6">
-        <p className="font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-accent">
-          Press Feature · Change Management Institute
-        </p>
-        <time
-          className="shrink-0 font-mono text-[10px] font-semibold uppercase tracking-[0.16em] text-muted tabular-nums"
-          dateTime={dateTime}
-        >
-          {dateLabel}
-        </time>
-      </div>
-      <div className="relative z-10 flex flex-col justify-between gap-4 p-5 sm:flex-row sm:items-center sm:p-6">
+      <div className="relative z-10 flex flex-col justify-between gap-5 sm:flex-row sm:items-center">
         <div className="max-w-3xl">
-          <h3 className="text-lg font-bold leading-snug tracking-tight text-foreground sm:text-xl">
+          <div className="flex items-center gap-3">
+            <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-accent">
+              Press Feature · Change Management Institute
+            </p>
+            <span className="h-3 w-px bg-border" aria-hidden />
+            <time
+              className="font-mono text-[10px] font-medium uppercase tracking-[0.14em] text-muted tabular-nums"
+              dateTime={dateTime}
+            >
+              {dateLabel}
+            </time>
+          </div>
+          <h3 className="mt-2 text-lg font-bold leading-snug tracking-tight text-foreground sm:text-xl">
             {title}
           </h3>
           <p className="mt-2 text-sm leading-relaxed text-muted">{body}</p>
           {attribution ? (
-            <p className="mt-2 font-mono text-xs text-muted/90">{attribution}</p>
+            <p className="mt-2 text-xs text-muted">{attribution}</p>
           ) : null}
         </div>
         <a
           href={href}
           rel="noopener noreferrer"
           target="_blank"
-          className="relative z-10 inline-flex shrink-0 items-center gap-2 border border-accent bg-accent px-4 py-2.5 font-mono text-xs font-semibold uppercase tracking-[0.14em] text-accent-foreground transition hover:bg-accent-hover"
+          className="relative z-10 inline-flex shrink-0 items-center gap-2 border border-accent bg-accent px-5 py-2.5 text-sm font-semibold text-accent-foreground transition hover:bg-accent-hover"
         >
-          {hrefLabel}
+          <span>{hrefLabel}</span>
           <span aria-hidden>↗</span>
         </a>
       </div>
