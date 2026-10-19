@@ -62,6 +62,53 @@ export function Hero() {
             </p>
           </div>
         </div>
+
+        <div className="mt-7 grid grid-cols-2 gap-3 border-t border-white/20 pt-5 sm:grid-cols-4">
+          <a
+            href="#enterprise-work"
+            className="border border-white/20 bg-white/10 px-3.5 py-2.5 transition hover:border-white/45 hover:bg-white/15"
+          >
+            <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-white/75">
+              Enterprise Product
+            </p>
+            <p className="mt-0.5 font-[family-name:var(--font-fraunces)] text-lg font-bold uppercase tracking-tight text-white sm:text-xl">
+              ChangeAble.ai
+            </p>
+          </a>
+          <a
+            href="#enterprise-work"
+            className="border border-white/20 bg-white/10 px-3.5 py-2.5 transition hover:border-white/45 hover:bg-white/15"
+          >
+            <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-white/75">
+              Client AI Builds
+            </p>
+            <p className="mt-0.5 font-[family-name:var(--font-fraunces)] text-lg font-bold uppercase tracking-tight text-white sm:text-xl">
+              Copilot · Claude · Quick
+            </p>
+          </a>
+          <a
+            href="#shipped-apps"
+            className="border border-white/20 bg-white/10 px-3.5 py-2.5 transition hover:border-white/45 hover:bg-white/15"
+          >
+            <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-white/75">
+              #1 GPT Builder
+            </p>
+            <p className="mt-0.5 font-[family-name:var(--font-fraunces)] text-lg font-bold uppercase tracking-tight text-white sm:text-xl">
+              100K+ Chats · 4.4★
+            </p>
+          </a>
+          <a
+            href="#shipped-apps"
+            className="border border-white/20 bg-white/10 px-3.5 py-2.5 transition hover:border-white/45 hover:bg-white/15"
+          >
+            <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-white/75">
+              Public AI Apps
+            </p>
+            <p className="mt-0.5 font-[family-name:var(--font-fraunces)] text-lg font-bold uppercase tracking-tight text-white sm:text-xl">
+              Skimless · Canimate · DeGPT
+            </p>
+          </a>
+        </div>
       </div>
     </header>
   );

@@ -99,7 +99,29 @@ export const site = {
         date: "Apr 2026",
         label: "Client deployments",
         detail:
-          "Internal builds for Issoria clients: ChangeAble IP plus consulting to deliver AI-powered internal tools.",
+          "Internal builds for Issoria clients: ChangeAble IP plus consulting to deliver AI-powered internal tools across Copilot, Claude, Amazon Quick, and clients' own AI platforms.",
+      },
+    ],
+    clientPlatforms: [
+      {
+        name: "Microsoft Copilot",
+        detail:
+          "Building M365 Copilot agents and Copilot Studio workflows wired into SharePoint, Teams, and locked enterprise templates.",
+      },
+      {
+        name: "Claude",
+        detail:
+          "Designing Anthropic Claude agents, custom skills, and structured document pipelines for large-scale transformation programmes.",
+      },
+      {
+        name: "Amazon Quick",
+        detail:
+          "Deploying enterprise AI assistants, knowledge workflows, and automation inside Amazon Quick and AWS environments.",
+      },
+      {
+        name: "Clients' Internal AI Tooling",
+        detail:
+          "Configuring bespoke multi-skill agents and internal apps inside clients' proprietary GPT and AI platforms when data cannot leave their boundary.",
       },
     ],
     /** Change Management Institute article that mentions Issoria / ChangeAble among AI tools for change professionals. */
@@ -1007,12 +1029,13 @@ The next advantage will be less about producing software at all. More people wil
     {
       id: "canimate",
       shelf: false,
-      eyebrow: "Monthly experiment",
+      eyebrow: "Monthly experiment · Mar 2026",
       title: "Canimate",
+      experimentSlug: "canimate",
       proofLine:
-        "Branded content from a URL—public monthly builds, notes on what I learn.",
+        "Branded content from a URL—part of a monthly public build series where I ship experiments, document what I learn, and tighten my craft.",
       hrefKey: "canimate",
-      ctaLabel: "Canimate.com",
+      ctaLabel: "canimate.com",
       media: {
         kind: "video",
         src: `/demos/canimate-demo.mp4${DEMO_MP4_CACHE}`,
@@ -1022,10 +1045,11 @@ The next advantage will be less about producing software at all. More people wil
     },
     {
       id: "skimless",
-      eyebrow: "Monthly experiment",
+      eyebrow: "Monthly experiment · May 2026",
       title: "Skimless",
+      experimentSlug: "skimless",
       proofLine:
-        "Tailored audio updates from YouTube channels, newsletters, RSS feeds, docs, and changelogs.",
+        "Tailored audio updates from the sources you already follow: YouTube channels, newsletters, RSS feeds, docs, and changelogs filtered around what you care about.",
       hrefKey: "skimless",
       ctaLabel: "skimless.com",
       media: {
@@ -1037,16 +1061,18 @@ The next advantage will be less about producing software at all. More people wil
     {
       id: "degpt",
       shelf: false,
-      eyebrow: "Side project",
+      eyebrow: "Side project · Dec 2025",
       title: "DeGPT",
+      experimentSlug: "degpt",
+      statsLine: "88K+ texts cleaned · Web app & Chrome extension",
       proofLine:
-        "Copy-paste from ChatGPT into real destinations—extension path to the GPT store.",
+        "Fix ChatGPT copy-paste for real destinations—email, docs, slides, and more—with an optional Chrome extension.",
       hrefKey: "degpt",
       ctaLabel: "degpt.app",
       media: {
         kind: "image",
         src: "/demos/degpt-poster.png",
-        alt: "DeGPT — add degpt-demo.mp4 in public/demos/ to enable video.",
+        alt: "DeGPT landing page showing one-click formatting cleanup for ChatGPT copy-paste.",
       },
     },
   ],
@@ -1075,6 +1101,7 @@ export type ProjectDemo = {
   readonly hrefKey: SiteLinkKey;
   readonly ctaLabel: string;
   readonly statsLine?: string;
+  readonly experimentSlug?: string;
   readonly secondaryLink?: {
     readonly hrefKey: SiteLinkKey;
     readonly label: string;
