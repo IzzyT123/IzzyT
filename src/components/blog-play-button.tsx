@@ -49,7 +49,7 @@ export function BlogPlayButton({
         type="button"
         onClick={toggle}
         aria-label={playing ? `Pause "${title}"` : `Listen to "${title}"`}
-        className={`inline-flex items-center gap-1.5 border px-2.5 py-1 font-mono text-[10px] font-semibold uppercase tracking-[0.16em] transition ${
+        className={`inline-flex items-center gap-1.5 border px-2.5 py-1 text-xs font-semibold uppercase tracking-wider transition ${
           playing
             ? "border-accent bg-accent text-accent-foreground"
             : "border-border bg-surface text-foreground hover:border-accent hover:bg-accent hover:text-accent-foreground"

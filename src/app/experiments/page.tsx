@@ -91,11 +91,11 @@ export default function ExperimentsPage() {
                         </Link>
                       ) : null}
                       <div className="flex flex-1 flex-col p-6">
-                        <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.16em] text-accent">
+                        <p className="text-xs font-semibold uppercase tracking-wider text-accent">
                           {item.monthly ? "Monthly build" : "Side project"} ·{" "}
                           {item.period}
                         </p>
-                        <h2 className="mt-1.5 text-xl font-bold leading-snug tracking-tight text-foreground sm:text-2xl">
+                        <h2 className="mt-1.5 text-xl font-semibold leading-snug tracking-tight text-foreground">
                           <Link
                             href={`/experiments/${item.slug}`}
                             className="transition-colors hover:text-accent"

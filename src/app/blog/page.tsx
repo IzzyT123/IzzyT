@@ -104,7 +104,7 @@ export default function BlogIndex() {
                       <div className="flex items-center justify-between gap-3">
                         <time
                           dateTime={post.date}
-                          className="font-mono text-[11px] font-semibold uppercase tracking-[0.16em] text-accent"
+                          className="text-xs font-semibold uppercase tracking-wider text-accent"
                         >
                           {formatPostDate(post.date)}
                         </time>
@@ -117,11 +117,11 @@ export default function BlogIndex() {
                           </div>
                         ) : null}
                       </div>
-                      <Link href={`/blog/${post.slug}`} className="mt-3 block">
-                        <h2 className="text-xl font-bold leading-snug tracking-tight text-foreground transition-colors group-hover:text-accent sm:text-2xl">
+                      <Link href={`/blog/${post.slug}`} className="mt-2.5 block">
+                        <h2 className="text-xl font-semibold leading-snug tracking-tight text-foreground transition-colors group-hover:text-accent">
                           {post.title}
                         </h2>
-                        <p className="mt-3 text-sm leading-relaxed text-muted sm:text-base">
+                        <p className="mt-2.5 text-sm leading-relaxed text-muted">
                           {post.excerpt}
                         </p>
                       </Link>

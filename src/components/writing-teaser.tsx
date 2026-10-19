@@ -21,22 +21,19 @@ export function WritingTeaser({ limit = 4 }: { limit?: number } = {}) {
   return (
     <section
       id="blog"
-      className="border-b border-border bg-background px-5 py-12 sm:px-8 sm:py-16"
+      className="border-b border-border bg-background px-5 py-10 sm:px-8 sm:py-14"
       aria-labelledby="writing-teaser-heading"
     >
       <div className="mx-auto max-w-6xl">
-        <div className="flex flex-wrap items-end justify-between gap-4">
+        <div className="flex flex-wrap items-baseline justify-between gap-4">
           <div>
-            <p className="font-mono text-xs font-semibold uppercase tracking-[0.18em] text-accent">
-              Posting What I Learn
-            </p>
             <h2
               id="writing-teaser-heading"
-              className="mt-1 font-[family-name:var(--font-fraunces)] text-3xl font-extrabold uppercase tracking-tight text-foreground sm:text-4xl"
+              className="font-[family-name:var(--font-fraunces)] text-2xl font-bold uppercase tracking-tight text-foreground sm:text-3xl"
             >
               {site.posts.heading}
             </h2>
-            <p className="mt-1.5 max-w-2xl text-sm leading-relaxed text-muted sm:text-base">
+            <p className="mt-1.5 max-w-2xl text-base leading-relaxed text-muted">
               {site.posts.intro}
             </p>
           </div>
@@ -48,15 +45,15 @@ export function WritingTeaser({ limit = 4 }: { limit?: number } = {}) {
           </Link>
         </div>
 
-        <ul className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-2">
+        <ul className="mt-6 grid grid-cols-1 gap-6 md:grid-cols-2">
           {posts.map((post) => (
             <li key={post.id} className="flex">
-              <article className="group relative flex w-full flex-col justify-between border border-border bg-surface p-6 shadow-[0_1px_3px_rgba(15,29,58,0.04),0_10px_28px_-12px_rgba(15,29,58,0.08)] transition duration-200 hover:-translate-y-0.5 hover:border-accent/60 hover:shadow-[0_14px_34px_-10px_rgba(31,59,115,0.14)] sm:p-7">
+              <article className="group relative flex w-full flex-col justify-between border border-border bg-surface p-6 shadow-[0_1px_3px_rgba(15,29,58,0.04),0_10px_28px_-12px_rgba(15,29,58,0.08)] transition duration-200 hover:border-accent/60">
                 <div>
                   <div className="flex items-center justify-between gap-3">
                     <time
                       dateTime={post.date}
-                      className="font-mono text-[11px] font-semibold uppercase tracking-[0.16em] text-accent"
+                      className="text-xs font-semibold uppercase tracking-wider text-accent"
                     >
                       {formatPostDate(post.date)}
                     </time>
@@ -70,11 +67,11 @@ export function WritingTeaser({ limit = 4 }: { limit?: number } = {}) {
                     ) : null}
                   </div>
 
-                  <Link href={`/blog/${post.slug}`} className="mt-3 block">
-                    <h3 className="text-xl font-bold leading-snug tracking-tight text-foreground transition-colors group-hover:text-accent sm:text-2xl">
+                  <Link href={`/blog/${post.slug}`} className="mt-2.5 block">
+                    <h3 className="text-xl font-semibold leading-snug tracking-tight text-foreground transition-colors group-hover:text-accent">
                       {post.title}
                     </h3>
-                    <p className="mt-3 text-sm leading-relaxed text-muted sm:text-[15px]">
+                    <p className="mt-2.5 text-sm leading-relaxed text-muted">
                       {post.excerpt}
                     </p>
                   </Link>

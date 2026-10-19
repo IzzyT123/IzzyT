@@ -25,7 +25,7 @@ export function ChangeableFeaturedArticleCard({
   attribution,
 }: Props) {
   return (
-    <article className="relative w-full overflow-hidden border border-border bg-surface p-6 shadow-[0_1px_3px_rgba(15,29,58,0.04),0_8px_24px_-12px_rgba(15,29,58,0.07)] sm:p-7">
+    <article className="relative w-full overflow-hidden border border-border bg-surface p-6 shadow-[0_1px_3px_rgba(15,29,58,0.04),0_8px_24px_-12px_rgba(15,29,58,0.07)]">
       <div
         className="pointer-events-none absolute bottom-3 right-5 z-0 select-none text-accent/[0.06]"
         aria-hidden
@@ -39,18 +39,18 @@ export function ChangeableFeaturedArticleCard({
       <div className="relative z-10 flex flex-col justify-between gap-5 sm:flex-row sm:items-center">
         <div className="max-w-3xl">
           <div className="flex items-center gap-3">
-            <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-accent">
+            <p className="text-xs font-semibold uppercase tracking-wider text-accent">
               Press Feature · Change Management Institute
             </p>
             <span className="h-3 w-px bg-border" aria-hidden />
             <time
-              className="font-mono text-[10px] font-medium uppercase tracking-[0.14em] text-muted tabular-nums"
+              className="text-xs font-medium uppercase tracking-wider text-muted tabular-nums"
               dateTime={dateTime}
             >
               {dateLabel}
             </time>
           </div>
-          <h3 className="mt-2 text-lg font-bold leading-snug tracking-tight text-foreground sm:text-xl">
+          <h3 className="mt-2 text-lg font-semibold leading-snug tracking-tight text-foreground">
             {title}
           </h3>
           <p className="mt-2 text-sm leading-relaxed text-muted">{body}</p>
