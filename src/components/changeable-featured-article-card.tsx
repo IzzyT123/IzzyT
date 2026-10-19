@@ -9,6 +9,8 @@ type Props = {
   dateLabel: string;
   dateTime: string;
   attribution?: string;
+  /** When true, omits the outer border and shadow so it sits flush inside a parent ledger. */
+  flush?: boolean;
 };
 
 /**
@@ -23,9 +25,16 @@ export function ChangeableFeaturedArticleCard({
   dateLabel,
   dateTime,
   attribution,
+  flush = false,
 }: Props) {
   return (
-    <article className="relative w-full overflow-hidden border border-border bg-surface p-6 shadow-[0_1px_3px_rgba(15,29,58,0.04),0_8px_24px_-12px_rgba(15,29,58,0.07)]">
+    <article
+      className={
+        flush
+          ? "relative w-full overflow-hidden bg-surface p-6 sm:p-8"
+          : "relative w-full overflow-hidden border border-border bg-surface p-6 shadow-[0_1px_3px_rgba(15,29,58,0.04),0_8px_24px_-12px_rgba(15,29,58,0.07)]"
+      }
+    >
       <div
         className="pointer-events-none absolute bottom-3 right-5 z-0 select-none text-accent/[0.06]"
         aria-hidden

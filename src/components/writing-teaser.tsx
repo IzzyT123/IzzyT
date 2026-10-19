@@ -21,39 +21,51 @@ export function WritingTeaser({ limit = 4 }: { limit?: number } = {}) {
   return (
     <section
       id="blog"
-      className="border-b border-border bg-background px-5 py-10 sm:px-8 sm:py-14"
+      className="border-b border-border bg-background px-5 py-12 sm:px-8 sm:py-16"
       aria-labelledby="writing-teaser-heading"
     >
-      <div className="mx-auto max-w-6xl">
-        <div className="flex flex-wrap items-baseline justify-between gap-4">
-          <div>
-            <h2
-              id="writing-teaser-heading"
-              className="font-[family-name:var(--font-fraunces)] text-2xl font-bold uppercase tracking-tight text-foreground sm:text-3xl"
-            >
-              {site.posts.heading}
-            </h2>
-            <p className="mt-1.5 max-w-2xl text-base leading-relaxed text-muted">
-              {site.posts.intro}
-            </p>
-          </div>
-          <Link
-            href="/blog"
-            className="text-sm font-semibold text-accent transition hover:underline"
+      <div className="mx-auto grid max-w-6xl grid-cols-1 gap-8 lg:grid-cols-12 lg:items-start lg:gap-12">
+        {/* Left 4 Columns: Section Header & Navigation */}
+        <div className="lg:col-span-4 lg:sticky lg:top-24">
+          <p className="text-xs font-semibold uppercase tracking-wider text-accent">
+            Notes &amp; Essays
+          </p>
+          <h2
+            id="writing-teaser-heading"
+            className="mt-1.5 font-[family-name:var(--font-fraunces)] text-3xl font-extrabold uppercase tracking-tight text-foreground sm:text-4xl"
           >
-            Read all posts <span aria-hidden>→</span>
-          </Link>
+            {site.posts.heading}
+          </h2>
+          <p className="mt-3 text-base leading-relaxed text-muted">
+            {site.posts.intro}
+          </p>
+          <div className="mt-6 flex flex-wrap items-center gap-5 border-t border-border pt-5 text-sm font-semibold">
+            <Link
+              href="/blog"
+              className="inline-flex items-center gap-1.5 text-accent transition hover:underline"
+            >
+              <span>Read all posts</span>
+              <span aria-hidden>→</span>
+            </Link>
+            <a
+              href="/blog/feed.xml"
+              className="text-muted transition hover:text-foreground"
+            >
+              RSS feed
+            </a>
+          </div>
         </div>
 
-        <ul className="mt-6 grid grid-cols-1 gap-6 md:grid-cols-2">
+        {/* Right 8 Columns: Editorial Publication Ledger (No 2x2 Box Grid) */}
+        <ul className="divide-y divide-border border border-border bg-surface lg:col-span-8">
           {posts.map((post) => (
-            <li key={post.id} className="flex">
-              <article className="group relative flex w-full flex-col justify-between border border-border bg-surface p-6 shadow-[0_1px_3px_rgba(15,29,58,0.04),0_10px_28px_-12px_rgba(15,29,58,0.08)] transition duration-200 hover:border-accent/60">
-                <div>
-                  <div className="flex items-center justify-between gap-3">
+            <li key={post.id}>
+              <article className="group relative flex flex-col justify-between gap-4 p-6 transition hover:bg-background/40 sm:flex-row sm:items-start sm:gap-6 sm:p-7">
+                <div className="min-w-0 flex-1">
+                  <div className="flex flex-wrap items-center gap-3">
                     <time
                       dateTime={post.date}
-                      className="text-xs font-semibold uppercase tracking-wider text-accent"
+                      className="text-xs font-semibold uppercase tracking-wider text-accent tabular-nums"
                     >
                       {formatPostDate(post.date)}
                     </time>
@@ -67,11 +79,11 @@ export function WritingTeaser({ limit = 4 }: { limit?: number } = {}) {
                     ) : null}
                   </div>
 
-                  <Link href={`/blog/${post.slug}`} className="mt-2.5 block">
+                  <Link href={`/blog/${post.slug}`} className="mt-2 block">
                     <h3 className="text-xl font-semibold leading-snug tracking-tight text-foreground transition-colors group-hover:text-accent">
                       {post.title}
                     </h3>
-                    <p className="mt-2.5 text-sm leading-relaxed text-muted">
+                    <p className="mt-2 text-sm leading-relaxed text-muted">
                       {post.excerpt}
                     </p>
                   </Link>
@@ -79,9 +91,9 @@ export function WritingTeaser({ limit = 4 }: { limit?: number } = {}) {
 
                 <Link
                   href={`/blog/${post.slug}`}
-                  className="mt-6 flex items-center justify-between border-t border-border/70 pt-4 text-sm font-semibold text-accent"
+                  className="inline-flex shrink-0 items-center gap-1.5 text-sm font-semibold text-accent sm:mt-6"
                 >
-                  <span>Read post</span>
+                  <span>Read</span>
                   <span
                     aria-hidden
                     className="transition-transform duration-200 group-hover:translate-x-1"

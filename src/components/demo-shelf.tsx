@@ -231,8 +231,12 @@ export function DemoShelf() {
     getProjectDemoById("degpt"),
   ].filter((d): d is ProjectDemo => Boolean(d));
 
-  const testimonials = [...changeableTestimonials.testimonials].sort((a, b) =>
-    b.date.localeCompare(a.date),
+  const allTestimonials = changeableTestimonials.testimonials;
+  const pullQuotes = allTestimonials.filter(
+    (t) => t.id === "global-bank-hocmo" || t.id === "f500-global-cm",
+  );
+  const caseQuotes = allTestimonials.filter(
+    (t) => t.id === "global-eng-od-director" || t.id === "emma-everid",
   );
   const cmi = site.changeable.cmiFeaturedArticle;
   const featuredGptReviews = gptData.reviews.slice(0, 2);
@@ -300,8 +304,8 @@ export function DemoShelf() {
                     {site.changeable.summary}
                   </p>
 
-                  {/* Compact clickable thumbnail for 2024 Custom GPT Suite */}
-                  <div className="mt-4 flex items-center gap-3.5 border border-border bg-background/50 p-3">
+                  {/* Clean hairline row for 2024 Custom GPT Suite thumbnail (no nested box) */}
+                  <div className="mt-5 flex items-center gap-3.5 border-t border-border/80 pt-4">
                     <button
                       type="button"
                       onClick={() =>
@@ -328,12 +332,12 @@ export function DemoShelf() {
                       <span className="font-semibold text-foreground">
                         Custom GPTs → Web App → Client Deployments:
                       </span>{" "}
-                      Started as custom GPTs generating structured Excel outputs before evolving into the full ChangeAble.ai platform.
+                      Started as custom GPTs generating structured Excel outputs before evolving into the full platform.
                     </p>
                   </div>
                 </div>
 
-                <div className="mt-6 flex flex-wrap items-center justify-between gap-3 border-t border-border/80 pt-4">
+                <div className="mt-5 flex flex-wrap items-center justify-between gap-3 border-t border-border/80 pt-4">
                   <a
                     href={site.links.changeable}
                     target="_blank"
@@ -392,22 +396,22 @@ export function DemoShelf() {
                     {gptBuilderDemo.proofLine}
                   </p>
 
-                  {/* Compact User Feedback Highlight */}
-                  <div className="mt-4 grid grid-cols-1 gap-2.5 sm:grid-cols-2">
-                    {featuredGptReviews.map((r) => (
-                      <div
-                        key={r.id}
-                        className="border border-border bg-background/50 p-3 text-xs leading-relaxed text-muted"
-                      >
-                        <span className="font-semibold text-foreground">
-                          &ldquo;{r.textEn ?? r.text}&rdquo;
-                        </span>
-                      </div>
-                    ))}
+                  {/* Clean hairline quote row (no nested boxes) */}
+                  <div className="mt-5 border-t border-border/80 pt-4">
+                    <p className="text-xs leading-relaxed text-muted">
+                      <span className="font-semibold text-accent">★★★★★</span>{" "}
+                      <span className="font-medium text-foreground">
+                        &ldquo;{featuredGptReviews[0]?.textEn ?? featuredGptReviews[0]?.text}&rdquo;
+                      </span>{" "}
+                      &middot;{" "}
+                      <span className="font-medium text-foreground">
+                        &ldquo;{featuredGptReviews[1]?.textEn ?? featuredGptReviews[1]?.text}&rdquo;
+                      </span>
+                    </p>
                   </div>
                 </div>
 
-                <div className="mt-6 flex flex-wrap items-center justify-between gap-3 border-t border-border/80 pt-4">
+                <div className="mt-5 flex flex-wrap items-center justify-between gap-3 border-t border-border/80 pt-4">
                   <a
                     href={site.links.gptBuilderPro}
                     target="_blank"
@@ -421,7 +425,7 @@ export function DemoShelf() {
                     href="/testimonials"
                     className="text-sm font-medium text-muted transition hover:text-foreground"
                   >
-                    Read user reviews →
+                    1,000+ ratings &amp; reviews →
                   </Link>
                 </div>
               </div>
@@ -530,65 +534,135 @@ export function DemoShelf() {
         </div>
       </section>
 
-      {/* SECTION 2: ENTERPRISE CLIENT WORK & TESTIMONIALS */}
+      {/* SECTION 2: ENTERPRISE CLIENT WORK — Deep Navy Architectural Band */}
       <section
         id="client-ai"
-        className="border-b border-border bg-background px-5 py-10 sm:px-8 sm:py-14"
+        className="border-b border-border bg-accent px-5 py-12 text-accent-foreground sm:px-8 sm:py-16"
         aria-labelledby="client-ai-heading"
       >
-        <div className="mx-auto max-w-6xl">
-          <div className="max-w-3xl">
+        <div className="mx-auto grid max-w-6xl grid-cols-1 gap-8 lg:grid-cols-12 lg:items-start lg:gap-12">
+          {/* Left 5 Columns: Editorial Narrative */}
+          <div className="lg:col-span-5">
+            <p className="text-xs font-semibold uppercase tracking-wider text-white/70">
+              Head of AI at Issoria
+            </p>
             <h2
               id="client-ai-heading"
-              className="font-[family-name:var(--font-fraunces)] text-2xl font-bold uppercase tracking-tight text-foreground sm:text-3xl"
+              className="mt-1.5 font-[family-name:var(--font-fraunces)] text-3xl font-extrabold uppercase tracking-tight text-white sm:text-4xl"
             >
               Enterprise Client Work
             </h2>
-            <p className="mt-2 text-base leading-relaxed text-muted">
-              When enterprise data residency or procurement rules out external SaaS, I design and build working AI agents directly inside the platforms big companies already have approved:
+            <p className="mt-4 text-base leading-relaxed text-white/85">
+              When enterprise data residency or procurement rules out external SaaS, I design and build working AI agents directly inside the platforms big companies already have approved.
             </p>
+            <div className="mt-6 flex flex-wrap items-center gap-5 border-t border-white/15 pt-5 text-sm font-semibold">
+              <a
+                href={site.links.issoria}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 text-white transition hover:underline"
+              >
+                <span>Issoria Change</span>
+                <span aria-hidden>↗</span>
+              </a>
+              <a
+                href={site.links.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 text-white/80 transition hover:text-white hover:underline"
+              >
+                <span>Discuss a build</span>
+                <span aria-hidden>↗</span>
+              </a>
+            </div>
           </div>
 
-          <div className="mt-6 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {site.changeable.clientPlatforms.map((platform) => (
+          {/* Right 7 Columns: 2x2 Architectural Hairline Capability Matrix */}
+          <div className="grid grid-cols-1 gap-px border border-white/20 bg-white/20 sm:grid-cols-2 lg:col-span-7">
+            {site.changeable.clientPlatforms.map((platform, idx) => (
               <div
                 key={platform.name}
-                className="flex flex-col border border-border bg-surface p-6 shadow-[0_1px_3px_rgba(15,29,58,0.04),0_8px_24px_-12px_rgba(15,29,58,0.07)]"
+                className="flex flex-col justify-between bg-accent p-6 transition hover:bg-accent-hover sm:p-7"
               >
-                <h3 className="text-lg font-semibold tracking-tight text-foreground">
-                  {platform.name}
-                </h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted">
-                  {platform.detail}
-                </p>
+                <div>
+                  <div className="flex items-center justify-between gap-2">
+                    <span className="text-xs font-semibold uppercase tracking-wider text-white/60">
+                      {platform.tag}
+                    </span>
+                    <span className="text-xs font-semibold text-white/40">
+                      0{idx + 1}
+                    </span>
+                  </div>
+                  <h3 className="mt-3 text-xl font-semibold tracking-tight text-white">
+                    {platform.name}
+                  </h3>
+                  <p className="mt-2 text-sm leading-relaxed text-white/80">
+                    {platform.detail}
+                  </p>
+                </div>
               </div>
             ))}
           </div>
+        </div>
+      </section>
 
-          {/* Enterprise Testimonials + CMI Press Feature */}
-          <div className="mt-12">
-            <div className="flex flex-wrap items-baseline justify-between gap-4">
-              <h3 className="font-[family-name:var(--font-fraunces)] text-2xl font-bold uppercase tracking-tight text-foreground sm:text-3xl">
-                Client &amp; Industry Feedback
-              </h3>
-              <Link
-                href="/testimonials"
-                className="text-sm font-semibold text-accent transition hover:underline"
-              >
-                All testimonials <span aria-hidden>→</span>
-              </Link>
+      {/* SECTION 3: CLIENT & INDUSTRY PROOF — Editorial Pull-Quotes + Case Ledger */}
+      <section
+        id="proof"
+        className="border-b border-border bg-surface px-5 py-12 sm:px-8 sm:py-16"
+        aria-labelledby="proof-heading"
+      >
+        <div className="mx-auto max-w-6xl">
+          <div className="flex flex-wrap items-baseline justify-between gap-4">
+            <h2
+              id="proof-heading"
+              className="font-[family-name:var(--font-fraunces)] text-2xl font-bold uppercase tracking-tight text-foreground sm:text-3xl"
+            >
+              Client &amp; Industry Feedback
+            </h2>
+            <Link
+              href="/testimonials"
+              className="text-sm font-semibold text-accent transition hover:underline"
+            >
+              All testimonials <span aria-hidden>→</span>
+            </Link>
+          </div>
+
+          {/* Architectural Proof Frame (No Floating Uneven White Boxes) */}
+          <div className="mt-6 border border-border bg-surface">
+            {/* Row 1: Two Short Punchy Quotes Styled as Large Editorial Pull-Quotes */}
+            <div className="grid grid-cols-1 divide-y divide-border md:grid-cols-2 md:divide-x md:divide-y-0">
+              {pullQuotes.map((t) => (
+                <blockquote
+                  key={t.id}
+                  className="flex flex-col justify-between p-6 sm:p-8"
+                >
+                  <p className="text-xl font-semibold leading-snug tracking-tight text-foreground sm:text-2xl">
+                    &ldquo;{t.quote}&rdquo;
+                  </p>
+                  <footer className="mt-5 flex items-center gap-2.5 text-sm">
+                    <span className="h-2 w-2 shrink-0 bg-accent" aria-hidden />
+                    <span className="font-semibold text-foreground">
+                      {t.name}
+                    </span>
+                    <span className="text-muted">&middot;</span>
+                    <span className="text-muted">{t.attributionLine}</span>
+                  </footer>
+                </blockquote>
+              ))}
             </div>
 
-            <div className="mt-6 grid grid-cols-1 gap-5 md:grid-cols-2">
-              {testimonials.map((t) => (
-                <article
+            {/* Row 2: Two In-Depth Case Quotes Balanced Side-by-Side */}
+            <div className="grid grid-cols-1 divide-y divide-border border-t border-border bg-background/35 md:grid-cols-2 md:divide-x md:divide-y-0">
+              {caseQuotes.map((t) => (
+                <blockquote
                   key={t.id}
-                  className="flex flex-col justify-between border border-border bg-surface p-6 shadow-[0_1px_3px_rgba(15,29,58,0.04),0_8px_24px_-12px_rgba(15,29,58,0.07)]"
+                  className="flex flex-col justify-between p-6 sm:p-8"
                 >
-                  <blockquote className="text-sm leading-relaxed text-foreground">
+                  <p className="text-sm leading-relaxed text-foreground/90 sm:text-base">
                     &ldquo;{t.quote}&rdquo;
-                  </blockquote>
-                  <footer className="mt-4 border-t border-border/70 pt-3.5">
+                  </p>
+                  <footer className="mt-5 border-t border-border/70 pt-4">
                     <p className="text-sm font-semibold text-foreground">
                       {t.name}
                     </p>
@@ -596,11 +670,12 @@ export function DemoShelf() {
                       {t.attributionLine}
                     </p>
                   </footer>
-                </article>
+                </blockquote>
               ))}
             </div>
 
-            <div className="mt-5">
+            {/* Row 3: Integrated Press Feature Banner */}
+            <div className="border-t border-border">
               <ChangeableFeaturedArticleCard
                 title={cmi.title}
                 body={cmi.excerpt}
@@ -609,6 +684,7 @@ export function DemoShelf() {
                 attribution={cmi.attribution}
                 dateLabel="Apr 2025"
                 dateTime={cmi.sortDate}
+                flush
               />
             </div>
           </div>
