@@ -18,8 +18,10 @@ export type WordToken = {
 };
 
 export type PostBlock = {
-  readonly type: "p" | "h2" | "h3";
+  readonly type: "p" | "h2" | "h3" | "ul";
   readonly tokens: readonly WordToken[];
+  /** For `ul` blocks: the same tokens grouped per list item (markers stripped). */
+  readonly items?: readonly (readonly WordToken[])[];
 };
 
 export type TranscriptToken = {
@@ -87,6 +89,24 @@ export function tokenizePost(title: string, body: string): TokenizedPost {
   for (const raw of body.split(/\n{2,}/)) {
     const trimmed = raw.trim();
     if (!trimmed) continue;
+
+    // A block where every line is "- item" is a bullet list. The markers are
+    // not narrated, so they never become tokens.
+    const lines = trimmed.split("\n").map((line) => line.trim());
+    if (lines.every((line) => /^[-*] /.test(line))) {
+      const items = lines
+        .map((line) => splitWords(stripInline(line.slice(2))))
+        .filter((words) => words.length > 0)
+        .map((words) =>
+          words.map((word): WordToken => {
+            const token = pushToken(word);
+            return { i: token.i, text: token.text };
+          }),
+        );
+      if (items.length === 0) continue;
+      blocks.push({ type: "ul", tokens: items.flat(), items });
+      continue;
+    }
 
     let type: PostBlock["type"] = "p";
     let text = trimmed;

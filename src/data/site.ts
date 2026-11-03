@@ -218,6 +218,152 @@ The initial shape is a free weekday audio brief, with paid tiers for more source
       "Occasional notes on shipping AI products, tooling, and what I learn from monthly builds.",
     items: [
       {
+        id: "non-linear-intelligence",
+        slug: "non-linear-intelligence",
+        title: "Non-Linear Intelligence",
+        date: "2026-11-01",
+        excerpt:
+          "By default, AI gives you the most common answer, so left to itself it tends to take the obvious route. That might be why it can be such a good partner for people who think differently, and for people with years of experience. This one is for anyone who has ever felt their way of thinking didn't fit.",
+        body: `It's been three months since my last post, Software Nobody Opens, where I wrote that the next user of software will be an agent. I've been building more than writing since then, and my notes have piled up.
+
+When I read back through them, most of them come back to one question. Why does AI click so quickly for some people and take longer for others?
+
+I used to think it was mostly about adoption. Who started first, who used it most, who had access to the tools. I still think that matters. But I've started to wonder whether it also has something to do with how our brains work.
+
+## AI takes the obvious route
+
+AI learns from huge amounts of text, and by default it gives you the most likely answer, the one most people would expect. That's incredibly useful. Ask it a clear question and you'll usually get a good answer very quickly.
+
+Left to itself, though, it tends to take the obvious route. It can make surprising connections when you push it, but it doesn't often do that on its own. What it finds harder is noticing when the question itself could be asked differently.
+
+That's the gap I notice most. AI doesn't always know what context it's missing. It won't often ask whether a problem could be framed another way. It won't usually suggest a completely different design for a workflow, or borrow an idea from a totally different industry. Those ideas tend to come from the person using it, and that's where people add so much.
+
+Palantir's CEO, Alex Karp, wrote that two groups of people are safer than most as automation speeds up. The first is hands-on workers, like electricians, plumbers and mechanics. The second is non-linear thinkers, including a lot of people with ADHD, autism and dyslexia.
+
+That second group made me stop, because it matched what I've seen. I'm slightly dyslexic and my brain has always jumped around a bit, and AI has really suited me. One of my teammates has heavy dyslexia and has taken to AI brilliantly too. Two people isn't a study, but it got me thinking.
+
+Here's my theory. AI might be most helpful to people whose thinking is different from its own, because it fills in the gaps they've always had. My brain is good at odd connections and "what if we tried this a totally different way". AI is good at the step-by-step structure I've always found harder. Together, every day, on every task, that adds up to a lot.
+
+Experts have something just as valuable. Someone who has done a job for twenty years already knows where the problems hide. They can give the AI exactly the context it needs, because they've lived it.
+
+So I think two kinds of people have a lot to gain from AI. People who think differently to it, and people who know a lot about something. Both bring what AI can't work out on its own.
+
+## Showing my working
+
+At school I'd often jump to an answer in my head and then have to go back and work out how I'd got there, so I could write my working down. Teachers weren't always impressed.
+
+That pattern has stuck with me. My brain likes jumping between ideas, and that's helped me find some unusual solutions over the years. But there are three things I've always found hard. Showing my working. Making it simple enough for other people to follow. And completing everything I start.
+
+I've been working on those three things on purpose for the last few years, and I'm still working on them. AI helps with all of them, which might be another reason it suits me.
+
+I suspect a lot of people who think this way will recognise it. Great at starting things and seeing possibilities, less keen on the long tail of completing and explaining. That's completely fine. It just helps to know it about yourself. Then you can find systems that help you see things through, or work alongside someone who loves getting things over the line.
+
+## One agent, not six
+
+One of the most useful lessons I've had this year came from working with a client's IT and development team.
+
+I'd designed a solution as one agent. The team asked us to split it into six separate agents, so that if something went wrong, they could see exactly which step had failed rather than it being a black box.
+
+It was a really sensible question. That's how good software has been built for decades. Lots of small pieces, each one easy to test. We went with six.
+
+What I learned is that AI behaves a bit differently to normal software. Splitting it up gave us six sets of instructions to keep up to date, and handovers between agents where information could get lost. In our case it added a lot of complexity. A lot of AI's value seems to come from seeing the whole problem at once.
+
+The team's reason for asking was spot on, though. Being able to see what went wrong really matters. Since then I've been trying other ways to get that. Letting normal code handle the parts that have to be exactly right, like counting or filling in a template. Getting the agent to check its own work against clear rules before it hands anything over. I'm still learning what works best, and I think we're all working it out together.
+
+I think this is going to come up a lot. It's natural to bring what has worked before into something new. I do it all the time. Part of the work over the next few years is figuring out which old rules still apply to AI and which ones need a rethink.
+
+## The people with the most to gain
+
+I've noticed that some people who are close to retirement are more cautious about AI, and their reasons make a lot of sense.
+
+If you only have a few working years left, learning a whole new way of working is a big ask. If your first try gives you a weak answer, it's fair to wonder what the fuss is about. And if your value is decades of knowing how things work, it's natural to have questions about a tool that makes knowledge easier to find. There are also big, fair questions about whether people are still needed and who benefits when everyone becomes more productive, and those don't have clear answers yet.
+
+But this group has something AI really can't copy. Years of context on how organisations actually work, what's been tried before, and why things didn't work out. They're exactly the experts I mentioned earlier.
+
+I genuinely think the people with the most experience have the most to gain from AI, because they have the most to give it. AI also gets better quickly, so what it can do today is only a small hint of what it'll do in two years. I'd love to see more experienced people giving it a go.
+
+## Your next buyer might be an AI
+
+In my last post I said the next user of software will be an agent. I'm starting to think the next buyer might be too.
+
+Large organisations are starting to use AI to score supplier proposals against their scorecards. There's still a human checking the result, but the first reader of your proposal could be an AI. That changes how you might want to write it.
+
+For years the advice has been that visual decks work better than wordy ones, because pictures help people remember complicated messages. AI doesn't need help remembering. It wants all the detail, written clearly, with the most important points at the start and the end.
+
+It also might not fill in the gaps the way a person would. A human buyer might work out for themselves why your approach suits them. An AI might need it spelled out. So it's worth explaining clearly, even if it feels obvious. Matching your proposal to how it'll be scored has always been good advice, and it matters even more now.
+
+Writing clearly so an AI can understand you is just good practice. Hiding instructions in a proposal to steer the AI's decision is prompt injection, and that's a line worth staying well behind.
+
+One more thing on AI projects. Something I see often is a project stalling because the data it needs isn't ready yet. Understanding what data a solution needs, and what data is available, before the project starts makes a big difference. Most of the preparation can be done with approved AI tools inside the organisation's own systems. It just helps to plan it in from the beginning.
+
+## What I've stopped remembering
+
+There's a lot of talk about whether AI stops people learning or using their brains. I use AI for almost everything, so I've thought about this a lot, and I do recognise some of it in myself.
+
+I'm not as quick at recalling facts live in a meeting as I used to be. I've got used to running my thoughts through AI before I answer.
+
+But I'm using other parts of my brain far more. I probably read twenty times more than I did before AI. I take in a lot more information, and the more I take in, the more I find myself linking different things together. When I use AI I try to read its reasoning, not just the answer, and I think that keeps my brain busier than before.
+
+I can't always do that. When I'm coding, I mostly care that it works, so I don't always dig into why the AI did something a certain way. I only go deeper if I'm really curious, or if it's a problem I've been stuck on for ages.
+
+I think of it as information for survival. It's fine to skip a lot of what AI writes. The important thing is not skipping the bits you really need: the assumption that might be wrong, the number that doesn't add up, the part you're responsible for. Knowing which bits matter is a hard skill, and I'm still learning it.
+
+It's also got me thinking about memory for AI. People talk about short-term and long-term memory, but I think it's probably more of a spectrum. I'd love to build a memory system for AI that works like that. Start with a daily memory, and only move things up to weekly, monthly, yearly and decade-long memory if they prove useful. Most of what happens today can be forgotten by next week. A few things should still be there in ten years.
+
+I also think memory might end up separate from the AI apps themselves. At the moment, what an assistant knows about you usually stays inside that one app. Being able to take it with you feels like the natural next step.
+
+## Three in a box
+
+So what might all this mean for organisations adopting AI?
+
+I think non-linear thinking is worth looking for. AI can help with a lot of skills, but it's much harder for it to bring a completely fresh way of looking at a problem. The human skills, like building relationships, matter more than ever too.
+
+In my first post I wrote about two-in-a-box: a subject matter expert paired with a technical partner. The more AI projects I work on, the more I think the best team is actually three people.
+
+- A subject matter expert, who knows the work inside out and where the problems hide.
+- A non-linear solution architect, the starter, who sees new ways to solve the problem and designs what to build.
+- A completer, who makes sure everything actually gets done, and explains what's been done along the way so everyone can understand it and trust it.
+
+Sometimes those skills are found in one or two people. More often, they're spread across three. So for organisations wanting to adopt AI, I'd start with three-in-a-box.
+
+Each role makes the others better. The expert keeps the ideas grounded in how the work really happens. The starter helps the team see options beyond the way things have always been done. The completer turns a good idea into something that's done, tested and understood. Together, they cover each other's gaps.
+
+The same idea works outside companies too. There are great product builders who'd love help getting their product in front of people, and people with great audiences who'd love something brilliant to share. It would be wonderful to see more of them working together.
+
+## Speak up
+
+This is the part I care about most.
+
+There's a lot of great AI content out there. I think there's room for many more voices, especially from people who think differently.
+
+People with dyslexia, ADHD and autism have often been told they're different. Many of them solve problems in ways nobody else would think of, but they haven't always been encouraged to share that. Imposter syndrome can keep them quiet. I know the feeling.
+
+That's a shame, because a different way of looking at a problem is exactly what AI can't easily produce on its own. The people who think differently are often the ones with something new to say. I really believe the non-linear thinkers who share their thinking in public are going to find a lot of people who want to hear it.
+
+So if that's you, experiment. Use AI to help with the parts you've always found hard, whether that's spelling, structure, seeing things through or explaining your working. Then talk about it. Share how you think and what you've found, mistakes included. Don't worry about getting things wrong. I get plenty wrong, and that's how I learn.
+
+The same goes for anyone with years of experience who hasn't found AI useful yet. You don't need to know everything to start. Your experience is exactly what makes it useful.
+
+## Where this leaves me
+
+So here's where the last three months land.
+
+By default, AI gives you the most common answer. That makes it really useful, and it also means that, left to itself, it tends to take the obvious route. More and more, the value people bring is in steering it somewhere else. Asking whether a problem could be framed differently. Borrowing an idea from somewhere completely different. Knowing from years of experience where the problems hide.
+
+That means some of the people with the most to gain from AI are the ones who think differently from it, and the ones who know the most. Some of them just haven't been told yet how valuable their way of thinking is.
+
+For organisations, I think that means building teams around those differences. An expert, a starter and a completer, working together.
+
+For a long time, a lot of people who thought differently tried hard to fit in. I think this might be the moment where thinking differently really helps.
+
+This blog is my way of showing my working. It's still a work in progress. If you think differently too, I hope you'll start showing yours.`,
+        tags: ["ai", "work", "hiring"],
+        audio: {
+          src: "/audio/Non_Linear_Intelligence.mp3",
+          words: "/audio/non-linear-intelligence.words.json",
+        },
+      },
+      {
         id: "software-nobody-opens",
         slug: "software-nobody-opens",
         title: "Software Nobody Opens",

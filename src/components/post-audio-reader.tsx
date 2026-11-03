@@ -38,6 +38,17 @@ function findActive(words: readonly WordTiming[], t: number): number {
   return res;
 }
 
+function renderTokens(tokens: PostBlock["tokens"]) {
+  return tokens.map((token, ti) => (
+    <span key={token.i}>
+      {ti > 0 ? " " : null}
+      <span className="word-token" data-wi={token.i}>
+        {token.text}
+      </span>
+    </span>
+  ));
+}
+
 const BlockView = memo(function BlockView({
   blocks,
 }: {
@@ -46,14 +57,19 @@ const BlockView = memo(function BlockView({
   return (
     <>
       {blocks.map((block, bi) => {
-        const content = block.tokens.map((token, ti) => (
-          <span key={token.i}>
-            {ti > 0 ? " " : null}
-            <span className="word-token" data-wi={token.i}>
-              {token.text}
-            </span>
-          </span>
-        ));
+        if (block.type === "ul" && block.items) {
+          return (
+            <ul key={bi} className="mt-4 list-disc pl-5">
+              {block.items.map((item, ii) => (
+                <li key={ii} className="mt-1">
+                  {renderTokens(item)}
+                </li>
+              ))}
+            </ul>
+          );
+        }
+
+        const content = renderTokens(block.tokens);
 
         if (block.type === "h2") {
           return (
